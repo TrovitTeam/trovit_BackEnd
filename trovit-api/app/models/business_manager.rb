@@ -4,6 +4,6 @@ class BusinessManager < ApplicationRecord
     belongs_to :company, optional: true 
     has_many :distributor_has_bussiness_managers 
     has_many :distributors, through: :distributor_has_bussiness_managers
-    has_many :requests
+    has_many :orders, as: :orderable
 
 end
