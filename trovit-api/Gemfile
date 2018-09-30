@@ -37,3 +37,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # gem for datetime validation
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
+
+#gem for populating db with fake data
+gem 'faker', '~> 1.9.1'
+
+#gem for phonenumber validation
+gem 'telephone_number'

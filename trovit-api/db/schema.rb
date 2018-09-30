@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180930031612) do
+ActiveRecord::Schema.define(version: 20180930192356) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.index ["company_id"], name: "index_business_managers_on_company_id"
+    t.index ["user_id"], name: "index_business_managers_on_user_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -26,42 +30,68 @@ ActiveRecord::Schema.define(version: 20180930031612) do
   end
 
   create_table "distributor_has_business_managers", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "distributor_id"
+    t.integer  "business_manager_id"
+    t.index ["business_manager_id"], name: "index_business_manager_id"
+    t.index ["distributor_id"], name: "index_distributor_has_business_managers_on_distributor_id"
   end
 
   create_table "distributor_has_products", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "distributor_id"
+    t.integer  "product_id"
+    t.index ["distributor_id"], name: "index_distributor_has_products_on_distributor_id"
+    t.index ["product_id"], name: "index_distributor_has_products_on_product_id"
   end
 
   create_table "distributors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_distributors_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.string   "message"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "distributor_id"
+    t.integer  "business_managers_id"
+    t.index ["business_managers_id"], name: "index_messages_on_business_managers_id"
+    t.index ["distributor_id"], name: "index_messages_on_distributor_id"
   end
 
   create_table "offers", force: :cascade do |t|
     t.integer  "quantity"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "message_id"
+    t.integer  "product_id"
+    t.integer  "distributor_id"
+    t.index ["distributor_id"], name: "index_offers_on_distributor_id"
+    t.index ["message_id"], name: "index_offers_on_message_id"
+    t.index ["product_id"], name: "index_offers_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "quantity"
     t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "product_id"
+    t.integer  "message_id"
+    t.integer  "business_manager_id"
+    t.index ["business_manager_id"], name: "index_orders_on_business_manager_id"
+    t.index ["message_id"], name: "index_orders_on_message_id"
+    t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
-  create_table "picture", force: :cascade do |t|
+  create_table "pictures", force: :cascade do |t|
     t.string   "pictureType"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
