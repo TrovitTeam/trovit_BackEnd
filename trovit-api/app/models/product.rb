@@ -9,7 +9,8 @@ class Product < ApplicationRecord
 
     has_many :distributors_has_products
     has_many :distributors, through: :distributors_has_products
-    has_many :offers
-    has_many :requests
+    has_many :pictures, as: :imageable
+    has_many :orders, as: :orderable
+    has_many :offers, as: :offerable
 
 end
