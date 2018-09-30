@@ -6,4 +6,10 @@ class Product < ApplicationRecord
                     format: { with: /\A[a-zA-Z]+\z/, 
                         message: "only allows letters" }
     validates :quantity, presence: true, numericality:{ only_integer: true }
+
+    has_many :distributors_has_products
+    has_many :distributors, through: :distributors_has_products
+    has_many :offers
+    has_many :requests
+
 end
