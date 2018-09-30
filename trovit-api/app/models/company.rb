@@ -4,4 +4,6 @@ class Company < ApplicationRecord
                 format: { with: /\A[a-zA-Z]+\z/, 
                     message: "only allows letters" }
 
+    has_many :business_managers
+
 end
