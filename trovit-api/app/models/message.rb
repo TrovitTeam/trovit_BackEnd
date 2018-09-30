@@ -5,5 +5,6 @@ class Message < ApplicationRecord
 
     has_many :orders, as: :orderable
     has_many :offers, as: :offerable
+    belongs_to :messageable, polymorphic: true, optional: true
 
 end
