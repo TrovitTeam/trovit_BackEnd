@@ -1,0 +1,2 @@
+class DistributorHasBusinessManager < ApplicationRecord
+end

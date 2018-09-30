@@ -1,0 +1,2 @@
+class DistributorHasProduct < ApplicationRecord
+end
