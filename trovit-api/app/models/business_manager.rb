@@ -1,0 +1,2 @@
+class BusinessManager < ApplicationRecord
+end
