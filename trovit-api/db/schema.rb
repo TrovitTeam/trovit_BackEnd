@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180930192356) do
+ActiveRecord::Schema.define(version: 20181001014449) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -61,20 +61,26 @@ ActiveRecord::Schema.define(version: 20180930192356) do
     t.datetime "updated_at",           null: false
     t.integer  "distributor_id"
     t.integer  "business_managers_id"
+    t.string   "messageable_type"
+    t.integer  "messageable_id"
     t.index ["business_managers_id"], name: "index_messages_on_business_managers_id"
     t.index ["distributor_id"], name: "index_messages_on_distributor_id"
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id"
   end
 
   create_table "offers", force: :cascade do |t|
     t.integer  "quantity"
     t.date     "date"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "message_id"
     t.integer  "product_id"
     t.integer  "distributor_id"
+    t.string   "offereable_type"
+    t.integer  "offereable_id"
     t.index ["distributor_id"], name: "index_offers_on_distributor_id"
     t.index ["message_id"], name: "index_offers_on_message_id"
+    t.index ["offereable_type", "offereable_id"], name: "index_offers_on_offereable_type_and_offereable_id"
     t.index ["product_id"], name: "index_offers_on_product_id"
   end
 
@@ -86,8 +92,11 @@ ActiveRecord::Schema.define(version: 20180930192356) do
     t.integer  "product_id"
     t.integer  "message_id"
     t.integer  "business_manager_id"
+    t.string   "ordereable_type"
+    t.integer  "ordereable_id"
     t.index ["business_manager_id"], name: "index_orders_on_business_manager_id"
     t.index ["message_id"], name: "index_orders_on_message_id"
+    t.index ["ordereable_type", "ordereable_id"], name: "index_orders_on_ordereable_type_and_ordereable_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
   end
 
