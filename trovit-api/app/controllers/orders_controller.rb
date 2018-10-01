@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     end
 
     def update
-        order = Order.find(params[:offer_id])
+        order = Order.find(params[:id])
         if order.update(params_offfer)
             render json: order, status: 200
         else
@@ -25,7 +25,7 @@ class OrdersController < ApplicationController
 
     def destroy
         
-        order = Order.find(params[:order_id])
+        order = Order.find(params[:id])
         order.destroy
         respond_to do |format|
             format.json {render json: order, status: 200}

@@ -16,7 +16,7 @@ class OffersController < ApplicationController
     end
 
     def update
-        offer = Offer.find(params[:offer_id])
+        offer = Offer.find(params[:id])
         if offer.update(params_offfer)
             render json: offer, status: 200
         else
@@ -26,7 +26,7 @@ class OffersController < ApplicationController
 
     def destroy
 
-        offer = Offer.find(params[:offer_id])
+        offer = Offer.find(params[:id])
         offer.destroy
         respond_to do |format|
             format.json {render json: offer, status: 200}

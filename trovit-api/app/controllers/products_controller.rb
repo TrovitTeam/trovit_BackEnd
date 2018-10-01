@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
     end
 
     def update
-        product = Product.find(params[:product_id])
+        product = Product.find(params[:id])
         if product.update(params_product)
             render json: product, status: 200
         else
@@ -25,18 +25,25 @@ class ProductsController < ApplicationController
 
     def destroy
 
-        product = Product.find(params[:product_id])
+        product = Product.find(params[:id])
         product.destroy
         respond_to do |format|
             format.json {render json: product, status: 200}
         end
     end
 
+
+
+    def show
+        product = Product.find(params[:id])
+        respond_to do |format| 
+            format.json {render json: product, status:200}
+        end 
+    end
+    
+
     def params_product
         params.permit(:price, :producType, :brand, :productName,:quantity,:description)
     end
-
-    
-
 
 end
