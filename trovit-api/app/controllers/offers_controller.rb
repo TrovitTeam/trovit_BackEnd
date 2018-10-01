@@ -1,7 +1,6 @@
 class OffersController < ApplicationController
 
-    def index 
-        
+    def index  
         offer = Offer.all
         render json:offer, status:200
     end
@@ -36,7 +35,5 @@ class OffersController < ApplicationController
     def params_offer
         params.permit(:quantity, :date)
     end
-
-
 
 end

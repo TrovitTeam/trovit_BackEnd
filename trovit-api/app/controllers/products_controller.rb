@@ -33,7 +33,6 @@ class ProductsController < ApplicationController
     end
 
 
-
     def show
         product = Product.find(params[:id])
         respond_to do |format| 
@@ -41,7 +40,6 @@ class ProductsController < ApplicationController
         end 
     end
     
-
     def params_product
         params.permit(:price, :producType, :brand, :productName,:quantity,:description)
     end
