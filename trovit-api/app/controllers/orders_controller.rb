@@ -10,29 +10,29 @@ class OrdersController < ApplicationController
         if order.save
             render json:order, status: 201
         else
-            render json:product.errors, status: :unprocessable_entity
+            render json:order.errors, status: :unprocessable_entity
         end
     end
 
     def update
         order = Order.find(params[:offer_id])
         if order.update(params_offfer)
-            render json: product, status: 200
+            render json: order, status: 200
         else
-            render json: product.errors, status: 422
+            render json: order.errors, status: 422
         end
     end
 
     def destroy
         
-        order = Order.find(params[:offer_id])
+        order = Order.find(params[:order_id])
         order.destroy
         respond_to do |format|
-            format.json {render json: product, status: 200}
+            format.json {render json: order, status: 200}
         end
     end
 
-    def params_offer
+    def params_order
         params.permit(:quantity, :date)
     end
 
