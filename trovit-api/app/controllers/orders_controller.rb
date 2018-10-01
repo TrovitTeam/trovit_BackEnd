@@ -1,12 +1,17 @@
 class OrdersController < ApplicationController
 
     def index 
-        order = Order.all
+        orders = Order.all
         render json:orders, status:200
     end
 
+    def show
+        order = Order.find(params[:id])
+        render json: order, status: 200
+    end
+
     def create 
-        order = Order.new(params_offer)
+        order = Order.new(params_order)
         if order.save
             render json:order, status: 201
         else

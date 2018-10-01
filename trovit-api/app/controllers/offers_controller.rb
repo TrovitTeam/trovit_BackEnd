@@ -6,18 +6,27 @@ class OffersController < ApplicationController
         render json:offer, status:200
     end
 
-    def create 
+    def show
+        offer = Offer.find(params[:id])
+        render json: offer, status: 200
+    end
+
+    def create
         offer = Offer.new(params_offer)
         if offer.save
-            render json:offer, status: 201
+            respond_to do |format|
+                format.json {render json: offer, status: 201}
+            end
         else
-            render json:offer.errors, status: :unprocessable_entity
+            respond_to do |format|
+                format.json {render json: offer.errors, status: :unprocessable_entity}
+            end
         end
     end
 
     def update
         offer = Offer.find(params[:id])
-        if offer.update(params_offfer)
+        if offer.update(params_offer)
             render json: offer, status: 200
         else
             render json: offer.errors, status: 422
@@ -36,7 +45,5 @@ class OffersController < ApplicationController
     def params_offer
         params.permit(:quantity, :date)
     end
-
-
 
 end

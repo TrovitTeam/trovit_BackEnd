@@ -5,6 +5,11 @@ class ProductsController < ApplicationController
         render json:products, status:200
     end
 
+    def show
+        product = Product.find(params[:id])
+        render json: product, status: 200
+    end
+
     def create 
         product = Product.new(params_product)
         if product.save
@@ -31,16 +36,6 @@ class ProductsController < ApplicationController
             format.json {render json: product, status: 200}
         end
     end
-
-
-
-    def show
-        product = Product.find(params[:id])
-        respond_to do |format| 
-            format.json {render json: product, status:200}
-        end 
-    end
-    
 
     def params_product
         params.permit(:price, :producType, :brand, :productName,:quantity,:description)
