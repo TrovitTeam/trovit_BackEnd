@@ -1,7 +1,7 @@
 class Company < ApplicationRecord
     
     validates :name, :location, presence: true, length: { minimum: 2 },
-            format: { with: /\A[^`!@#\$%\^&*+_=]+\z/,
+            format: { with: /\A[^`!@\$%\^&*+_=]+\z/,
                 message: "only allows letters" }
     
     validates :companyType, presence: true, length: { minimum: 2 }, 

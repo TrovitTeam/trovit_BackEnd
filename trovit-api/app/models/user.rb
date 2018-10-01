@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 
     validates :name, :location, :userType, presence: true, length: { minimum: 2 },
-                format: { with: /\A[^`!@#\$%\^&*+_=]+\z/,
+                format: { with: /\A[^`!@\$%\^&*+_=]+\z/,
                     message: "only allows letters" }
     validates :phone, presence: true, uniqueness: true, 
                 numericality: true, length: {minimum: 7}
