@@ -8,33 +8,33 @@ I18n.reload!
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-5.times do
-    cpn = Company.create!([{
+10.times do
+    Company.create!([{
         name: Faker::Company.name,
         companyType: Faker::Company.industry,
         location: Faker::Address.street_address
         }])
 
-    msg = Message.create!([{
+    Message.create!([{
         date: Faker::Time.forward(23, :morning),
         message: 'default message'
         }])
 
-    off = Offer.create!([{
+    Offer.create!([{
         quantity: Faker::Number.digit,
         date: Faker::Time.forward(23, :morning)
         }])
 
-    ord = Order.create!([{
+    Order.create!([{
         quantity: Faker::Number.digit,
         date: Faker::Time.forward(23, :morning)
         }])
 
-    pic = Picture.create!([{
+    Picture.create!([{
         pictureType: Faker::Types.rb_string(1)
         }])
 
-    prod =Product.create!([{
+    Product.create!([{
         price: Faker::Number.positive,
         producType: Faker::Types.rb_string(1),
         brand: Faker::Types.rb_string(1),
@@ -43,7 +43,7 @@ I18n.reload!
         quantity: Faker::Number.digit
         }])
 
-    user = User.create!([{
+    User.create!([{
         name: Faker::Name.name,
         location: Faker::Address.street_address,
         userType: Faker::Types.rb_string(1),
@@ -51,8 +51,8 @@ I18n.reload!
         email: Faker::Internet.email
        }])
     
-        BusinessManager.create!()
-        Distributor.create!()
-        DistributorHasProduct.create!()
-        DistributorHasBusinessManager.create!()
+    BusinessManager.create!()
+    Distributor.create!()
+    DistributorHasProduct.create!()
+    DistributorHasBusinessManager.create!()
 end
