@@ -8,51 +8,77 @@ I18n.reload!
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-5.times do
-    cpn = Company.create!([{
+10.times do
+    Company.create!([{
         name: Faker::Company.name,
         companyType: Faker::Company.industry,
         location: Faker::Address.street_address
         }])
+    company = Company.last
 
-    msg = Message.create!([{
-        date: Faker::Time.forward(23, :morning),
-        message: 'default message'
-        }])
-
-    off = Offer.create!([{
+    Offer.create!([{
         quantity: Faker::Number.digit,
         date: Faker::Time.forward(23, :morning)
         }])
+    offer = Offer.last
 
-    ord = Order.create!([{
+    Order.create!([{
         quantity: Faker::Number.digit,
         date: Faker::Time.forward(23, :morning)
         }])
+    order = Order.last
 
-    pic = Picture.create!([{
-        pictureType: Faker::Types.rb_string(1)
+    Picture.create!([{
+        pictureType: Faker::Types.rb_string(1),
+        pictureUrl: "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"
         }])
+    picture = Picture.last
 
-    prod =Product.create!([{
+    Product.create!([{
         price: Faker::Number.positive,
-        producType: Faker::Types.rb_string(1),
-        brand: Faker::Types.rb_string(1),
-        productName: Faker::Types.rb_string(1),
+        producType: Faker::Types.rb_string(2),
+        brand: Faker::Types.rb_string(2),
+        productName: Faker::Types.rb_string(2),
         description: 'default description',
         quantity: Faker::Number.digit
         }])
+    product = Product.last
 
-    user = User.create!([{
+    User.create!([{
         name: Faker::Name.name,
         location: Faker::Address.street_address,
-        userType: Faker::Types.rb_string(1),
+        userType: Faker::Types.rb_string(2),
         phone: Faker::Number.number(7),
         email: Faker::Internet.email
        }])
+    user = User.last
     
-        BusinessManager.create!()
-        Distributor.create!()
-        DistributorHasProduct.create!()
-        DistributorHasBusinessManager.create!()
+    BusinessManager.create!([{
+        user_id: user.id,
+        company_id: company.id
+        }])
+    business_manager = BusinessManager.last
+    
+    Distributor.create!([{
+        user_id: user.id,
+        }])
+    distributor = Distributor.last
+
+    Message.create!([{
+        date: Faker::Time.forward(23, :morning),
+        message: 'default message',
+        distributor_id: distributor.id,
+        business_manager_id: business_manager.id
+        }])
+    message = Message.last
+
+    DistributorHasProduct.create!([{
+        product_id: product.id,
+        distributor_id: distributor.id
+    }])
+
+    DistributorHasBusinessManager.create!([{
+        distributor_id: distributor.id,
+        business_manager_id: business_manager.id
+    }])
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180930192356) do
+ActiveRecord::Schema.define(version: 20181005161423) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -57,11 +57,11 @@ ActiveRecord::Schema.define(version: 20180930192356) do
   create_table "messages", force: :cascade do |t|
     t.string   "message"
     t.date     "date"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "distributor_id"
-    t.integer  "business_managers_id"
-    t.index ["business_managers_id"], name: "index_messages_on_business_managers_id"
+    t.integer  "business_manager_id"
+    t.index ["business_manager_id"], name: "index_messages_on_business_manager_id"
     t.index ["distributor_id"], name: "index_messages_on_distributor_id"
   end
 
@@ -93,8 +93,12 @@ ActiveRecord::Schema.define(version: 20180930192356) do
 
   create_table "pictures", force: :cascade do |t|
     t.string   "pictureType"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "pictureUrl"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
   create_table "products", force: :cascade do |t|
