@@ -41,7 +41,7 @@ class Associations < ActiveRecord::Migration[5.0]
 
     change_table :messages do |t|
       t.belongs_to :distributor, index: true
-      t.belongs_to :business_managers, index: true
+      t.belongs_to :business_manager, index: true
     end
 
   end

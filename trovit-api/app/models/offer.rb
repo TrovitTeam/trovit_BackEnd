@@ -2,6 +2,6 @@ class Offer < ApplicationRecord
 
     validates :quantity, numericality: { only_integer: true }
     validates :date , presence: true, timeliness: {type: :datetime}
-    belongs_to :offerable, polymorphic: true, foreign_key: true
+    belongs_to :offerable, polymorphic: true
 
 end
