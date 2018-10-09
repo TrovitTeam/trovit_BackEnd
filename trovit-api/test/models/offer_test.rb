@@ -2,16 +2,14 @@
 #
 # Table name: offers
 #
-#  id              :integer          not null, primary key
-#  quantity        :integer
-#  date            :date
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  message_id      :integer
-#  product_id      :integer
-#  distributor_id  :integer
-#  offereable_type :string
-#  offereable_id   :integer
+#  id             :integer          not null, primary key
+#  quantity       :integer
+#  date           :date
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
+#  message_id     :integer
+#  product_id     :integer
+#  distributor_id :integer
 #
 
 require 'test_helper'

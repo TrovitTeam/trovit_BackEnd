@@ -2,14 +2,15 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string
-#  location   :string
-#  email      :string
-#  phone      :integer
-#  userType   :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id              :integer          not null, primary key
+#  name            :string
+#  location        :string
+#  email           :string
+#  phone           :integer
+#  userType        :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  password_digest :string
 #
 
 class User < ApplicationRecord
@@ -23,14 +24,20 @@ class User < ApplicationRecord
                 numericality: true, length: {minimum: 7}
     validates :email, presence: true, uniqueness: true,
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
-
-    has_many :pictures, as: :imageable
+        has_many :pictures, as: :imageable
 
     
     def self.selectFive
-        users = User.limit(5)
+        limit(5)
     end
 
-    
+    def self.findDistributor
+        where(userType: "distributor")
+    end
+
+    def self.findBusinessManager
+        where(userType: "businessManager")
+    end
+
 
 end

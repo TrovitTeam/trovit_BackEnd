@@ -26,7 +26,22 @@ class Product < ApplicationRecord
     has_many :distributors_has_products
     has_many :distributors, through: :distributors_has_products
     has_many :pictures, as: :imageable
-    has_many :orders, as: :orderable
-    has_many :offers, as: :offerable
+    has_many :orders
+    has_many :offers
+
+    def self.cheaper_than(price)
+        where("price < ?", price)
+    end
+
+    def self.greater_than(price)
+        where("price > ?", price)
+    end
+
+    def self.equal(price)
+        where("price = ?", price)
+    end
+
+
+
 
 end

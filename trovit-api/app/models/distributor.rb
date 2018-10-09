@@ -16,4 +16,18 @@ class Distributor < ApplicationRecord
     has_many :distributor_has_products
     has_many :products, through: :distributor_has_products
     has_many :messages
+    has_many :offers
+
+    def self.findMessages(distributor_id)
+        joins(:messages).where(id: distributor_id).select("messages.message,messages.id,distributors.id")
+    end
+
+    def self.findOffers(distributor_id)
+        joins(:offer).where(id: distributor_id)
+    end
+
+    def self.finProducts(distributor_id)
+        joins(:products).where(id: distributor_id)
+    end
+
 end
