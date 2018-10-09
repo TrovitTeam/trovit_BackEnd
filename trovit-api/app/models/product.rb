@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  price       :float
+#  producType  :string
+#  brand       :string
+#  productName :string
+#  quantity    :integer
+#  description :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Product < ApplicationRecord
 
     validates :price, numericality: { greater_than_or_equal_to: 0 }

@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
     def index 
-        orders = Order.all
+        orders = Order.all.paginate(page: params[:page],per_page: 10)
         render json:orders, status:200
     end
 

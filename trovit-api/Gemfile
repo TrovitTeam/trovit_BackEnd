@@ -12,8 +12,7 @@ gem 'puma', '~> 3.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -43,3 +42,10 @@ gem 'faker', '~> 1.9.1'
 
 #gem for phonenumber validation
 gem 'telephone_number'
+
+#gem for Annotation 
+gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+
+# Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate', '~> 3.1.0'
+  

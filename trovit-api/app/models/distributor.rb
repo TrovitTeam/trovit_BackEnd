@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: distributors
+#
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 class Distributor < ApplicationRecord
 
     belongs_to :user, foreign_key: true

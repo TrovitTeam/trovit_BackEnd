@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: companies
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  location    :string
+#  companyType :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class Company < ApplicationRecord
     
     validates :name, :location, presence: true, length: { minimum: 2 },

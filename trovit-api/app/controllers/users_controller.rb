@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
     def index
-        users = User.all
+        #users = User.all.paginate(page: params[:page],per_page: 10)
+        users = User.selectFive();
         render json: users, status: 200
     end
     
@@ -39,6 +40,11 @@ class UsersController < ApplicationController
         else
             render json: user.errors, status: 422
         end
+    end
+
+    def whatEver
+    
+    
     end
 
     def params_user

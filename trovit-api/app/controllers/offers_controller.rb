@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
 
     def index  
-        offer = Offer.all
+        offer = Offer.all.paginate(page: params[:page],per_page: 10)
         render json:offer, status:200
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181005161423) do
+ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -118,8 +118,9 @@ ActiveRecord::Schema.define(version: 20181005161423) do
     t.string   "email"
     t.integer  "phone"
     t.string   "userType"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end
