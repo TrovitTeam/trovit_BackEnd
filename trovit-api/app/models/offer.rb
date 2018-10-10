@@ -19,7 +19,6 @@ class Offer < ApplicationRecord
     belongs_to :product
     belongs_to :distributor
     belongs_to :message
-    belongs_to :offerable, polymorphic: true
 
     def self.bigger_than(quantity)
         where("quantity < ?", quantity)

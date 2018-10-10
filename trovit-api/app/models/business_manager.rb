@@ -23,8 +23,16 @@ class BusinessManager < ApplicationRecord
         joins(:messages).where(id: businessManager_id)
     end
 
-    def self.findOrders(business_managers)
+    def self.findOrders(businessManager_id)
         joins(:orders).where(id: businessManager_id)
+    end
+
+    def findOrders(businessManager_id)
+        joins(:orders).where(id: businessManager_id)
+    end
+
+    def findDistributor(businessManager_id)
+        joins(:distributors).where.(id: businessManager_id)
     end
 
 

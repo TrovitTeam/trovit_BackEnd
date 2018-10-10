@@ -18,8 +18,16 @@ class Message < ApplicationRecord
                 format: {with: /\A[^`!@#%\^&*+_=]+\z/,
                         message:"only numbers and letters"}
 
-    def select
+    has_many: offers
+    has_many: orders
 
+    def findOrders(message_id)
+        joins(:orders).where(id: message_id)
     end
+
+    def findOffers(message_id)
+        joins(:offers).where(id: message_id)
+    end
+
 
 end

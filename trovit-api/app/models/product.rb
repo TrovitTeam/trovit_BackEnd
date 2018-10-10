@@ -41,6 +41,19 @@ class Product < ApplicationRecord
         where("price = ?", price)
     end
 
+    def findOffers(product_id)
+        joins(:offers).where(id: product_id)
+    end
+
+    def findOrder(product_id)
+        joins(:offers).where(id: product_id)
+    end
+
+    
+    def self.findPictures(product_id)
+        joins(:pictures).where(id: product_id)
+    end
+
 
 
 

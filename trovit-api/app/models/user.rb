@@ -24,7 +24,7 @@ class User < ApplicationRecord
                 numericality: true, length: {minimum: 7}
     validates :email, presence: true, uniqueness: true,
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
-        has_many :pictures, as: :imageable
+    has_many :pictures, as: :imageable
 
     
     def self.selectFive
@@ -39,5 +39,8 @@ class User < ApplicationRecord
         where(userType: "businessManager")
     end
 
+    def self.findPictures(user_id)
+        joins(:pictures).where(id: user_id)
+    end
 
 end

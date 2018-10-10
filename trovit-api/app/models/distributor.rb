@@ -30,4 +30,12 @@ class Distributor < ApplicationRecord
         joins(:products).where(id: distributor_id)
     end
 
+    def findOffers(distributor_id)
+        joins(:offers).where(id: distributor_id)
+    end
+
+    def findDistributor(distributor_id)
+        joins(:bussiness_managers).where.(id: distributor_id)
+    end
+
 end
