@@ -1,7 +1,7 @@
 class CompaniesController < ApplicationController
     def index
-        companys = Company.all
-        render json: companys, status: 200
+        companies = Company.all
+        render json: companies, status: 200
     end
     
     def show
