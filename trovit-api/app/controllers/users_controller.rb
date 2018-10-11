@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    before_action :authenticate_user, only: [:show, :index]
+
     def index
         users = User.all.paginate(page: params[:page],per_page: 10)
         #users = User.selectFive();
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         user.update(params_user)
         if user.update(params_user)
-            render json: user, status: 200
+            render json: user, status: 200 
         else
             render json: user.errors, status: 422
         end
@@ -48,7 +50,7 @@ class UsersController < ApplicationController
     end
 
     def params_user
-        params.permit(:name, :location, :userType, :phone, :email)
+        params.require(:user).permit(:name, :location, :userType, :phone, :email, :password)
     end
 
 end

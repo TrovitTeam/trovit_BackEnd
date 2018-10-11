@@ -3,9 +3,9 @@ class CreateUsers < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.string :name
       t.string :location
-      t.string :email
+      t.string :email, null: false, unique: true 
       t.integer :phone
-      t.string :userType
+      t.string :userType ,null: false, default: 'distributor'
       
       t.timestamps
     end
