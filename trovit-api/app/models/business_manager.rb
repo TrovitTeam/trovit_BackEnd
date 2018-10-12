@@ -16,5 +16,25 @@ class BusinessManager < ApplicationRecord
     has_many :distributor_has_bussiness_managers 
     has_many :distributors, through: :distributor_has_bussiness_managers
     has_many :messages
+    has_many :orders
+
+
+    def self.findMessages(businessManager_id)
+        joins(:messages).where(id: businessManager_id)
+    end
+
+    def self.findOrders(businessManager_id)
+        joins(:orders).where(id: businessManager_id)
+    end
+
+    def findOrders(businessManager_id)
+        joins(:orders).where(id: businessManager_id)
+    end
+
+    def findDistributor(businessManager_id)
+        joins(:distributors).where.(id: businessManager_id)
+    end
+
+
 
 end

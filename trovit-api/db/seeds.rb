@@ -49,7 +49,8 @@ I18n.reload!
         location: Faker::Address.street_address,
         userType: Faker::Types.rb_string(2),
         phone: Faker::Number.number(7),
-        email: Faker::Internet.email
+        email: Faker::Internet.email,
+        password: '12345678'
        }])
     user = User.last
     

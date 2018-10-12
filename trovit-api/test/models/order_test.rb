@@ -10,8 +10,6 @@
 #  product_id          :integer
 #  message_id          :integer
 #  business_manager_id :integer
-#  ordereable_type     :string
-#  ordereable_id       :integer
 #
 
 require 'test_helper'
