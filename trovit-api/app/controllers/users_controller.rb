@@ -15,14 +15,24 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(params_user)
+
         if user.save
-            respond_to do |format|
-                format.json {render json: user, status: 201}
+
+            if (user.userType == "distributor")
+
+                
+                distributor = Distributor.new(user_id: user.id)
+            
+
+                render json: distributor
+     
             end
-        else
+
+        else 
             respond_to do |format|
                 format.json {render json: user.errors, status: :unprocessable_entity}
             end
+     
         end
     end
 
