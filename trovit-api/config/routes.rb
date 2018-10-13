@@ -51,11 +51,13 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'auth' => 'home#auth'
   
-  
+
   resources :users do
     resources :distributors
     resources :business_managers
   end
+
+
   resources :companies
   resources :products
   resources :offers
