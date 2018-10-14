@@ -48,4 +48,3 @@ gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
 
 # Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate', '~> 3.1.0'
-  
