@@ -15,24 +15,41 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(params_user)
-
+        
         if user.save
 
-            if (user.userType == "distributor")
-
-                
-                distributor = Distributor.new(user_id: user.id)
+            if(user.userType == "distributor")
             
+                distributor = Distributor.new(user_id: user.id)
 
-                render json: distributor
-     
-            end
+                if distributor.save
+                    respond_to do |format|
+                        format.json {render json: distributor, status: 201}
+                    end    
+                else
+                    respond_to do |format|
+                        format.json {render json: distributor.errors, status: :unprocessable_entity}
+                    end   
+                end
 
-        else 
+            elsif(user.userType == "businessmanager")
+
+                business_manager = BusinessManager.new(user_id: user.id)
+
+                if business_manager.save
+                    respond_to do |format|
+                        format.json {render json: business_manager, status: 201}
+                    end    
+                else
+                    respond_to do |format|
+                        format.json {render json: business_manager.errors, status: :unprocessable_entity}
+                    end   
+                end  
+            end    
+        else
             respond_to do |format|
                 format.json {render json: user.errors, status: :unprocessable_entity}
             end
-     
         end
     end
 
@@ -52,11 +69,6 @@ class UsersController < ApplicationController
         else
             render json: user.errors, status: 422
         end
-    end
-
-    def whatEver
-    
-    
     end
 
     def params_user

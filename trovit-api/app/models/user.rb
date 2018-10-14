@@ -26,6 +26,7 @@ class User < ApplicationRecord
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
     has_many :pictures, as: :imageable
 
+
     validates_length_of :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
 
     before_validation { 
