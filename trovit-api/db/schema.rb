@@ -115,11 +115,11 @@ ActiveRecord::Schema.define(version: 20181009153912) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "location"
-    t.string   "email"
+    t.string   "email",                                   null: false
     t.integer  "phone"
-    t.string   "userType"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "userType",        default: "distributor", null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "password_digest"
   end
 
