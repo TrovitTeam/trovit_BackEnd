@@ -5,9 +5,9 @@
 #  id              :integer          not null, primary key
 #  name            :string
 #  location        :string
-#  email           :string
+#  email           :string           not null
 #  phone           :integer
-#  userType        :string
+#  userType        :string           default("distributor"), not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  password_digest :string
@@ -25,6 +25,16 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true,
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
     has_many :pictures, as: :imageable
+
+
+    validates_length_of :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
+
+    before_validation { 
+        (self.email = self.email.to_s.downcase)
+      }
+
+    validates_presence_of :email
+    validates_uniqueness_of :email
 
     
     def self.selectFive

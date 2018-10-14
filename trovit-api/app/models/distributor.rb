@@ -10,7 +10,7 @@
 
 class Distributor < ApplicationRecord
 
-    belongs_to :user, foreign_key: true
+    belongs_to :user, foreign_key: true, optional: true
     has_many :distributor_has_bussiness_managers
     has_many :bussiness_managers, through: :distributor_has_bussiness_managers
     has_many :distributor_has_products
