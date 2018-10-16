@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     end
 
     def auth
-        render json: {status: 200, msg: "Logged In #{current_user.name}" }
+        render json: {status: 200, json: "Logged In #{current_user.name}" }
     end
 
 end
