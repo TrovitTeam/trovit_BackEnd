@@ -77,7 +77,7 @@ class UsersController < ApplicationController
         render json: distributors, status: 200
     end
 
-    def getBusiness_managers
+    def getBusinessManagers
         business_managers = User.findBusinessManagers
         render json: business_managers, status: 200
     end
