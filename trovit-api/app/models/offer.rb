@@ -16,9 +16,9 @@ class Offer < ApplicationRecord
 
     validates :quantity, numericality: { only_integer: true }
     validates :date , presence: true, timeliness: {type: :datetime}
-    belongs_to :product
-    belongs_to :distributor
-    belongs_to :message
+    belongs_to :product, optional: true
+    belongs_to :distributor, optional: true
+    belongs_to :message, optional: true
 
     def self.bigger_than(quantity)
         where("quantity < ?", quantity)

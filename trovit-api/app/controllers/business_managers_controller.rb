@@ -1,5 +1,6 @@
 class BusinessManagersController < ApplicationController
 
+<<<<<<< HEAD
   before_action :authenticate_user, only: [:show, :index]
 
   def index
@@ -47,6 +48,16 @@ class BusinessManagersController < ApplicationController
           render json: business_manager.errors, status: 422
       end
   end
+
+  def getMessages
+    
+    businessManager = BusinessManager.find(params[:id])
+    messages = BusinessManager.findMessages(businessManager.id)
+
+    render json: messages, status: 200
+
+
+end
 
 
   def params_business_manager

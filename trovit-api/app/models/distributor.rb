@@ -26,16 +26,14 @@ class Distributor < ApplicationRecord
         joins(:offer).where(id: distributor_id)
     end
 
-    def self.finProducts(distributor_id)
-        joins(:products).where(id: distributor_id)
+    def self.findProducts(distributor_id)
+        joins(:distributor_has_products).where(id: distributor_id)
     end
 
     def findOffers(distributor_id)
         joins(:offers).where(id: distributor_id)
     end
 
-    def findDistributor(distributor_id)
-        joins(:bussiness_managers).where.(id: distributor_id)
-    end
+ 
 
 end

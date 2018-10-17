@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # == Route Map
 #
 #                         Prefix Verb   URI Pattern                                                               Controller#Action
@@ -124,4 +125,14 @@ Rails.application.routes.draw do
     resources :pictures
   end
   resources :users
+
+
+  get 'distributors/:id/messages' => 'distributors#getMessages'
+  get 'business_managers/:id/messages' => 'business_managers#getMessages'
+  get 'companies/:id/employees' => 'companies#employees'
+  get 'messages/:id/offers' => 'messages#offers'
+  get 'messages/:id/orders' => 'messages#orders'
+  get 'users/distributors' => 'users#getDistributors'
+  get 'users/business_managers' => 'users#getBusiness_manager'
+
 end

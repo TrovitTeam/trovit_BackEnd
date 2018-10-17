@@ -2,9 +2,10 @@ class UsersController < ApplicationController
 
     before_action :authenticate_user, only: [:show, :index]
 
+ 
+
     def index
         users = User.all.paginate(page: params[:page],per_page: 10)
-        #users = User.selectFive();
         render json: users, status: 200
     end
     
@@ -70,6 +71,26 @@ class UsersController < ApplicationController
             render json: user.errors, status: 422
         end
     end
+
+    def getDistributors
+        distributors = User.findDistributors
+        render json: distributors, status: 200
+    end
+
+    def getBusiness_managers
+        business_managers = User.findBusinessManagers
+        render json: business_managers, status: 200
+    end
+
+    def getPictures
+        
+        user = User.find(params[:id])
+        pictures = User.findPictures(user.id)
+
+        render json: pictures , status: 200
+    
+    end
+
 
     def params_user
         params.require(:user).permit(:name, :location, :userType, :phone, :email, :password)

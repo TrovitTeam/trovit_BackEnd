@@ -21,11 +21,11 @@ class Message < ApplicationRecord
     has_many :offers
     has_many :orders
 
-    def findOrders(message_id)
+    def self.findOrders(message_id)
         joins(:orders).where(id: message_id)
     end
 
-    def findOffers(message_id)
+    def self.findOffers(message_id)
         joins(:offers).where(id: message_id)
     end
 

@@ -1,6 +1,8 @@
 class DistributorsController < ApplicationController
 
+
     before_action :authenticate_user, only: [:show, :index]
+
 
     def index
         distributors = Distributor.all.paginate(page: params[:page],per_page: 10)
@@ -30,6 +32,13 @@ class DistributorsController < ApplicationController
         else
             render json: distributor.errors, status: 422
         end
+    end
+
+
+    def getMessages
+        distributor = Distributor.find(params[:id])
+        messages = Distributor.findMessages(distributor.id)
+        render json: messages, status: 200
     end
 
 
