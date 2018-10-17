@@ -185,8 +185,5 @@ DEPENDENCIES
   validates_timeliness (~> 5.0.0.alpha3)
   will_paginate (~> 3.1.0)
 
-RUBY VERSION
-   ruby 2.4.4
-
 BUNDLED WITH
    1.16.5
