@@ -11,8 +11,8 @@
 
 class BusinessManager < ApplicationRecord
 
-    belongs_to :user, foreign_key: true
-    belongs_to :company, foreign_key: true
+    belongs_to :user, foreign_key: true, optional: true
+    belongs_to :company, foreign_key: true, optional: true
     has_many :distributor_has_bussiness_managers 
     has_many :distributors, through: :distributor_has_bussiness_managers
     has_many :messages
@@ -20,7 +20,7 @@ class BusinessManager < ApplicationRecord
 
 
     def self.findMessages(businessManager_id)
-        joins(:messages).where(id: businessManager_id)
+        joins(:messages).where(id: businessManager_id).select("messages.message,messages.id")
     end
 
     def self.findOrders(businessManager_id)

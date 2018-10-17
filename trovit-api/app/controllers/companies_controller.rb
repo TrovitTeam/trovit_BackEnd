@@ -40,7 +40,15 @@ class CompaniesController < ApplicationController
         end
     end
 
+    def employees
+        company = Company.find(params[:id])
+        employees = Company.showEmployees(company.id)
+        render json: employees, status:200
+    end
+
     def params_company
         params.permit(:name, :location, :companyType)
     end
+
+
 end

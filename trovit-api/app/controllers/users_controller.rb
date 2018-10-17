@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
+   # before_action :authenticate_user, only: [:show, :index, :update,:getBusinessManagers,:getDistributors]
+
     def index
         users = User.all.paginate(page: params[:page],per_page: 10)
-        #users = User.selectFive();
         render json: users, status: 200
     end
     
@@ -13,10 +14,37 @@ class UsersController < ApplicationController
 
     def create
         user = User.new(params_user)
+        
         if user.save
-            respond_to do |format|
-                format.json {render json: user, status: 201}
-            end
+
+            if(user.userType == "distributor")
+            
+                distributor = Distributor.new(user_id: user.id)
+
+                if distributor.save
+                    respond_to do |format|
+                        format.json {render json: distributor, status: 201}
+                    end    
+                else
+                    respond_to do |format|
+                        format.json {render json: distributor.errors, status: :unprocessable_entity}
+                    end   
+                end
+
+            elsif(user.userType == "businessmanager")
+
+                business_manager = BusinessManager.new(user_id: user.id)
+
+                if business_manager.save
+                    respond_to do |format|
+                        format.json {render json: business_manager, status: 201}
+                    end    
+                else
+                    respond_to do |format|
+                        format.json {render json: business_manager.errors, status: :unprocessable_entity}
+                    end   
+                end  
+            end    
         else
             respond_to do |format|
                 format.json {render json: user.errors, status: :unprocessable_entity}
@@ -36,19 +64,32 @@ class UsersController < ApplicationController
         user = User.find(params[:id])
         user.update(params_user)
         if user.update(params_user)
-            render json: user, status: 200
+            render json: user, status: 200 
         else
             render json: user.errors, status: 422
         end
     end
 
-    def whatEver
-    
+    def getDistributors
+        distributors = User.findDistributors
+        render json: distributors, status: 200
+    end
+
+    def getBusiness_managers
+        business_managers = User.findBusinessManagers
+        render json: business_managers, status: 200
+    end
+
+    def getPictures
+        
+        user = User.find(params[:id])
+        pictu
     
     end
 
+
     def params_user
-        params.permit(:name, :location, :userType, :phone, :email)
+        params.require(:user).permit(:name, :location, :userType, :phone, :email, :password)
     end
 
 end

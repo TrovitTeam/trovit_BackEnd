@@ -23,9 +23,10 @@ class Company < ApplicationRecord
     has_many :business_managers
 
     def self.showEmployees(company_id)
-        joins(:business_managers).where(id:company_id)
+        joins(:business_managers).where(id:company_id).select("business_managers.id, business_managers.company_id")
     end
 
 
 
 end
+    

@@ -31,12 +31,12 @@ class User < ApplicationRecord
         limit(5)
     end
 
-    def self.findDistributor
+    def self.findDistributors
         where(userType: "distributor")
     end
 
-    def self.findBusinessManager
-        where(userType: "businessManager")
+    def self.findBusinessManagers
+        where(userType: "businessmanager")
     end
 
     def self.findPictures(user_id)
