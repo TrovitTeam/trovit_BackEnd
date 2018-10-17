@@ -15,7 +15,7 @@ class DistributorsController < ApplicationController
 
     def create
 
-        
+
 
     end
 
