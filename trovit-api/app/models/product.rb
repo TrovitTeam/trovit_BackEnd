@@ -49,12 +49,8 @@ class Product < ApplicationRecord
         joins(:offers).where(id: product_id)
     end
 
-    
     def self.findPictures(product_id)
         joins(:pictures).where(id: product_id)
     end
-
-
-
 
 end
