@@ -19,6 +19,6 @@ class Picture < ApplicationRecord
     
     validates :pictureUrl, presence: true, length: {minimum: 10}
 
-    belongs_to :imageable, polymorphic: true
+    belongs_to :imageable, polymorphic: true, optional: true
 
 end
