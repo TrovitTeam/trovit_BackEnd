@@ -16,34 +16,6 @@ I18n.reload!
         }])
     company = Company.last
 
-    Offer.create!([{
-        quantity: Faker::Number.digit,
-        date: Faker::Time.forward(23, :morning)
-        }])
-    offer = Offer.last
-
-    Order.create!([{
-        quantity: Faker::Number.digit,
-        date: Faker::Time.forward(23, :morning)
-        }])
-    order = Order.last
-
-    Picture.create!([{
-        pictureType: Faker::Types.rb_string(1),
-        pictureUrl: "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"
-        }])
-    picture = Picture.last
-
-    Product.create!([{
-        price: Faker::Number.positive,
-        producType: Faker::Types.rb_string(2),
-        brand: Faker::Types.rb_string(2),
-        productName: Faker::Types.rb_string(2),
-        description: 'default description',
-        quantity: Faker::Number.digit
-        }])
-    product = Product.last
-
     User.create!([{
         name: Faker::Name.name,
         location: Faker::Address.street_address,
@@ -64,6 +36,34 @@ I18n.reload!
         user_id: user.id,
         }])
     distributor = Distributor.last
+
+    Product.create!([{
+        price: Faker::Number.positive,
+        producType: Faker::Types.rb_string(2),
+        brand: Faker::Types.rb_string(2),
+        productName: Faker::Types.rb_string(2),
+        description: 'default description',
+        quantity: Faker::Number.digit
+        }])
+    product = Product.last
+
+    Offer.create!([{
+        quantity: Faker::Number.digit,
+        date: Faker::Time.forward(23, :morning)
+        }])
+    offer = Offer.last
+
+    Order.create!([{
+        quantity: Faker::Number.digit,
+        date: Faker::Time.forward(23, :morning)
+        }])
+    order = Order.last
+
+    Picture.create!([{
+        pictureType: Faker::Types.rb_string(1),
+        pictureUrl: "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"
+        }])
+    picture = Picture.last
 
     Message.create!([{
         date: Faker::Time.forward(23, :morning),
