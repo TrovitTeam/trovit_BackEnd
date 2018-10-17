@@ -1,4 +1,3 @@
-ruby "ruby 2.3.4p301"
 source 'https://rubygems.org'
 
 
