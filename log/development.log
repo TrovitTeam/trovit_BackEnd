@@ -42083,3 +42083,57 @@ Migrating to AddDistrIdProd (20181025162349)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-25 16:32:37.848624"], ["updated_at", "2018-10-25 16:32:37.848624"], ["distributor_id", 10], ["business_manager_id", 10]]
   [1m[35m (69.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:52:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as */*
+  Parameters: {"distributor_id"=>"5", "product"=>{}}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `books' for #<Distributor:0x0000556b143e62f8>):
+  
+app/controllers/products_controller.rb:6:in `index'
+Started GET "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:54:00 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as */*
+  Parameters: {"distributor_id"=>"5", "product"=>{}}
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."distributor_id" = ?[0m  [["distributor_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 134ms (Views: 75.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:58:08 -0500
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"price"=>"1000000", "producType"=>"cellphone", "brand"=>"apple", "productName"=>"iphone x", "quantity"=>"20", "description"=>"super expensive phone"}, "distributor_id"=>"5"}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Unpermitted parameters: product, distributor_id
+  [1m[35m (1.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.25ms)
+Completed 422 Unprocessable Entity in 1082ms (Views: 27.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:58:36 -0500
+Processing by ProductsController#create as */*
+  Parameters: {"price"=>"1000000", "producType"=>"cellphone", "brand"=>"apple", "productName"=>"iphone x", "quantity"=>"20", "description"=>"super expensive phone", "distributor_id"=>"5", "product"=>{"price"=>"1000000", "producType"=>"cellphone", "brand"=>"apple", "productName"=>"iphone x", "quantity"=>"20", "description"=>"super expensive phone"}}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Unpermitted parameters: distributor_id, product
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 1000000.0], ["producType", "cellphone"], ["brand", "apple"], ["productName", "iphone x"], ["quantity", 20], ["description", "super expensive phone"], ["created_at", "2018-10-25 16:58:36.921082"], ["updated_at", "2018-10-25 16:58:36.921082"], ["distributor_id", 5]]
+  [1m[35m (78.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 201 Created in 96ms (Views: 1.2ms | ActiveRecord: 79.4ms)
+
+
+Started GET "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:58:57 -0500
+Processing by ProductsController#index as */*
+  Parameters: {"distributor_id"=>"5", "product"=>{}}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."distributor_id" = ?[0m  [["distributor_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
