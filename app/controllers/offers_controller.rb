@@ -42,7 +42,7 @@ class OffersController < ApplicationController
     end
 
     def params_offer
-        params.permit(:quantity, :date)
+        params.permit(:quantity, :distributor_id, :business_manager_id)
     end
 
 end

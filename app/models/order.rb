@@ -4,7 +4,6 @@
 #
 #  id                  :integer          not null, primary key
 #  quantity            :integer
-#  date                :date
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  product_id          :integer
@@ -15,7 +14,6 @@
 class Order < ApplicationRecord
 
     validates :quantity, numericality: { only_integer: true }
-    validates :date , presence: true, timeliness: {type: :datetime}
 
     belongs_to :message , optional: true 
     belongs_to :business_manager_id, optional: true

@@ -4,7 +4,6 @@
 #
 #  id                  :integer          not null, primary key
 #  message             :string
-#  date                :date
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  distributor_id      :integer

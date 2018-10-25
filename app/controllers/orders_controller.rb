@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
     end
 
     def params_order
-        params.permit(:quantity, :date)
+        params.permit(:quantity, :distributor_id, :business_manager_id)
     end
 
 end

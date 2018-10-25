@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009153912) do
+ActiveRecord::Schema.define(version: 20181025145524) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "message"
-    t.date     "date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "distributor_id"
@@ -67,7 +66,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "offers", force: :cascade do |t|
     t.integer  "quantity"
-    t.date     "date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "message_id"
@@ -80,7 +78,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "quantity"
-    t.date     "date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "product_id"

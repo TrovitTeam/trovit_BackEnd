@@ -61,4 +61,7 @@ class MessagesController < ApplicationController
 
     end
 
+    def params_message
+        params.permit(:message, :distributor_id, :business_manager_id)
+    end
 end

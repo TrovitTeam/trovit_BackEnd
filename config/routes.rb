@@ -4,6 +4,13 @@
 #                     user_token POST   /user_token(.:format)                                                     user_token#create
 #                           root GET    /                                                                         home#index
 #                           auth GET    /auth(.:format)                                                           home#auth
+#                                GET    /distributors/:id/messages2(.:format)                                     distributors#getMessages
+#                                GET    /business_managers/:id/messages2(.:format)                                business_managers#getMessages
+#                                GET    /companies/:id/employees(.:format)                                        companies#employees
+#                                GET    /messages/:id/offers(.:format)                                            messages#offers
+#                                GET    /messages/:id/orders(.:format)                                            messages#orders
+#             users_distributors GET    /users/distributors(.:format)                                             users#getDistributors
+#        users_business_managers GET    /users/business_managers(.:format)                                        users#getBusinessManagers
 #           distributor_pictures GET    /distributors/:distributor_id/pictures(.:format)                          pictures#index
 #                                POST   /distributors/:distributor_id/pictures(.:format)                          pictures#create
 #            distributor_picture GET    /distributors/:distributor_id/pictures/:id(.:format)                      pictures#show
@@ -28,6 +35,12 @@
 #                                PATCH  /distributors/:distributor_id/offers/:id(.:format)                        offers#update
 #                                PUT    /distributors/:distributor_id/offers/:id(.:format)                        offers#update
 #                                DELETE /distributors/:distributor_id/offers/:id(.:format)                        offers#destroy
+#             distributor_orders GET    /distributors/:distributor_id/orders(.:format)                            orders#index
+#                                POST   /distributors/:distributor_id/orders(.:format)                            orders#create
+#              distributor_order GET    /distributors/:distributor_id/orders/:id(.:format)                        orders#show
+#                                PATCH  /distributors/:distributor_id/orders/:id(.:format)                        orders#update
+#                                PUT    /distributors/:distributor_id/orders/:id(.:format)                        orders#update
+#                                DELETE /distributors/:distributor_id/orders/:id(.:format)                        orders#destroy
 #           distributor_messages GET    /distributors/:distributor_id/messages(.:format)                          messages#index
 #                                POST   /distributors/:distributor_id/messages(.:format)                          messages#create
 #            distributor_message GET    /distributors/:distributor_id/messages/:id(.:format)                      messages#show
@@ -46,6 +59,12 @@
 #                                PATCH  /business_managers/:business_manager_id/pictures/:id(.:format)            pictures#update
 #                                PUT    /business_managers/:business_manager_id/pictures/:id(.:format)            pictures#update
 #                                DELETE /business_managers/:business_manager_id/pictures/:id(.:format)            pictures#destroy
+#        business_manager_offers GET    /business_managers/:business_manager_id/offers(.:format)                  offers#index
+#                                POST   /business_managers/:business_manager_id/offers(.:format)                  offers#create
+#         business_manager_offer GET    /business_managers/:business_manager_id/offers/:id(.:format)              offers#show
+#                                PATCH  /business_managers/:business_manager_id/offers/:id(.:format)              offers#update
+#                                PUT    /business_managers/:business_manager_id/offers/:id(.:format)              offers#update
+#                                DELETE /business_managers/:business_manager_id/offers/:id(.:format)              offers#destroy
 #        business_manager_orders GET    /business_managers/:business_manager_id/orders(.:format)                  orders#index
 #                                POST   /business_managers/:business_manager_id/orders(.:format)                  orders#create
 #         business_manager_order GET    /business_managers/:business_manager_id/orders/:id(.:format)              orders#show
@@ -76,24 +95,18 @@
 #                                PATCH  /companies/:id(.:format)                                                  companies#update
 #                                PUT    /companies/:id(.:format)                                                  companies#update
 #                                DELETE /companies/:id(.:format)                                                  companies#destroy
-#               product_pictures GET    /products/:product_id/pictures(.:format)                                  pictures#index
-#                                POST   /products/:product_id/pictures(.:format)                                  pictures#create
-#                product_picture GET    /products/:product_id/pictures/:id(.:format)                              pictures#show
-#                                PATCH  /products/:product_id/pictures/:id(.:format)                              pictures#update
-#                                PUT    /products/:product_id/pictures/:id(.:format)                              pictures#update
-#                                DELETE /products/:product_id/pictures/:id(.:format)                              pictures#destroy
-#                       products GET    /products(.:format)                                                       products#index
-#                                POST   /products(.:format)                                                       products#create
-#                        product GET    /products/:id(.:format)                                                   products#show
-#                                PATCH  /products/:id(.:format)                                                   products#update
-#                                PUT    /products/:id(.:format)                                                   products#update
-#                                DELETE /products/:id(.:format)                                                   products#destroy
 #                          users GET    /users(.:format)                                                          users#index
 #                                POST   /users(.:format)                                                          users#create
 #                           user GET    /users/:id(.:format)                                                      users#show
 #                                PATCH  /users/:id(.:format)                                                      users#update
 #                                PUT    /users/:id(.:format)                                                      users#update
 #                                DELETE /users/:id(.:format)                                                      users#destroy
+#                       products GET    /products(.:format)                                                       products#index
+#                                POST   /products(.:format)                                                       products#create
+#                        product GET    /products/:id(.:format)                                                   products#show
+#                                PATCH  /products/:id(.:format)                                                   products#update
+#                                PUT    /products/:id(.:format)                                                   products#update
+#                                DELETE /products/:id(.:format)                                                   products#destroy
 
 Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
@@ -118,10 +131,13 @@ Rails.application.routes.draw do
       resources :pictures
     end
     resources :offers
+    resources :orders
     resources :messages
   end
+
   resources :business_managers do
     resources :pictures
+    resources :offers
     resources :orders
     resources :messages
   end
@@ -129,12 +145,8 @@ Rails.application.routes.draw do
   resources :companies do 
     resources :business_manager
   end
-  resources :products do 
-    resources :pictures
-  end
 
   resources :users
-
-
+  resources :products
 
 end
