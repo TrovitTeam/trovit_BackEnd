@@ -16,8 +16,8 @@ class Message < ApplicationRecord
                 format: {with: /\A[^`!@#%\^&*+_=]+\z/,
                         message:"only numbers and letters"}
 
-    has_many :offers
-    has_many :orders
+    has_many :offers, dependent: :destroy
+    has_many :orders, dependent: :destroy
 
     def self.findOrders(message_id)
         joins(:orders).where(id: message_id)

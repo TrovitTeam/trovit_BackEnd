@@ -24,7 +24,7 @@ class User < ApplicationRecord
                 numericality: true, length: {minimum: 7}
     validates :email, presence: true, uniqueness: true,
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
-    has_many :pictures, as: :imageable
+    has_many :pictures, as: :imageable, dependent: :destroy
 
 
     validates_length_of :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false

@@ -11,11 +11,11 @@
 class Distributor < ApplicationRecord
 
     belongs_to :user, foreign_key: true, optional: true
-    has_many :distributor_has_bussiness_managers
+    has_many :distributor_has_bussiness_managers, dependent: :destroy
     has_many :bussiness_managers, through: :distributor_has_bussiness_managers
-    has_many :products
-    has_many :messages
-    has_many :offers
+    has_many :products, dependent: :destroy
+    has_many :messages, dependent: :destroy
+    has_many :offers, dependent: :destroy
 
     def self.findMessages(distributor_id)
         joins(:messages).where(id: distributor_id).select("messages.message,messages.id,distributors.id")

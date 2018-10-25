@@ -24,9 +24,9 @@ class Product < ApplicationRecord
     validates :quantity, presence: true, numericality:{ only_integer: true }
 
     belongs_to :distributor, optional: true
-    has_many :pictures, as: :imageable
-    has_many :orders
-    has_many :offers
+    has_many :pictures, as: :imageable, dependent: :destroy
+    has_many :orders, dependent: :destroy
+    has_many :offers, dependent: :destroy
 
     def self.cheaper_than(price)
         where("price < ?", price)
