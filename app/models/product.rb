@@ -23,8 +23,7 @@ class Product < ApplicationRecord
     validates :description, presence: true,length: { minimum: 10 }
     validates :quantity, presence: true, numericality:{ only_integer: true }
 
-    has_many :distributors_has_products
-    has_many :distributors, through: :distributors_has_products
+    belongs_to :distributor, optional: true
     has_many :pictures, as: :imageable
     has_many :orders
     has_many :offers

@@ -43,40 +43,33 @@ I18n.reload!
         brand: Faker::Types.rb_string(2),
         productName: Faker::Types.rb_string(2),
         description: 'default description',
-        quantity: Faker::Number.digit
+        quantity: Faker::Number.digit,
+        distributor_id: distributor.id
         }])
     product = Product.last
 
     Offer.create!([{
         quantity: Faker::Number.digit,
-        date: Faker::Time.forward(23, :morning)
         }])
     offer = Offer.last
 
     Order.create!([{
         quantity: Faker::Number.digit,
-        date: Faker::Time.forward(23, :morning)
         }])
     order = Order.last
 
     Picture.create!([{
-        pictureType: Faker::Types.rb_string(1),
+        pictureType: Faker::Types.rb_string(2),
         pictureUrl: "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"
         }])
     picture = Picture.last
 
     Message.create!([{
-        date: Faker::Time.forward(23, :morning),
         message: 'default message',
         distributor_id: distributor.id,
         business_manager_id: business_manager.id
         }])
     message = Message.last
-
-    DistributorHasProduct.create!([{
-        product_id: product.id,
-        distributor_id: distributor.id
-    }])
 
     DistributorHasBusinessManager.create!([{
         distributor_id: distributor.id,

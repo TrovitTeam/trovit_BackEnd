@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181025145524) do
+ActiveRecord::Schema.define(version: 20181025162349) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,15 +36,6 @@ ActiveRecord::Schema.define(version: 20181025145524) do
     t.integer  "business_manager_id"
     t.index ["business_manager_id"], name: "index_business_manager_id"
     t.index ["distributor_id"], name: "index_distributor_has_business_managers_on_distributor_id"
-  end
-
-  create_table "distributor_has_products", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "distributor_id"
-    t.integer  "product_id"
-    t.index ["distributor_id"], name: "index_distributor_has_products_on_distributor_id"
-    t.index ["product_id"], name: "index_distributor_has_products_on_product_id"
   end
 
   create_table "distributors", force: :cascade do |t|
@@ -105,8 +96,10 @@ ActiveRecord::Schema.define(version: 20181025145524) do
     t.string   "productName"
     t.integer  "quantity"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "distributor_id"
+    t.index ["distributor_id"], name: "index_products_on_distributor_id"
   end
 
   create_table "users", force: :cascade do |t|
