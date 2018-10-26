@@ -42083,3 +42083,973 @@ Migrating to AddDistrIdProd (20181025162349)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-25 16:32:37.848624"], ["updated_at", "2018-10-25 16:32:37.848624"], ["distributor_id", 10], ["business_manager_id", 10]]
   [1m[35m (69.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/" for 127.0.0.1 at 2018-10-25 22:29:49 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-10-25 22:29:49 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.0.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/orders" for 127.0.0.1 at 2018-10-25 22:32:04 -0500
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (64.85ms)
+Completed 200 OK in 244ms (Views: 177.8ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:32:11 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 65ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:32:42 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data  (0.6ms)
+Completed 500 Internal Server Error in 356ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/orders_controller.rb:22:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:33:33 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (5.03ms)
+Completed 406 Not Acceptable in 23ms (Views: 8.1ms | ActiveRecord: 1.4ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:13:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:34:13 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.06ms)
+Completed 200 OK in 21ms (Views: 6.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:34:45 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 15ms (ActiveRecord: 2.6ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:14:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:35:09 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data  (0.6ms)
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:35:48 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 12ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:35:49 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:36:04 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (6.3ms)
+Completed 406 Not Acceptable in 23ms (Views: 9.1ms | ActiveRecord: 1.3ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:13:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:36:09 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Sent data  (0.5ms)
+Completed 500 Internal Server Error in 6ms (Views: 1.2ms | ActiveRecord: 0.2ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/orders_controller.rb:17:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:13:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:36:24 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data  (0.2ms)
+Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:36:33 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:37:04 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.7ms)
+Completed 406 Not Acceptable in 22ms (Views: 6.0ms | ActiveRecord: 1.6ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:37:10 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Sent data  (0.6ms)
+Completed 500 Internal Server Error in 7ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/orders_controller.rb:16:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:37:48 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data  (0.2ms)
+Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:37:51 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.7ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:38:00 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:38:05 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.html" for 127.0.0.1 at 2018-10-25 22:38:14 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:39:08 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 14ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:39:13 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.html" for 127.0.0.1 at 2018-10-25 22:39:24 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 11ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:39:28 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.html" for 127.0.0.1 at 2018-10-25 22:40:28 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.58ms)
+Completed 406 Not Acceptable in 19ms (Views: 5.6ms | ActiveRecord: 1.8ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:40:32 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 406 Not Acceptable in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:40:36 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Sent data  (0.2ms)
+Completed 500 Internal Server Error in 7ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/orders_controller.rb:17:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:12:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:41:16 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.21ms)
+Completed 406 Not Acceptable in 17ms (Views: 6.4ms | ActiveRecord: 1.1ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:13:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:41:46 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.15ms)
+Completed 200 OK in 18ms (Views: 6.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:45:59 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 15ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:46:00 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1,json" for 127.0.0.1 at 2018-10-25 22:46:06 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1,json"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1,json" for 127.0.0.1 at 2018-10-25 22:48:10 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1,json"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 14ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1,json" for 127.0.0.1 at 2018-10-25 22:48:11 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1,json"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:48:15 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (7.04ms)
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:48:20 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:48:25 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:48:55 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.4ms)
+
+
+  
+ArgumentError (too few arguments):
+  
+app/controllers/orders_controller.rb:12:in `format'
+app/controllers/orders_controller.rb:12:in `block in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:49:01 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.43ms)
+Completed 200 OK in 20ms (Views: 6.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:49:49 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (5.99ms)
+Completed 200 OK in 21ms (Views: 8.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:49:56 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:04 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:06 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 3ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-10-25 22:50:11 -0500
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.46ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:15 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 3ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:23 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/orders" for 127.0.0.1 at 2018-10-25 22:50:50 -0500
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.81ms)
+Completed 200 OK in 21ms (Views: 14.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:54 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:51:06 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data  (0.4ms)
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:51:23 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:55:00 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data order_1.pdf (0.2ms)
+Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:56:32 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data order_1.pdf (0.3ms)
+Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:59:22 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (12.74ms)
+Completed 200 OK in 49ms (Views: 44.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:59:38 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data order_1.pdf (0.2ms)
+Completed 200 OK in 5ms (Views: 0.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:59:59 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data order_1.pdf (0.2ms)
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-10-26 06:36:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.66ms)
+Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-10-26 06:36:32 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.0.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/orders" for 127.0.0.1 at 2018-10-26 06:36:42 -0500
+Processing by OrdersController#index as HTML
+  [1m[36mOrder Load (15.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (207.61ms)
+Completed 200 OK in 507ms (Views: 403.5ms | ActiveRecord: 18.0ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-26 06:36:48 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 99ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:36:53 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data order_1.pdf (0.5ms)
+Completed 200 OK in 282ms (Views: 0.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:37:41 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.3ms)
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:40:53 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 1.8ms)
+
+
+  
+NameError (undefined local variable or method `bold' for #<OrdersController:0x00007fffc6d7ecb8>):
+  
+app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:41:22 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.7ms)
+Completed 200 OK in 206ms (Views: 0.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:41:50 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.3ms)
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.3ms)
+
+
+Started PUT "/orders/1" for 127.0.0.1 at 2018-10-26 06:49:51 -0500
+Processing by OrdersController#update as */*
+  Parameters: {"product_id"=>1, "id"=>"1", "order"=>{"product_id"=>1}}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 133ms (ActiveRecord: 2.7ms)
+
+
+  
+NameError (undefined local variable or method `params_offfer' for #<OrdersController:0x00007ff0c0421b58>
+Did you mean?  params_order):
+  
+app/controllers/orders_controller.rb:33:in `update'
+Started PUT "/orders/1" for 127.0.0.1 at 2018-10-26 06:50:25 -0500
+Processing by OrdersController#update as */*
+  Parameters: {"product_id"=>1, "id"=>"1", "order"=>{"product_id"=>1}}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Unpermitted parameters: id, order
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (11.9ms)[0m  [1m[33mUPDATE "orders" SET "product_id" = ?, "updated_at" = ? WHERE "orders"."id" = ?[0m  [["product_id", 1], ["updated_at", "2018-10-26 11:50:25.745020"], ["id", 1]]
+  [1m[35m (61.8ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (13.21ms)
+Completed 200 OK in 139ms (Views: 21.1ms | ActiveRecord: 79.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:55:00 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 161ms (ActiveRecord: 5.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=):
+  
+app/controllers/orders_controller.rb:10:in `show'
+Started GET "/products" for 127.0.0.1 at 2018-10-26 06:55:43 -0500
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.17ms)
+Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:57:17 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.6ms)
+Completed 200 OK in 63ms (Views: 0.2ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:57:45 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 43ms (ActiveRecord: 5.6ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=):
+  
+app/controllers/orders_controller.rb:10:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:58:30 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Completed 404 Not Found in 23ms (ActiveRecord: 2.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=):
+  
+app/controllers/orders_controller.rb:10:in `show'
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:58:51 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 28ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:58:53 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:59:36 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 07:00:33 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (17.62ms)
+Completed 200 OK in 72ms (Views: 24.1ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 07:01:07 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (10.38ms)
+Completed 200 OK in 83ms (Views: 15.1ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:01:11 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.7ms)
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:01:11 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.1ms)
+Completed 200 OK in 5ms (Views: 0.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:01:27 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.6ms)
+
+
+  
+NoMethodError (undefined method `name' for #<Product:0x00007ff0bc129d28>):
+  
+app/controllers/orders_controller.rb:16:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/products" for 127.0.0.1 at 2018-10-26 07:02:03 -0500
+Processing by ProductsController#index as HTML
+  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.94ms)
+Completed 200 OK in 36ms (Views: 20.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:02:23 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.3ms)
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:02:49 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.4ms)
+Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:03:05 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.3ms)
+Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:05:04 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.4ms)
+Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:09:35 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 4.6ms)
+
+
+  
+Prawn::Errors::InvalidTableData (data must be a two dimensional array of cellable objects):
+  
+app/controllers/orders_controller.rb:25:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:20:52 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 3.4ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/pdfs/order_pdf.rb:3:in `initialize'
+app/controllers/orders_controller.rb:14:in `new'
+app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:21:16 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.4ms)
+Completed 200 OK in 146ms (Views: 0.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:24:53 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.8ms)
+Completed 200 OK in 173ms (Views: 0.1ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:31:22 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 36ms (ActiveRecord: 3.6ms)
+
+
+  
+Prawn::Errors::InvalidTableData (data must be a two dimensional array of cellable objects):
+  
+app/pdfs/order_pdf.rb:17:in `line_items'
+app/pdfs/order_pdf.rb:8:in `initialize'
+app/controllers/orders_controller.rb:14:in `new'
+app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:38:20 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 8.0ms)
+
+
+  
+Prawn::Errors::InvalidTableData (data must be a two dimensional array of cellable objects):
+  
+app/pdfs/order_pdf.rb:17:in `line_items'
+app/pdfs/order_pdf.rb:8:in `initialize'
+app/controllers/orders_controller.rb:14:in `new'
+app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-26 07:45:13 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 406 Not Acceptable in 37ms (ActiveRecord: 5.1ms)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:45:16 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.8ms)
+
+
+  
+NameError (undefined local variable or method `product' for #<OrderPdf:0x00007f3bfc6665b8>
+Did you mean?  @product):
+  
+app/pdfs/order_pdf.rb:17:in `line_items'
+app/pdfs/order_pdf.rb:8:in `initialize'
+app/controllers/orders_controller.rb:14:in `new'
+app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
+app/controllers/orders_controller.rb:11:in `show'
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:45:54 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.5ms)
+Completed 200 OK in 91ms (Views: 0.1ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/orders/1" for 127.0.0.1 at 2018-10-26 07:46:54 -0500
+Processing by OrdersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (10.44ms)
+Completed 200 OK in 104ms (Views: 49.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 07:47:01 -0500
+Processing by OrdersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (2.42ms)
+Completed 200 OK in 12ms (Views: 4.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:47:05 -0500
+Processing by OrdersController#show as PDF
+  Parameters: {"id"=>"1"}
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Sent data orders (0.2ms)
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+
+

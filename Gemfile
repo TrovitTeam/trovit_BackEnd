@@ -62,3 +62,7 @@ gem 'knock'
 
 #gem cors for communicating with front
 gem 'rack-cors', require: 'rack/cors' 
+ 
+#gem prawn for PDF report
+gem 'prawn'
+gem 'prawn-table'

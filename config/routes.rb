@@ -124,6 +124,8 @@ Rails.application.routes.draw do
   get 'users/distributors' => 'users#getDistributors'
   get 'users/business_managers' => 'users#getBusinessManagers'
   
+  resources :orders
+
 
   resources :distributors do 
     resources :pictures
@@ -134,7 +136,7 @@ Rails.application.routes.draw do
     resources :orders
     resources :messages
   end
-
+  
   resources :business_managers do
     resources :pictures
     resources :offers
