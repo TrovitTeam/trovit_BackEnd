@@ -1,7 +1,17 @@
-Back End Team:
+# README
 
-- Hernan Caviedes
-- Jose Ramirez
 
-Postman link:
-https://www.getpostman.com/collections/8786bc6653cfba3b1a9c
+Things you may want to cover:
+
+* Ruby version
+
+  2.3.5
+
+* Configuration
+
+  Implementation of the gems will paginate and Annotate 
+
+* Database creation
+
+  Added the parameter password_digest to user
+
