@@ -62,3 +62,9 @@ gem 'knock'
 
 #gem cors for communicating with front
 gem 'rack-cors', require: 'rack/cors' 
+ 
+#gem carrierwave to upload images
+gem 'carrierwave', '~> 1.0'
+
+#gem mini_magick to use image formating in carrierwave
+gem 'mini_magick'
