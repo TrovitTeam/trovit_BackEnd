@@ -13722,13 +13722,8 @@ Completed 200 OK in 14ms (Views: 1.0ms | ActiveRecord: 0.2ms)
 Started GET "/products" for 127.0.0.1 at 2018-09-30 20:22:04 -0500
   
 SyntaxError (/home/jram/Desktop/trovit_BackEnd/trovit-api/config/routes.rb:3: syntax error, unexpected <<
-<<<<<<< HEAD
-  ^
-/home/jram/Desktop/trovit_BackEnd/trovit-api/config/routes.rb:5: syntax error, unexpected ===, expecting keyword_end
-=======
    ^
 /home/jram/Desktop/trovit_BackEnd/trovit-api/config/routes.rb:12: syntax error, unexpected >>, expecting keyword_end
->>>>>>> 38dce5c807ac30b616810ae7e06edfe4f867243d
   ^):
   
 config/routes.rb:3: syntax error, unexpected <<
@@ -42083,1114 +42078,753 @@ Migrating to AddDistrIdProd (20181025162349)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-25 16:32:37.848624"], ["updated_at", "2018-10-25 16:32:37.848624"], ["distributor_id", 10], ["business_manager_id", 10]]
   [1m[35m (69.2ms)[0m  [1m[36mcommit transaction[0m
-Started GET "/" for 127.0.0.1 at 2018-10-25 22:29:49 -0500
+Started GET "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:52:06 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as */*
+  Parameters: {"distributor_id"=>"5", "product"=>{}}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 38ms (ActiveRecord: 1.5ms)
+
+
+  
+NoMethodError (undefined method `books' for #<Distributor:0x0000556b143e62f8>):
+  
+app/controllers/products_controller.rb:6:in `index'
+Started GET "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:54:00 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as */*
+  Parameters: {"distributor_id"=>"5", "product"=>{}}
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."distributor_id" = ?[0m  [["distributor_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 134ms (Views: 75.1ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:58:08 -0500
+Processing by ProductsController#create as */*
+  Parameters: {"product"=>{"price"=>"1000000", "producType"=>"cellphone", "brand"=>"apple", "productName"=>"iphone x", "quantity"=>"20", "description"=>"super expensive phone"}, "distributor_id"=>"5"}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Unpermitted parameters: product, distributor_id
+  [1m[35m (1.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.25ms)
+Completed 422 Unprocessable Entity in 1082ms (Views: 27.2ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:58:36 -0500
+Processing by ProductsController#create as */*
+  Parameters: {"price"=>"1000000", "producType"=>"cellphone", "brand"=>"apple", "productName"=>"iphone x", "quantity"=>"20", "description"=>"super expensive phone", "distributor_id"=>"5", "product"=>{"price"=>"1000000", "producType"=>"cellphone", "brand"=>"apple", "productName"=>"iphone x", "quantity"=>"20", "description"=>"super expensive phone"}}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Unpermitted parameters: distributor_id, product
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 1000000.0], ["producType", "cellphone"], ["brand", "apple"], ["productName", "iphone x"], ["quantity", 20], ["description", "super expensive phone"], ["created_at", "2018-10-25 16:58:36.921082"], ["updated_at", "2018-10-25 16:58:36.921082"], ["distributor_id", 5]]
+  [1m[35m (78.5ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered ProductSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 201 Created in 96ms (Views: 1.2ms | ActiveRecord: 79.4ms)
+
+
+Started GET "/distributors/5/products" for 127.0.0.1 at 2018-10-25 11:58:57 -0500
+Processing by ProductsController#index as */*
+  Parameters: {"distributor_id"=>"5", "product"=>{}}
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" WHERE "distributors"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT "products".* FROM "products" WHERE "products"."distributor_id" = ?[0m  [["distributor_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.82ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/distributors/5/messages" for 127.0.0.1 at 2018-10-26 10:53:15 -0500
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by HomeController#index as HTML
-[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
-Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms)
+Processing by MessagesController#index as */*
+  Parameters: {"distributor_id"=>"5", "message"=>{}}
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.98ms)
+Completed 200 OK in 61ms (Views: 59.5ms | ActiveRecord: 0.8ms)
 
 
-Started GET "/favicon.ico" for 127.0.0.1 at 2018-10-25 22:29:49 -0500
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.5) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
-rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
-railties (5.0.7) lib/rails/engine.rb:522:in `call'
-puma (3.12.0) lib/puma/configuration.rb:225:in `call'
-puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
-puma (3.12.0) lib/puma/server.rb:472:in `process_client'
-puma (3.12.0) lib/puma/server.rb:332:in `block in run'
-puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
-Started GET "/orders" for 127.0.0.1 at 2018-10-25 22:32:04 -0500
-Processing by OrdersController#index as HTML
-  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (64.85ms)
-Completed 200 OK in 244ms (Views: 177.8ms | ActiveRecord: 2.1ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:32:11 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 65ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:32:42 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.6ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data  (0.6ms)
-Completed 500 Internal Server Error in 356ms (Views: 0.2ms | ActiveRecord: 0.6ms)
-
-
-  
-AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
-  
-app/controllers/orders_controller.rb:22:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:33:33 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (5.03ms)
-Completed 406 Not Acceptable in 23ms (Views: 8.1ms | ActiveRecord: 1.4ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:13:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:34:13 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.06ms)
-Completed 200 OK in 21ms (Views: 6.5ms | ActiveRecord: 1.9ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:34:45 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 15ms (ActiveRecord: 2.6ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:14:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:35:09 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data  (0.6ms)
-Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.1ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:35:48 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 12ms (ActiveRecord: 1.5ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:35:49 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:36:04 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (6.3ms)
-Completed 406 Not Acceptable in 23ms (Views: 9.1ms | ActiveRecord: 1.3ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:13:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:36:09 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
-Sent data  (0.5ms)
-Completed 500 Internal Server Error in 6ms (Views: 1.2ms | ActiveRecord: 0.2ms)
-
-
-  
-AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
-  
-app/controllers/orders_controller.rb:17:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:13:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:36:24 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data  (0.2ms)
-Completed 200 OK in 15ms (Views: 0.1ms | ActiveRecord: 1.3ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:36:33 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:37:04 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.7ms)
-Completed 406 Not Acceptable in 22ms (Views: 6.0ms | ActiveRecord: 1.6ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:37:10 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
-Sent data  (0.6ms)
-Completed 500 Internal Server Error in 7ms (Views: 1.1ms | ActiveRecord: 0.2ms)
-
-
-  
-AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
-  
-app/controllers/orders_controller.rb:16:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:37:48 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data  (0.2ms)
-Completed 200 OK in 31ms (Views: 0.1ms | ActiveRecord: 2.2ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:37:51 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.7ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:38:00 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:38:05 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.html" for 127.0.0.1 at 2018-10-25 22:38:14 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:39:08 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 14ms (ActiveRecord: 1.1ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:39:13 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.html" for 127.0.0.1 at 2018-10-25 22:39:24 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 11ms (ActiveRecord: 1.1ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:39:28 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 3ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.html" for 127.0.0.1 at 2018-10-25 22:40:28 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (3.58ms)
-Completed 406 Not Acceptable in 19ms (Views: 5.6ms | ActiveRecord: 1.8ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:40:32 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
-Completed 406 Not Acceptable in 3ms (Views: 1.1ms | ActiveRecord: 0.2ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:40:36 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
-Sent data  (0.2ms)
-Completed 500 Internal Server Error in 7ms (Views: 1.1ms | ActiveRecord: 0.4ms)
-
-
-  
-AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
-  
-app/controllers/orders_controller.rb:17:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:12:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:41:16 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.21ms)
-Completed 406 Not Acceptable in 17ms (Views: 6.4ms | ActiveRecord: 1.1ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:13:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:41:46 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.15ms)
-Completed 200 OK in 18ms (Views: 6.4ms | ActiveRecord: 1.9ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:45:59 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 15ms (ActiveRecord: 1.4ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:46:00 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1,json" for 127.0.0.1 at 2018-10-25 22:46:06 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1,json"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.2ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1,json" for 127.0.0.1 at 2018-10-25 22:48:10 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1,json"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 14ms (ActiveRecord: 1.4ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1,json" for 127.0.0.1 at 2018-10-25 22:48:11 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1,json"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.4ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:48:15 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (7.04ms)
-Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:48:20 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 2ms (ActiveRecord: 0.4ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:48:25 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
-Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:48:55 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.4ms)
-
-
-  
-ArgumentError (too few arguments):
-  
-app/controllers/orders_controller.rb:12:in `format'
-app/controllers/orders_controller.rb:12:in `block in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:49:01 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (4.43ms)
-Completed 200 OK in 20ms (Views: 6.8ms | ActiveRecord: 1.4ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:49:49 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (5.99ms)
-Completed 200 OK in 21ms (Views: 8.3ms | ActiveRecord: 1.3ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:49:56 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 3ms (ActiveRecord: 0.4ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:04 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:06 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 3ms (ActiveRecord: 0.7ms)
-
-
-Started GET "/orders" for 127.0.0.1 at 2018-10-25 22:50:11 -0500
-Processing by OrdersController#index as HTML
-  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.46ms)
-Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.5ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:15 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.9ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 3ms (ActiveRecord: 0.9ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:23 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 2ms (ActiveRecord: 0.3ms)
-
-
-Started GET "/orders" for 127.0.0.1 at 2018-10-25 22:50:50 -0500
-Processing by OrdersController#index as HTML
-  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.81ms)
-Completed 200 OK in 21ms (Views: 14.8ms | ActiveRecord: 1.7ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-25 22:50:54 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
-Completed 200 OK in 3ms (Views: 1.1ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:51:06 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data  (0.4ms)
-Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:51:23 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
-Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:55:00 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data order_1.pdf (0.2ms)
-Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 1.2ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:56:32 -0500
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data order_1.pdf (0.3ms)
-Completed 200 OK in 62ms (Views: 0.1ms | ActiveRecord: 1.1ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-25 22:59:22 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (12.74ms)
-Completed 200 OK in 49ms (Views: 44.8ms | ActiveRecord: 0.7ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:59:38 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data order_1.pdf (0.2ms)
-Completed 200 OK in 5ms (Views: 0.0ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-25 22:59:59 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data order_1.pdf (0.2ms)
-Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 1.6ms)
-
-
-Started GET "/" for 127.0.0.1 at 2018-10-26 06:36:31 -0500
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by HomeController#index as HTML
-[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.66ms)
-Completed 200 OK in 58ms (Views: 56.6ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/favicon.ico" for 127.0.0.1 at 2018-10-26 06:36:32 -0500
-  
-ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
-  
-actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.5) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
-rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
-railties (5.0.7) lib/rails/engine.rb:522:in `call'
-puma (3.12.0) lib/puma/configuration.rb:225:in `call'
-puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
-puma (3.12.0) lib/puma/server.rb:472:in `process_client'
-puma (3.12.0) lib/puma/server.rb:332:in `block in run'
-puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
-Started GET "/orders" for 127.0.0.1 at 2018-10-26 06:36:42 -0500
-Processing by OrdersController#index as HTML
-  [1m[36mOrder Load (15.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (207.61ms)
-Completed 200 OK in 507ms (Views: 403.5ms | ActiveRecord: 18.0ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-26 06:36:48 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 99ms (ActiveRecord: 1.1ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:36:53 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data order_1.pdf (0.5ms)
-Completed 200 OK in 282ms (Views: 0.2ms | ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:37:41 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.3ms)
-Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.7ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:40:53 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 131ms (ActiveRecord: 1.8ms)
-
-
-  
-NameError (undefined local variable or method `bold' for #<OrdersController:0x00007fffc6d7ecb8>):
-  
-app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:41:22 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.7ms)
-Completed 200 OK in 206ms (Views: 0.2ms | ActiveRecord: 1.7ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:41:50 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.3ms)
-Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.3ms)
-
-
-Started PUT "/orders/1" for 127.0.0.1 at 2018-10-26 06:49:51 -0500
-Processing by OrdersController#update as */*
-  Parameters: {"product_id"=>1, "id"=>"1", "order"=>{"product_id"=>1}}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 133ms (ActiveRecord: 2.7ms)
-
-
-  
-NameError (undefined local variable or method `params_offfer' for #<OrdersController:0x00007ff0c0421b58>
-Did you mean?  params_order):
-  
-app/controllers/orders_controller.rb:33:in `update'
-Started PUT "/orders/1" for 127.0.0.1 at 2018-10-26 06:50:25 -0500
-Processing by OrdersController#update as */*
-  Parameters: {"product_id"=>1, "id"=>"1", "order"=>{"product_id"=>1}}
-  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Unpermitted parameters: id, order
-  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
-  [1m[35mSQL (11.9ms)[0m  [1m[33mUPDATE "orders" SET "product_id" = ?, "updated_at" = ? WHERE "orders"."id" = ?[0m  [["product_id", 1], ["updated_at", "2018-10-26 11:50:25.745020"], ["id", 1]]
-  [1m[35m (61.8ms)[0m  [1m[36mcommit transaction[0m
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (13.21ms)
-Completed 200 OK in 139ms (Views: 21.1ms | ActiveRecord: 79.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:55:00 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
-Completed 404 Not Found in 161ms (ActiveRecord: 5.7ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=):
-  
-app/controllers/orders_controller.rb:10:in `show'
-Started GET "/products" for 127.0.0.1 at 2018-10-26 06:55:43 -0500
-Processing by ProductsController#index as HTML
-  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.17ms)
-Completed 200 OK in 34ms (Views: 31.6ms | ActiveRecord: 1.1ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:57:17 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.6ms)
-Completed 200 OK in 63ms (Views: 0.2ms | ActiveRecord: 7.9ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 06:57:45 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
-Completed 404 Not Found in 43ms (ActiveRecord: 5.6ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=):
-  
-app/controllers/orders_controller.rb:10:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:58:30 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
-Completed 404 Not Found in 23ms (ActiveRecord: 2.5ms)
-
-
-  
-ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=):
-  
-app/controllers/orders_controller.rb:10:in `show'
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:58:51 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 28ms (ActiveRecord: 5.4ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:58:53 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 06:59:36 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 1.2ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 07:00:33 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (1.0ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (17.62ms)
-Completed 200 OK in 72ms (Views: 24.1ms | ActiveRecord: 5.3ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 07:01:07 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (10.38ms)
-Completed 200 OK in 83ms (Views: 15.1ms | ActiveRecord: 5.6ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:01:11 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.8ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.7ms)
-Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 1.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:01:11 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.1ms)
-Completed 200 OK in 5ms (Views: 0.0ms | ActiveRecord: 0.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:01:27 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 35ms (ActiveRecord: 2.6ms)
-
-
-  
-NoMethodError (undefined method `name' for #<Product:0x00007ff0bc129d28>):
-  
-app/controllers/orders_controller.rb:16:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/products" for 127.0.0.1 at 2018-10-26 07:02:03 -0500
-Processing by ProductsController#index as HTML
-  [1m[36mProduct Load (1.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
-[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.94ms)
-Completed 200 OK in 36ms (Views: 20.4ms | ActiveRecord: 2.8ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:02:23 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.3ms)
-Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 2.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:02:49 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.4ms)
-Completed 200 OK in 48ms (Views: 0.2ms | ActiveRecord: 3.7ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:03:05 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.3ms)
-Completed 200 OK in 36ms (Views: 0.1ms | ActiveRecord: 2.4ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:05:04 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.4ms)
-Completed 200 OK in 33ms (Views: 0.1ms | ActiveRecord: 2.5ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:09:35 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (1.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 52ms (ActiveRecord: 4.6ms)
-
-
-  
-Prawn::Errors::InvalidTableData (data must be a two dimensional array of cellable objects):
-  
-app/controllers/orders_controller.rb:25:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:20:52 -0500
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 76ms (ActiveRecord: 3.4ms)
-
-
-  
-ArgumentError (wrong number of arguments (given 0, expected 1)):
-  
-app/pdfs/order_pdf.rb:3:in `initialize'
-app/controllers/orders_controller.rb:14:in `new'
-app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:21:16 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.5ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.4ms)
-Completed 200 OK in 146ms (Views: 0.1ms | ActiveRecord: 5.1ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:24:53 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.8ms)
-Completed 200 OK in 173ms (Views: 0.1ms | ActiveRecord: 10.9ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:31:22 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 36ms (ActiveRecord: 3.6ms)
-
-
-  
-Prawn::Errors::InvalidTableData (data must be a two dimensional array of cellable objects):
-  
-app/pdfs/order_pdf.rb:17:in `line_items'
-app/pdfs/order_pdf.rb:8:in `initialize'
-app/controllers/orders_controller.rb:14:in `new'
-app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:38:20 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 69ms (ActiveRecord: 8.0ms)
-
-
-  
-Prawn::Errors::InvalidTableData (data must be a two dimensional array of cellable objects):
-  
-app/pdfs/order_pdf.rb:17:in `line_items'
-app/pdfs/order_pdf.rb:8:in `initialize'
-app/controllers/orders_controller.rb:14:in `new'
-app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-26 07:45:13 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 406 Not Acceptable in 37ms (ActiveRecord: 5.1ms)
-
-
-  
-ActionController::UnknownFormat (ActionController::UnknownFormat):
-  
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:45:16 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.8ms)
-
-
-  
-NameError (undefined local variable or method `product' for #<OrderPdf:0x00007f3bfc6665b8>
-Did you mean?  @product):
-  
-app/pdfs/order_pdf.rb:17:in `line_items'
-app/pdfs/order_pdf.rb:8:in `initialize'
-app/controllers/orders_controller.rb:14:in `new'
-app/controllers/orders_controller.rb:14:in `block (2 levels) in show'
-app/controllers/orders_controller.rb:11:in `show'
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:45:54 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.7ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.7ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.5ms)
-Completed 200 OK in 91ms (Views: 0.1ms | ActiveRecord: 6.7ms)
-
-
-Started GET "/orders/1" for 127.0.0.1 at 2018-10-26 07:46:54 -0500
-Processing by OrdersController#show as HTML
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.4ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.4ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (10.44ms)
-Completed 200 OK in 104ms (Views: 49.8ms | ActiveRecord: 4.7ms)
-
-
-Started GET "/orders/1.json" for 127.0.0.1 at 2018-10-26 07:47:01 -0500
-Processing by OrdersController#show as JSON
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.8ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.6ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-[active_model_serializers] Rendered OrderSerializer with ActiveModelSerializers::Adapter::Attributes (2.42ms)
-Completed 200 OK in 12ms (Views: 4.2ms | ActiveRecord: 1.3ms)
-
-
-Started GET "/orders/1.pdf" for 127.0.0.1 at 2018-10-26 07:47:05 -0500
-Processing by OrdersController#show as PDF
-  Parameters: {"id"=>"1"}
-  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" WHERE "orders"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
-Sent data orders (0.2ms)
-Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.5ms)
-
-
-  [1m[36mOrder Load (2.3ms)[0m  [1m[34mSELECT "orders".* FROM "orders"[0m
-Started GET "/companies/2" for 127.0.0.1 at 2018-10-27 18:33:27 -0500
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  
-SyntaxError (/home/jram/Desktop/trovit_BackEnd/app/controllers/companies_controller.rb:60: syntax error, unexpected end-of-input, expecting keyword_end):
-  
-app/controllers/companies_controller.rb:60: syntax error, unexpected end-of-input, expecting keyword_end
-Started GET "/companies/2" for 127.0.0.1 at 2018-10-27 18:35:26 -0500
-Processing by CompaniesController#show as */*
-  Parameters: {"id"=>"2", "company"=>{}}
-  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.71ms)
-Sent data company.pdf (0.3ms)
-Completed 500 Internal Server Error in 194ms (Views: 35.9ms | ActiveRecord: 1.3ms)
-
-
-  
-AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
-  
-app/controllers/companies_controller.rb:14:in `block (2 levels) in show'
-app/controllers/companies_controller.rb:10:in `show'
-Started GET "/companies/2" for 127.0.0.1 at 2018-10-27 18:36:49 -0500
-Processing by CompaniesController#show as */*
-  Parameters: {"id"=>"2", "company"=>{}}
-  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-Completed 500 Internal Server Error in 106ms (ActiveRecord: 1.6ms)
-
-
-  
-NameError (undefined local variable or method `order' for #<CompaniesController:0x0000565352d79eb0>
-Did you mean?  order_url):
-  
-app/controllers/companies_controller.rb:11:in `block (2 levels) in show'
-app/controllers/companies_controller.rb:10:in `show'
-Started GET "/companies/2" for 127.0.0.1 at 2018-10-27 18:37:00 -0500
-Processing by CompaniesController#show as */*
-  Parameters: {"id"=>"2", "company"=>{}}
-  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.24ms)
-Completed 200 OK in 11ms (Views: 2.0ms | ActiveRecord: 1.8ms)
-
-
-Started GET "/companies/2/company.pdf" for 127.0.0.1 at 2018-10-27 18:37:55 -0500
-  
-ActionController::RoutingError (No route matches [GET] "/companies/2/company.pdf"):
-  
-actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.5) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
-rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
-railties (5.0.7) lib/rails/engine.rb:522:in `call'
-puma (3.12.0) lib/puma/configuration.rb:225:in `call'
-puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
-puma (3.12.0) lib/puma/server.rb:472:in `process_client'
-puma (3.12.0) lib/puma/server.rb:332:in `block in run'
-puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
-Started GET "/company.pdf" for 127.0.0.1 at 2018-10-27 18:39:08 -0500
-  
-ActionController::RoutingError (No route matches [GET] "/company.pdf"):
-  
-actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.5) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
-rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
-railties (5.0.7) lib/rails/engine.rb:522:in `call'
-puma (3.12.0) lib/puma/configuration.rb:225:in `call'
-puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
-puma (3.12.0) lib/puma/server.rb:472:in `process_client'
-puma (3.12.0) lib/puma/server.rb:332:in `block in run'
-puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
-Started GET "/companies/2/company.pdf" for 127.0.0.1 at 2018-10-27 18:39:31 -0500
-  
-ActionController::RoutingError (No route matches [GET] "/companies/2/company.pdf"):
-  
-actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
-railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.5) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
-rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
-railties (5.0.7) lib/rails/engine.rb:522:in `call'
-puma (3.12.0) lib/puma/configuration.rb:225:in `call'
-puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
-puma (3.12.0) lib/puma/server.rb:472:in `process_client'
-puma (3.12.0) lib/puma/server.rb:332:in `block in run'
-puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
-Started GET "/companies/2" for 127.0.0.1 at 2018-10-27 18:42:09 -0500
-Processing by CompaniesController#show as */*
-  Parameters: {"id"=>"2", "company"=>{}}
-  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.44ms)
-Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.4ms)
-
-
-Started GET "/companies/2.pdf" for 127.0.0.1 at 2018-10-27 18:42:23 -0500
-Processing by CompaniesController#show as PDF
-  Parameters: {"id"=>"2", "company"=>{}}
-  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-Sent data company.pdf (0.3ms)
-Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.2ms)
-
-
-Started GET "/companies/2.pdf" for 127.0.0.1 at 2018-10-27 18:44:44 -0500
-Processing by CompaniesController#show as PDF
-  Parameters: {"id"=>"2", "company"=>{}}
-  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
-Sent data company.pdf (0.3ms)
-Completed 200 OK in 14ms (Views: 0.1ms | ActiveRecord: 1.5ms)
-
-
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (120.5ms)[0m  [1m[35mCREATE TABLE "business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "company_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (109.1ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_company_id" ON "business_managers" ("company_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+[0m
+  [1m[35m (136.5ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_user_id" ON "business_managers" ("user_id")[0m
+  [1m[35m (86.0ms)[0m  [1m[35mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "companyType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (99.9ms)[0m  [1m[35mCREATE TABLE "distributor_has_business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (99.2ms)[0m  [1m[35mCREATE  INDEX "index_business_manager_id" ON "distributor_has_business_managers" ("business_manager_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_manager_id' AND type='index'
+[0m
+  [1m[35m (99.4ms)[0m  [1m[35mCREATE  INDEX "index_distributor_has_business_managers_on_distributor_id" ON "distributor_has_business_managers" ("distributor_id")[0m
+  [1m[35m (122.3ms)[0m  [1m[35mCREATE TABLE "distributors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  [1m[35m (110.0ms)[0m  [1m[35mCREATE  INDEX "index_distributors_on_user_id" ON "distributors" ("user_id")[0m
+  [1m[35m (98.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (110.4ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_business_manager_id" ON "messages" ("business_manager_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (110.0ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_distributor_id" ON "messages" ("distributor_id")[0m
+  [1m[35m (120.6ms)[0m  [1m[35mCREATE TABLE "offers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "message_id" integer, "product_id" integer, "distributor_id" integer)[0m
+  [1m[35m (101.3ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_distributor_id" ON "offers" ("distributor_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (96.0ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_message_id" ON "offers" ("message_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (119.6ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_product_id" ON "offers" ("product_id")[0m
+  [1m[35m (93.3ms)[0m  [1m[35mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "product_id" integer, "message_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (107.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_business_manager_id" ON "orders" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (109.1ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_message_id" ON "orders" ("message_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (121.4ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_product_id" ON "orders" ("product_id")[0m
+  [1m[35m (109.8ms)[0m  [1m[35mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pictureType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "pictureUrl" varchar, "imageable_type" varchar, "imageable_id" integer)[0m
+  [1m[35m (112.3ms)[0m  [1m[35mCREATE  INDEX "index_pictures_on_imageable_type_and_imageable_id" ON "pictures" ("imageable_type", "imageable_id")[0m
+  [1m[35m (110.3ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" float, "producType" varchar, "brand" varchar, "productName" varchar, "quantity" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer)[0m
+  [1m[35m (107.7ms)[0m  [1m[35mCREATE  INDEX "index_products_on_distributor_id" ON "products" ("distributor_id")[0m
+  [1m[35m (109.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "email" varchar NOT NULL, "phone" integer, "userType" varchar DEFAULT 'distributor' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar)[0m
+  [1m[35m (111.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (79.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181025162349)[0m
+  [1m[35m (104.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180930031429),
+(20180930031439),
+(20180930031608),
+(20180930031312),
+(20180930031450),
+(20181005161423),
+(20180930031300),
+(20180930192356),
+(20181009153912),
+(20180930031501),
+(20180930031417),
+(20181025162052),
+(20180930031443),
+(20181025145524),
+(20180930031028),
+(20181005154320),
+(20180930031612);
+
+[0m
+  [1m[35m (112.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (8.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-27 23:53:15.914783"], ["updated_at", "2018-10-27 23:53:15.914783"]]
+  [1m[35m (68.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (99.0ms)[0m  [1m[35mCREATE TABLE "business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "company_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (109.3ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_company_id" ON "business_managers" ("company_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+[0m
+  [1m[35m (123.7ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_user_id" ON "business_managers" ("user_id")[0m
+  [1m[35m (79.3ms)[0m  [1m[35mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "companyType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (96.1ms)[0m  [1m[35mCREATE TABLE "distributor_has_business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (99.1ms)[0m  [1m[35mCREATE  INDEX "index_business_manager_id" ON "distributor_has_business_managers" ("business_manager_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_manager_id' AND type='index'
+[0m
+  [1m[35m (99.2ms)[0m  [1m[35mCREATE  INDEX "index_distributor_has_business_managers_on_distributor_id" ON "distributor_has_business_managers" ("distributor_id")[0m
+  [1m[35m (110.5ms)[0m  [1m[35mCREATE TABLE "distributors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  [1m[35m (121.1ms)[0m  [1m[35mCREATE  INDEX "index_distributors_on_user_id" ON "distributors" ("user_id")[0m
+  [1m[35m (109.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (101.3ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_business_manager_id" ON "messages" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (98.1ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_distributor_id" ON "messages" ("distributor_id")[0m
+  [1m[35m (121.8ms)[0m  [1m[35mCREATE TABLE "offers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "message_id" integer, "product_id" integer, "distributor_id" integer)[0m
+  [1m[35m (99.2ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_distributor_id" ON "offers" ("distributor_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (109.6ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_message_id" ON "offers" ("message_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (134.1ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_product_id" ON "offers" ("product_id")[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "product_id" integer, "message_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (109.6ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_business_manager_id" ON "orders" ("business_manager_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (109.8ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_message_id" ON "orders" ("message_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (110.1ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_product_id" ON "orders" ("product_id")[0m
+  [1m[35m (153.4ms)[0m  [1m[35mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pictureType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "pictureUrl" varchar, "imageable_type" varchar, "imageable_id" integer)[0m
+  [1m[35m (90.7ms)[0m  [1m[35mCREATE  INDEX "index_pictures_on_imageable_type_and_imageable_id" ON "pictures" ("imageable_type", "imageable_id")[0m
+  [1m[35m (105.7ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" float, "producType" varchar, "brand" varchar, "productName" varchar, "quantity" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer)[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE  INDEX "index_products_on_distributor_id" ON "products" ("distributor_id")[0m
+  [1m[35m (110.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "email" varchar NOT NULL, "phone" integer, "userType" varchar DEFAULT 'distributor' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar)[0m
+  [1m[35m (109.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (88.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181025162349)[0m
+  [1m[35m (88.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180930031429),
+(20180930031439),
+(20180930031608),
+(20180930031312),
+(20180930031450),
+(20181005161423),
+(20180930031300),
+(20180930192356),
+(20181009153912),
+(20180930031501),
+(20180930031417),
+(20181025162052),
+(20180930031443),
+(20181025145524),
+(20180930031028),
+(20181005154320),
+(20180930031612);
+
+[0m
+  [1m[35m (132.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-27 23:53:19.194635"], ["updated_at", "2018-10-27 23:53:19.194635"]]
+  [1m[35m (61.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-10-27 23:53:19.261204"], ["key", "environment"]]
+  [1m[35m (71.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kuhic, Denesik and Cormier"], ["location", "876 Beer Forge"], ["companyType", "Computer Networking"], ["created_at", "2018-10-27 23:53:20.324595"], ["updated_at", "2018-10-27 23:53:20.324595"]]
+  [1m[35m (70.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 1727851], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tamekadouglas@jones.org"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "tamekadouglas@jones.org"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jackqueline Auer"], ["location", "860 Eliza Throughway"], ["email", "tamekadouglas@jones.org"], ["phone", 1727851], ["userType", "sit voluptas"], ["created_at", "2018-10-27 23:53:20.537646"], ["updated_at", "2018-10-27 23:53:20.537646"], ["password_digest", "$2a$10$gtQrHdTiSbnRFZdmOAcbVeD2Dq1ltblV1todzxxmx/sZnG3OkOVCC"]]
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:20.641079"], ["updated_at", "2018-10-27 23:53:20.641079"], ["user_id", 1], ["company_id", 1]]
+  [1m[35m (70.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:20.728081"], ["updated_at", "2018-10-27 23:53:20.728081"], ["user_id", 1]]
+  [1m[35m (96.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3274.056390007714], ["producType", "ullam assumenda"], ["brand", "reprehenderit non"], ["productName", "ab voluptatem"], ["quantity", 0], ["description", "default description"], ["created_at", "2018-10-27 23:53:20.845843"], ["updated_at", "2018-10-27 23:53:20.845843"], ["distributor_id", 1]]
+  [1m[35m (109.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 7], ["created_at", "2018-10-27 23:53:20.969475"], ["updated_at", "2018-10-27 23:53:20.969475"]]
+  [1m[35m (110.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.3ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 5], ["created_at", "2018-10-27 23:53:21.099306"], ["updated_at", "2018-10-27 23:53:21.099306"]]
+  [1m[35m (106.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "velit aperiam"], ["created_at", "2018-10-27 23:53:21.225624"], ["updated_at", "2018-10-27 23:53:21.225624"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (101.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:21.346972"], ["updated_at", "2018-10-27 23:53:21.346972"], ["distributor_id", 1], ["business_manager_id", 1]]
+  [1m[35m (103.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:21.461551"], ["updated_at", "2018-10-27 23:53:21.461551"], ["distributor_id", 1], ["business_manager_id", 1]]
+  [1m[35m (55.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kuphal-Becker"], ["location", "1051 Morissette Squares"], ["companyType", "Judiciary"], ["created_at", "2018-10-27 23:53:21.522579"], ["updated_at", "2018-10-27 23:53:21.522579"]]
+  [1m[35m (93.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 7602318], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janean@dooley.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janean@dooley.io"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Fanny Terry"], ["location", "4636 Fadel Station"], ["email", "janean@dooley.io"], ["phone", 7602318], ["userType", "voluptatem impedit"], ["created_at", "2018-10-27 23:53:21.709065"], ["updated_at", "2018-10-27 23:53:21.709065"], ["password_digest", "$2a$10$GfMjz7EsnkNh.M1c/cvRD.kbQyMTB6NQkjdpa2rF08g57KvYUm9Kq"]]
+  [1m[35m (100.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:21.813830"], ["updated_at", "2018-10-27 23:53:21.813830"], ["user_id", 2], ["company_id", 2]]
+  [1m[35m (85.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:21.904036"], ["updated_at", "2018-10-27 23:53:21.904036"], ["user_id", 2]]
+  [1m[35m (84.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3380.979840285339], ["producType", "autem quidem"], ["brand", "tempora consequatur"], ["productName", "voluptatem aut"], ["quantity", 5], ["description", "default description"], ["created_at", "2018-10-27 23:53:21.994806"], ["updated_at", "2018-10-27 23:53:21.994806"], ["distributor_id", 2]]
+  [1m[35m (91.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-27 23:53:22.092046"], ["updated_at", "2018-10-27 23:53:22.092046"]]
+  [1m[35m (94.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 6], ["created_at", "2018-10-27 23:53:22.191114"], ["updated_at", "2018-10-27 23:53:22.191114"]]
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "laudantium modi"], ["created_at", "2018-10-27 23:53:22.291726"], ["updated_at", "2018-10-27 23:53:22.291726"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (110.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:22.407046"], ["updated_at", "2018-10-27 23:53:22.407046"], ["distributor_id", 2], ["business_manager_id", 2]]
+  [1m[35m (86.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:22.498021"], ["updated_at", "2018-10-27 23:53:22.498021"], ["distributor_id", 2], ["business_manager_id", 2]]
+  [1m[35m (83.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Dibbert Inc"], ["location", "1775 Lara Corners"], ["companyType", "Individual & Family Services"], ["created_at", "2018-10-27 23:53:22.586846"], ["updated_at", "2018-10-27 23:53:22.586846"]]
+  [1m[35m (83.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 2154418], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "agnuskirlin@lockman.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "agnuskirlin@lockman.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gilbert Ratke"], ["location", "822 Corkery Union"], ["email", "agnuskirlin@lockman.info"], ["phone", 2154418], ["userType", "commodi aut"], ["created_at", "2018-10-27 23:53:22.771549"], ["updated_at", "2018-10-27 23:53:22.771549"], ["password_digest", "$2a$10$Wnd0WPR3kgLGznDDQbFibe02FAy8Faxs1mgkZnyiR1bn3kVvjgS3i"]]
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:22.863854"], ["updated_at", "2018-10-27 23:53:22.863854"], ["user_id", 3], ["company_id", 3]]
+  [1m[35m (95.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:22.962976"], ["updated_at", "2018-10-27 23:53:22.962976"], ["user_id", 3]]
+  [1m[35m (84.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3994.7002441291843], ["producType", "qui voluptatum"], ["brand", "hic molestiae"], ["productName", "et mollitia"], ["quantity", 2], ["description", "default description"], ["created_at", "2018-10-27 23:53:23.052699"], ["updated_at", "2018-10-27 23:53:23.052699"], ["distributor_id", 3]]
+  [1m[35m (105.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 8], ["created_at", "2018-10-27 23:53:23.162687"], ["updated_at", "2018-10-27 23:53:23.162687"]]
+  [1m[35m (203.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.3ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 5], ["created_at", "2018-10-27 23:53:23.373287"], ["updated_at", "2018-10-27 23:53:23.373287"]]
+  [1m[35m (95.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "omnis et"], ["created_at", "2018-10-27 23:53:23.474011"], ["updated_at", "2018-10-27 23:53:23.474011"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (88.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:23.566580"], ["updated_at", "2018-10-27 23:53:23.566580"], ["distributor_id", 3], ["business_manager_id", 3]]
+  [1m[35m (79.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:23.652132"], ["updated_at", "2018-10-27 23:53:23.652132"], ["distributor_id", 3], ["business_manager_id", 3]]
+  [1m[35m (94.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hane, Hickle and Green"], ["location", "3800 Cronin Shores"], ["companyType", "International Affairs"], ["created_at", "2018-10-27 23:53:23.751634"], ["updated_at", "2018-10-27 23:53:23.751634"]]
+  [1m[35m (94.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 1794678], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yeeniablock@moen.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "yeeniablock@moen.io"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Miss Annamae Hayes"], ["location", "20257 Harley Road"], ["email", "yeeniablock@moen.io"], ["phone", 1794678], ["userType", "qui non"], ["created_at", "2018-10-27 23:53:23.945375"], ["updated_at", "2018-10-27 23:53:23.945375"], ["password_digest", "$2a$10$9Q494hODqbCp8XcscCDEguP9jyYhoXvIxKEMHznyiNBkojAXi34VS"]]
+  [1m[35m (93.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:24.044659"], ["updated_at", "2018-10-27 23:53:24.044659"], ["user_id", 4], ["company_id", 4]]
+  [1m[35m (89.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:24.139956"], ["updated_at", "2018-10-27 23:53:24.139956"], ["user_id", 4]]
+  [1m[35m (83.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 392.6253658188571], ["producType", "natus aliquid"], ["brand", "officiis in"], ["productName", "enim quod"], ["quantity", 7], ["description", "default description"], ["created_at", "2018-10-27 23:53:24.229264"], ["updated_at", "2018-10-27 23:53:24.229264"], ["distributor_id", 4]]
+  [1m[35m (106.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 6], ["created_at", "2018-10-27 23:53:24.339250"], ["updated_at", "2018-10-27 23:53:24.339250"]]
+  [1m[35m (107.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 2], ["created_at", "2018-10-27 23:53:24.450966"], ["updated_at", "2018-10-27 23:53:24.450966"]]
+  [1m[35m (82.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "libero consequatur"], ["created_at", "2018-10-27 23:53:24.538614"], ["updated_at", "2018-10-27 23:53:24.538614"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (100.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:24.643506"], ["updated_at", "2018-10-27 23:53:24.643506"], ["distributor_id", 4], ["business_manager_id", 4]]
+  [1m[35m (80.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:24.727986"], ["updated_at", "2018-10-27 23:53:24.727986"], ["distributor_id", 4], ["business_manager_id", 4]]
+  [1m[35m (94.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "McGlynn LLC"], ["location", "66390 Reinger Throughway"], ["companyType", "Ranching"], ["created_at", "2018-10-27 23:53:24.827361"], ["updated_at", "2018-10-27 23:53:24.827361"]]
+  [1m[35m (95.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 4145469], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joane@schmitt.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "joane@schmitt.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mariano Hammes DVM"], ["location", "1892 Heller Junction"], ["email", "joane@schmitt.net"], ["phone", 4145469], ["userType", "eaque modi"], ["created_at", "2018-10-27 23:53:25.023569"], ["updated_at", "2018-10-27 23:53:25.023569"], ["password_digest", "$2a$10$yJnLQ6mUxfW.go3D2//loOOhqHTWZ95.9QkapRQIbHEkbuDjgNlCW"]]
+  [1m[35m (121.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:25.149343"], ["updated_at", "2018-10-27 23:53:25.149343"], ["user_id", 5], ["company_id", 5]]
+  [1m[35m (82.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:25.238539"], ["updated_at", "2018-10-27 23:53:25.238539"], ["user_id", 5]]
+  [1m[35m (95.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3055.492315178888], ["producType", "debitis tenetur"], ["brand", "consequatur fugiat"], ["productName", "sit magni"], ["quantity", 4], ["description", "default description"], ["created_at", "2018-10-27 23:53:25.339244"], ["updated_at", "2018-10-27 23:53:25.339244"], ["distributor_id", 5]]
+  [1m[35m (104.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-27 23:53:25.449762"], ["updated_at", "2018-10-27 23:53:25.449762"]]
+  [1m[35m (117.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 4], ["created_at", "2018-10-27 23:53:25.571447"], ["updated_at", "2018-10-27 23:53:25.571447"]]
+  [1m[35m (94.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "odio ratione"], ["created_at", "2018-10-27 23:53:25.671150"], ["updated_at", "2018-10-27 23:53:25.671150"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (98.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:25.774972"], ["updated_at", "2018-10-27 23:53:25.774972"], ["distributor_id", 5], ["business_manager_id", 5]]
+  [1m[35m (113.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:25.892488"], ["updated_at", "2018-10-27 23:53:25.892488"], ["distributor_id", 5], ["business_manager_id", 5]]
+  [1m[35m (73.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Conn, Jerde and Crona"], ["location", "257 Wilkinson Streets"], ["companyType", "Luxury Goods & Jewelry"], ["created_at", "2018-10-27 23:53:25.970801"], ["updated_at", "2018-10-27 23:53:25.970801"]]
+  [1m[35m (72.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 3240062], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shilohbarrows@wehner.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "shilohbarrows@wehner.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mr. Dedra Waters"], ["location", "343 Ferry Alley"], ["email", "shilohbarrows@wehner.net"], ["phone", 3240062], ["userType", "omnis nemo"], ["created_at", "2018-10-27 23:53:26.140542"], ["updated_at", "2018-10-27 23:53:26.140542"], ["password_digest", "$2a$10$65G1MRyzM3XQvnM1Q5sBFeb37N0YWEn9zJ48nqUdAIAiULbAaSpl."]]
+  [1m[35m (112.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:26.258649"], ["updated_at", "2018-10-27 23:53:26.258649"], ["user_id", 6], ["company_id", 6]]
+  [1m[35m (85.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:26.347409"], ["updated_at", "2018-10-27 23:53:26.347409"], ["user_id", 6]]
+  [1m[35m (78.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 297.4367532281213], ["producType", "ad aut"], ["brand", "natus veniam"], ["productName", "debitis temporibus"], ["quantity", 3], ["description", "default description"], ["created_at", "2018-10-27 23:53:26.431330"], ["updated_at", "2018-10-27 23:53:26.431330"], ["distributor_id", 6]]
+  [1m[35m (99.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 2], ["created_at", "2018-10-27 23:53:26.535639"], ["updated_at", "2018-10-27 23:53:26.535639"]]
+  [1m[35m (104.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 7], ["created_at", "2018-10-27 23:53:26.644585"], ["updated_at", "2018-10-27 23:53:26.644585"]]
+  [1m[35m (61.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "iusto nesciunt"], ["created_at", "2018-10-27 23:53:26.715153"], ["updated_at", "2018-10-27 23:53:26.715153"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (96.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:26.818576"], ["updated_at", "2018-10-27 23:53:26.818576"], ["distributor_id", 6], ["business_manager_id", 6]]
+  [1m[35m (118.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:26.941993"], ["updated_at", "2018-10-27 23:53:26.941993"], ["distributor_id", 6], ["business_manager_id", 6]]
+  [1m[35m (88.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Jaskolski-Klein"], ["location", "66883 Rowe Pines"], ["companyType", "Sporting Goods"], ["created_at", "2018-10-27 23:53:27.034984"], ["updated_at", "2018-10-27 23:53:27.034984"]]
+  [1m[35m (97.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 3914254], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sherice@klocko.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "sherice@klocko.info"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Christel O'Connell"], ["location", "1801 Jewel Plain"], ["email", "sherice@klocko.info"], ["phone", 3914254], ["userType", "quidem architecto"], ["created_at", "2018-10-27 23:53:27.231195"], ["updated_at", "2018-10-27 23:53:27.231195"], ["password_digest", "$2a$10$1Lgsh05zlxXb2vMTV1mWne/DokabHkfkyN5TdIR3nkI8GfXjR7Sle"]]
+  [1m[35m (103.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:27.339845"], ["updated_at", "2018-10-27 23:53:27.339845"], ["user_id", 7], ["company_id", 7]]
+  [1m[35m (143.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:27.488008"], ["updated_at", "2018-10-27 23:53:27.488008"], ["user_id", 7]]
+  [1m[35m (108.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 1639.645498850648], ["producType", "est debitis"], ["brand", "officiis nihil"], ["productName", "et unde"], ["quantity", 2], ["description", "default description"], ["created_at", "2018-10-27 23:53:27.601580"], ["updated_at", "2018-10-27 23:53:27.601580"], ["distributor_id", 7]]
+  [1m[35m (96.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 9], ["created_at", "2018-10-27 23:53:27.702517"], ["updated_at", "2018-10-27 23:53:27.702517"]]
+  [1m[35m (104.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-27 23:53:27.812230"], ["updated_at", "2018-10-27 23:53:27.812230"]]
+  [1m[35m (94.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "asperiores autem"], ["created_at", "2018-10-27 23:53:27.912238"], ["updated_at", "2018-10-27 23:53:27.912238"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (98.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:28.016333"], ["updated_at", "2018-10-27 23:53:28.016333"], ["distributor_id", 7], ["business_manager_id", 7]]
+  [1m[35m (79.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:28.100739"], ["updated_at", "2018-10-27 23:53:28.100739"], ["distributor_id", 7], ["business_manager_id", 7]]
+  [1m[35m (95.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Becker, Block and Dickinson"], ["location", "9976 Antione Tunnel"], ["companyType", "Online Media"], ["created_at", "2018-10-27 23:53:28.201446"], ["updated_at", "2018-10-27 23:53:28.201446"]]
+  [1m[35m (93.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 3247962], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "odell@konopelskibartoletti.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "odell@konopelskibartoletti.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Josh Stamm"], ["location", "725 Loraine Lane"], ["email", "odell@konopelskibartoletti.info"], ["phone", 3247962], ["userType", "voluptatibus nihil"], ["created_at", "2018-10-27 23:53:28.398875"], ["updated_at", "2018-10-27 23:53:28.398875"], ["password_digest", "$2a$10$HcgNw70M.kjTjFrOgaSjr.lX.7QFBaFYaEUX/vsT7CQJHMwpu7y6y"]]
+  [1m[35m (111.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:28.515319"], ["updated_at", "2018-10-27 23:53:28.515319"], ["user_id", 8], ["company_id", 8]]
+  [1m[35m (80.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:28.599749"], ["updated_at", "2018-10-27 23:53:28.599749"], ["user_id", 8]]
+  [1m[35m (84.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 2218.15605051896], ["producType", "repellat nulla"], ["brand", "possimus qui"], ["productName", "commodi error"], ["quantity", 8], ["description", "default description"], ["created_at", "2018-10-27 23:53:28.690059"], ["updated_at", "2018-10-27 23:53:28.690059"], ["distributor_id", 8]]
+  [1m[35m (120.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 2], ["created_at", "2018-10-27 23:53:28.815541"], ["updated_at", "2018-10-27 23:53:28.815541"]]
+  [1m[35m (90.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 8], ["created_at", "2018-10-27 23:53:28.911218"], ["updated_at", "2018-10-27 23:53:28.911218"]]
+  [1m[35m (98.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "quaerat sit"], ["created_at", "2018-10-27 23:53:29.015121"], ["updated_at", "2018-10-27 23:53:29.015121"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (95.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.1ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:29.114918"], ["updated_at", "2018-10-27 23:53:29.114918"], ["distributor_id", 8], ["business_manager_id", 8]]
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.3ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:29.216012"], ["updated_at", "2018-10-27 23:53:29.216012"], ["distributor_id", 8], ["business_manager_id", 8]]
+  [1m[35m (89.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Wolff Inc"], ["location", "423 Morar Track"], ["companyType", "Consumer Electronics"], ["created_at", "2018-10-27 23:53:29.309759"], ["updated_at", "2018-10-27 23:53:29.309759"]]
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 2350175], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "faustoconnelly@purdy.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "faustoconnelly@purdy.info"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Shane Sporer"], ["location", "521 Crona Underpass"], ["email", "faustoconnelly@purdy.info"], ["phone", 2350175], ["userType", "expedita cumque"], ["created_at", "2018-10-27 23:53:29.495565"], ["updated_at", "2018-10-27 23:53:29.495565"], ["password_digest", "$2a$10$2jpJ5dbg9Ji0quaxXcYuQ./6CS1FOUgRlVw09qtiOkC1zs5EkbgqW"]]
+  [1m[35m (102.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:29.602401"], ["updated_at", "2018-10-27 23:53:29.602401"], ["user_id", 9], ["company_id", 9]]
+  [1m[35m (77.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:29.686808"], ["updated_at", "2018-10-27 23:53:29.686808"], ["user_id", 9]]
+  [1m[35m (83.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 961.937052307794], ["producType", "voluptatem qui"], ["brand", "perferendis assumenda"], ["productName", "velit magnam"], ["quantity", 7], ["description", "default description"], ["created_at", "2018-10-27 23:53:29.777063"], ["updated_at", "2018-10-27 23:53:29.777063"], ["distributor_id", 9]]
+  [1m[35m (97.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 3], ["created_at", "2018-10-27 23:53:29.879812"], ["updated_at", "2018-10-27 23:53:29.879812"]]
+  [1m[35m (98.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 8], ["created_at", "2018-10-27 23:53:29.981708"], ["updated_at", "2018-10-27 23:53:29.981708"]]
+  [1m[35m (105.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "quidem enim"], ["created_at", "2018-10-27 23:53:30.090833"], ["updated_at", "2018-10-27 23:53:30.090833"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (83.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:30.179344"], ["updated_at", "2018-10-27 23:53:30.179344"], ["distributor_id", 9], ["business_manager_id", 9]]
+  [1m[35m (91.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:30.275551"], ["updated_at", "2018-10-27 23:53:30.275551"], ["distributor_id", 9], ["business_manager_id", 9]]
+  [1m[35m (95.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Romaguera, Predovic and Steuber"], ["location", "813 Quitzon Camp"], ["companyType", "Gambling & Casinos"], ["created_at", "2018-10-27 23:53:30.374961"], ["updated_at", "2018-10-27 23:53:30.374961"]]
+  [1m[35m (95.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 6320114], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "antonio@feest.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "antonio@feest.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Bobbie Fritsch IV"], ["location", "2087 Soraya Route"], ["email", "antonio@feest.info"], ["phone", 6320114], ["userType", "accusamus ut"], ["created_at", "2018-10-27 23:53:30.573133"], ["updated_at", "2018-10-27 23:53:30.573133"], ["password_digest", "$2a$10$46gkEjNYzjj3ZFeIn74h7O66PU3/Z1fpdqWG.W9rlW0C9b4qbttcu"]]
+  [1m[35m (97.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:30.678667"], ["updated_at", "2018-10-27 23:53:30.678667"], ["user_id", 10], ["company_id", 10]]
+  [1m[35m (91.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:30.773785"], ["updated_at", "2018-10-27 23:53:30.773785"], ["user_id", 10]]
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 89.96020806962228], ["producType", "corporis rerum"], ["brand", "amet rerum"], ["productName", "quas molestias"], ["quantity", 9], ["description", "default description"], ["created_at", "2018-10-27 23:53:30.865505"], ["updated_at", "2018-10-27 23:53:30.865505"], ["distributor_id", 10]]
+  [1m[35m (91.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 8], ["created_at", "2018-10-27 23:53:30.961953"], ["updated_at", "2018-10-27 23:53:30.961953"]]
+  [1m[35m (96.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 5], ["created_at", "2018-10-27 23:53:31.063402"], ["updated_at", "2018-10-27 23:53:31.063402"]]
+  [1m[35m (83.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "a vero"], ["created_at", "2018-10-27 23:53:31.151325"], ["updated_at", "2018-10-27 23:53:31.151325"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (100.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-27 23:53:31.255995"], ["updated_at", "2018-10-27 23:53:31.255995"], ["distributor_id", 10], ["business_manager_id", 10]]
+  [1m[35m (56.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:31.318494"], ["updated_at", "2018-10-27 23:53:31.318494"], ["distributor_id", 10], ["business_manager_id", 10]]
+  [1m[35m (70.9ms)[0m  [1m[36mcommit transaction[0m
