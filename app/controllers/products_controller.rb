@@ -37,8 +37,45 @@ class ProductsController < ApplicationController
         end
     end
 
+    #Method to Creat Distributor Pictures
+
+    def createPicture
+
+        product = Product.find(params[:id])
+        picture = product.pictures.new(params_picture)
+            if picture.save 
+                respond_to do |format|
+                    format.json {render json: picture, status:201}
+                end
+            else
+                respond_to do |format|
+                    format.json {render json: picture.errors, status: :unprocessable_entity}
+                end
+            end
+    end
+
+    def showPictures
+        
+        product = Product.find(params[:id])
+        if product
+            pictures = user.pictures
+            render json:pictures , status: 200
+        end
+
+    end
+
     def params_product
         params.permit(:price, :producType, :brand, :productName,:quantity,:description)
     end
+
+    # Add picture parameters
+
+    def params_picture
+        params.permit(:image,:pictureType,:pictureUrl)
+    end
+
+
+
+ 
 
 end

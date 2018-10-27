@@ -58,9 +58,40 @@ class BusinessManagersController < ApplicationController
 
 end
 
+#Method to Creat Bussiness Manager Pictures
 
-  def params_business_manager
-      params.require(:business_manager).permit(:user_id, :company_id)
-  end
+def createPicture
+
+    businessManager = BusinessManager.find(params[:id])
+    user = User.find(businessManager.user_id)
+    picture = user.pictures.new(params_picture)
+    if picture.save 
+        respond_to do |format|
+            format.json {render json: picture, status:201}
+        end
+    else
+        respond_to do |format|
+            format.json {render json: picture.errors, status: :unprocessable_entity}
+        end
+    end
+end
+
+def showPictures        
+    businessManager = BusinessManager.find(params[:id])
+    user = User.find(businessManager.user_id)
+        if user 
+            pictures = user.pictures
+            render json:pictures , status: 200
+        end
+end
+
+def params_business_manager
+    params.require(:business_manager).permit(:user_id, :company_id)
+end
+
+#Add Picture Parameters 
+def params_picture
+    params.permit(:image,:pictureType,:pictureUrl)
+end
 
 end

@@ -41,9 +41,47 @@ class DistributorsController < ApplicationController
         render json: messages, status: 200
     end
 
+    #Method to Creat Distributor Pictures
 
+    def createPicture
+
+        distributor = Distributor.find(params[:id])
+        user = User.find(distributor.user_id)
+        picture = user.pictures.new(params_picture)
+        if picture.save 
+            respond_to do |format|
+                format.json {render json: picture, status:201}
+            end
+        else
+            respond_to do |format|
+                format.json {render json: picture.errors, status: :unprocessable_entity}
+            end
+        end
+    end
+
+
+    def showPictures
+        
+        distributor = Distributor.find(params[:id])
+        user = User.find(distributor.user_id)
+        if user 
+            pictures = user.pictures
+            render json:pictures , status: 200
+        end
+        
+    end
+    
     def params_distributor
         params.require(:distributor).permit(:user_id)
     end
+
+    #Add Picture Parameters
+
+    def params_picture
+        params.permit(:image,:pictureType,:pictureUrl)
+    end
+
+
+    
 
 end
