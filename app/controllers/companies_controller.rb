@@ -6,7 +6,14 @@ class CompaniesController < ApplicationController
     
     def show
         company = Company.find(params[:id])
-        render json: company, status: 200
+        
+        respond_to do |format|
+            format.json{render json: company, status: 200}
+            format.pdf do
+                pdf = CompanyPdf.new(company)
+                send_data pdf.render, filename: 'company.pdf', type: 'application/pdf',disposition: "inline"
+            end
+        end
     end
 
     def create
@@ -49,6 +56,4 @@ class CompaniesController < ApplicationController
     def params_company
         params.permit(:name, :location, :companyType)
     end
-
-
 end
