@@ -62,3 +62,6 @@ gem 'knock'
 
 #gem cors for communicating with front
 gem 'rack-cors', require: 'rack/cors' 
+
+# httparty for external request in backend
+gem 'httparty'
