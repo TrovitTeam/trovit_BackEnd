@@ -13,15 +13,12 @@ class MessagesController < ApplicationController
     end
 
     def create
-
         message = Message.new(params_message)
         if message.save
             render json:message, status: 201
         else
             render json:message.errors, status: :unprocessable_entity
         end
-
-
     end
 
     def update

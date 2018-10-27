@@ -42137,3 +42137,12 @@ Processing by ProductsController#index as */*
 Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/distributors/5/messages" for 127.0.0.1 at 2018-10-26 10:53:15 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by MessagesController#index as */*
+  Parameters: {"distributor_id"=>"5", "message"=>{}}
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.98ms)
+Completed 200 OK in 61ms (Views: 59.5ms | ActiveRecord: 0.8ms)
+
+
