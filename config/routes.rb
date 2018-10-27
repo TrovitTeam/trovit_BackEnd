@@ -146,7 +146,9 @@ Rails.application.routes.draw do
     resources :business_manager
   end
 
-  resources :users
+  resources :users do 
+    resources :pictures
+  end
   resources :products
 
 end
