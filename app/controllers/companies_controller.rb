@@ -8,7 +8,7 @@ class CompaniesController < ApplicationController
         company = Company.find(params[:id])
         
         respond_to do |format|
-            format.json{render json: company, status: 200}
+            format.json {render json: company, status: 200}
             format.pdf do
                 pdf = CompanyPdf.new(company)
                 send_data pdf.render, filename: 'company.pdf', type: 'application/pdf',disposition: "inline"
