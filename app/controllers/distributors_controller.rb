@@ -32,6 +32,11 @@ class DistributorsController < ApplicationController
         end
     end
 
+    def getInfo
+        distributor = Distributor.find(params[:id])
+        info = Distributor.userInfo(distributor.user_id)
+        render json: info, status: 200
+    end
 
     def getMessages
         distributor = Distributor.find(params[:id])

@@ -4,10 +4,10 @@ class ProductMailer < ApplicationMailer
   #
   #   en.product_mailer.product_creation.subject
   #
-  def product_creation(user)
-    @greeting = "Hi"
+  def product_creation(user, product)
+    @greeting = "Hi" 
     @user = user
-
-    mail to: user.email, subject: "Added Product"
+    @product = product
+    mail to: @user.email, subject: "Added Product"
   end
 end
