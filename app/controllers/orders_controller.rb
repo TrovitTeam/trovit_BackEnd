@@ -42,9 +42,7 @@ class OrdersController < ApplicationController
         
         order = Order.find(params[:id])
         order.destroy
-        respond_to do |format|
-            format.json {render json: order, status: 200}
-        end
+        render json: order, status: 200
     end
 
     def params_order

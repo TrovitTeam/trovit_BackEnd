@@ -19,9 +19,7 @@ class DistributorsController < ApplicationController
     def destroy
         distributor = Distributor.find(params[:id])
         distributor.destroy
-        respond_to do |format|
-            format.json {render json: distributor, status:200}
-        end
+        render json: distributor, status:200
     end
 
     def update
@@ -49,13 +47,9 @@ class DistributorsController < ApplicationController
         user = User.find(distributor.user_id)
         picture = user.pictures.new(params_picture)
         if picture.save 
-            respond_to do |format|
-                format.json {render json: picture, status:201}
-            end
+            render json: picture, status:201
         else
-            respond_to do |format|
-                format.json {render json: picture.errors, status: :unprocessable_entity}
-            end
+            render json: picture.errors, status: :unprocessable_entity
         end
     end
 

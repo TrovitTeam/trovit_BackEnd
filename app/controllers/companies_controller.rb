@@ -19,22 +19,16 @@ class CompaniesController < ApplicationController
     def create
         company = Company.new(params_company)
         if company.save
-            respond_to do |format|
-                format.json {render json: company, status: 201}
-            end
+            render json: company, status: 201
         else
-            respond_to do |format|
-                format.json {render json: company.errors, status: :unprocessable_entity}
-            end
+            render json: company.errors, status: :unprocessable_entity
         end
     end
 
     def destroy
         company = Company.find(params[:id])
         company.destroy
-        respond_to do |format|
-            format.json {render json: company, status:200}
-        end
+        render json: company, status:200
     end
 
     def update

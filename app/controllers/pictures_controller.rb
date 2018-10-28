@@ -11,22 +11,16 @@ class PicturesController < ApplicationController
     def show
         user = User.find(params[:user_id])
         pictures = user.pictures.find(params[:id])
-        respond_to do |format| 
-            format.json {render json: picture, status:200}
-        end 
+        render json: picture, status:200
     end
 
     def create
         user = User.find(params[:user_id])
         picture = user.pictures.new(params_picture)
         if picture.save 
-            respond_to do |format|
-                format.json {render json: picture, status:201}
-            end
+            render json: picture, status:201
         else
-            respond_to do |format|
-                format.json {render json: picture.errors, status: :unprocessable_entity}
-            end
+            render json: picture.errors, status: :unprocessable_entity
         end
     end
 
@@ -35,9 +29,7 @@ class PicturesController < ApplicationController
         user = User.find(params[:user_id])
         picture = user.picture.find(params[:id])
         picture.destroy
-        respond_to do |format|
-            format.json {render json: picture, status: 200}
-        end
+        render json: picture, status: 200
     end
 
     def update

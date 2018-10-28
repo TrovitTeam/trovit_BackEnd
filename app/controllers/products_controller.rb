@@ -11,22 +11,16 @@ class ProductsController < ApplicationController
     def show
         distributor = Distributor.find(params[:distributor_id])
         product = distributor.products.find(params[:id])
-        respond_to do |format| 
-            format.json {render json: product, status:200}
-        end 
+            render json: product, status:200
     end
 
     def create
         distributor = Distributor.find(params[:distributor_id])
         product = distributor.products.new(params_product)
         if product.save 
-            respond_to do |format|
-                format.json {render json: product, status:201}
-            end
+            render json: product, status:201
         else
-            respond_to do |format|
-                format.json {render json: product.errors, status: :unprocessable_entity}
-            end
+            render json: product.errors, status: :unprocessable_entity
         end
     end
 
@@ -35,9 +29,7 @@ class ProductsController < ApplicationController
         distributor = Distributor.find(params[:distributor_id])
         product = distributor.products.find(params[:id])
         product.destroy
-        respond_to do |format|
-            format.json {render json: product, status: 200}
-        end
+            render json: product, status: 200
     end
 
     def update
@@ -57,15 +49,11 @@ class ProductsController < ApplicationController
 
         product = Product.find(params[:id])
         picture = product.pictures.new(params_picture)
-            if picture.save 
-                respond_to do |format|
-                    format.json {render json: picture, status:201}
-                end
-            else
-                respond_to do |format|
-                    format.json {render json: picture.errors, status: :unprocessable_entity}
-                end
-            end
+        if picture.save 
+            render json: picture, status:201
+        else
+            render json: picture.errors, status: :unprocessable_entity
+        end
     end
 
     def showPictures

@@ -24,13 +24,9 @@ class UsersController < ApplicationController
                 distributor = Distributor.new(user_id: user.id)
 
                 if distributor.save
-                    respond_to do |format|
-                        format.json {render json: distributor, status: 201}
-                    end    
+                    render json: distributor, status: 201
                 else
-                    respond_to do |format|
-                        format.json {render json: distributor.errors, status: :unprocessable_entity}
-                    end   
+                    render json: distributor.errors, status: :unprocessable_entity
                 end
 
             elsif(user.userType == "businessmanager")
@@ -38,28 +34,20 @@ class UsersController < ApplicationController
                 business_manager = BusinessManager.new(user_id: user.id)
 
                 if business_manager.save
-                    respond_to do |format|
-                        format.json {render json: business_manager, status: 201}
-                    end    
+                    render json: business_manager, status: 201
                 else
-                    respond_to do |format|
-                        format.json {render json: business_manager.errors, status: :unprocessable_entity}
-                    end   
+                    render json: business_manager.errors, status: :unprocessable_entity
                 end  
             end    
         else
-            respond_to do |format|
-                format.json {render json: user.errors, status: :unprocessable_entity}
-            end
+            render json: user.errors, status: :unprocessable_entity
         end
     end
 
     def destroy
         user = User.find(params[:id])
         user.destroy
-        respond_to do |format|
-            format.json {render json: user, status:200}
-        end
+        render json: user, status:200
     end
 
     def update

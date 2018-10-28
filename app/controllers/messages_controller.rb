@@ -6,10 +6,8 @@ class MessagesController < ApplicationController
     end
 
     def show
-
         message = Message.find(params[:id])
         render json: message, status: 200
-
     end
 
     def create
@@ -22,23 +20,19 @@ class MessagesController < ApplicationController
     end
 
     def update
-
         message = Product.find(params[:id])
         if message.update(params_product)
             render json: message, status: 200
         else
             render json: message.errors, status: 422
         end
-
     end
 
     def destroy
 
         message = Product.find(params[:id])
         message.destroy
-        respond_to do |format|
-            format.json {render json: message, status: 200}
-        end
+        render json: message, status: 200
 
     end
 

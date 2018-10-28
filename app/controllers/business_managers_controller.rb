@@ -19,23 +19,17 @@ class BusinessManagersController < ApplicationController
         company = Company.last 
         business_manager = BusinessManager.new(user_id: user.id, company_id: company.id)
 
-            if business_manager.save
-                respond_to do |format|
-                    format.json {render json: business_manager, status: 201}
-                end
-            else
-                respond_to do |format|
-                    format.json {render json: business_manager.errors, status: :unprocessable_entity}
-                end 
-            end
+        if business_manager.save
+            render json: business_manager, status: 201
+        else
+            render json: business_manager.errors, status: :unprocessable_entity 
+        end
     end
 
     def destroy
         business_manager = BusinessManager.find(params[:id])
         business_manager.destroy
-        respond_to do |format|
-            format.json {render json: business_manager, status:200}
-        end
+        render json: business_manager, status:200
     end
 
     def update
@@ -66,13 +60,9 @@ def createPicture
     user = User.find(businessManager.user_id)
     picture = user.pictures.new(params_picture)
     if picture.save 
-        respond_to do |format|
-            format.json {render json: picture, status:201}
-        end
+        render json: picture, status:201
     else
-        respond_to do |format|
-            format.json {render json: picture.errors, status: :unprocessable_entity}
-        end
+        render json: picture.errors, status: :unprocessable_entity
     end
 end
 
