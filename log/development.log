@@ -43421,3 +43421,1331 @@ Processing by BusinessManagersController#show as */*
 Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.4ms)
 
 
+Started GET "/companies" for 127.0.0.1 at 2018-10-28 10:25:31 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CompaniesController#index as */*
+  Parameters: {"company"=>{}}
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.12ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-10-28 10:25:34 -0500
+Processing by CompaniesController#show as */*
+  Parameters: {"id"=>"1", "company"=>{}}
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-10-28 10:30:35 -0500
+Processing by CompaniesController#index as */*
+  Parameters: {"company"=>{}}
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.25ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/1" for 127.0.0.1 at 2018-10-28 10:31:02 -0500
+Processing by CompaniesController#show as */*
+  Parameters: {"id"=>"1", "company"=>{}}
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/companies/10" for 127.0.0.1 at 2018-10-28 10:31:22 -0500
+Processing by CompaniesController#show as */*
+  Parameters: {"id"=>"10", "company"=>{}}
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2018-10-28 10:33:28 -0500
+Processing by CompaniesController#create as */*
+  Parameters: {"company"=>{"name"=>"companiesita", "location"=>"colombia", "companyType"=>"software"}}
+Unpermitted parameter: company
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.27ms)
+Completed 422 Unprocessable Entity in 1076ms (Views: 7.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/companies" for 127.0.0.1 at 2018-10-28 10:33:45 -0500
+Processing by CompaniesController#create as */*
+  Parameters: {"name"=>"companiesita", "location"=>"colombia", "companyType"=>"software", "company"=>{"name"=>"companiesita", "location"=>"colombia", "companyType"=>"software"}}
+Unpermitted parameter: company
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "companiesita"], ["location", "colombia"], ["companyType", "software"], ["created_at", "2018-10-28 15:33:45.866628"], ["updated_at", "2018-10-28 15:33:45.866628"]]
+  [1m[35m (104.6ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 201 Created in 114ms (Views: 1.3ms | ActiveRecord: 106.8ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2018-10-28 10:34:40 -0500
+Processing by CompaniesController#index as */*
+  Parameters: {"company"=>{}}
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.74ms)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/companies/11" for 127.0.0.1 at 2018-10-28 10:34:52 -0500
+Processing by CompaniesController#show as */*
+  Parameters: {"id"=>"11", "company"=>{}}
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" WHERE "companies"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers] Rendered CompanySerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 2ms (Views: 0.8ms | ActiveRecord: 0.1ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (119.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-28 15:41:55.873122"], ["updated_at", "2018-10-28 15:41:55.873122"]]
+  [1m[35m (81.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (90.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-10-28 15:41:56.054477"], ["updated_at", "2018-10-28 15:41:56.054477"]]
+  [1m[35m (54.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (125.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBusinessManagers (20180930031028)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031028"]]
+  [1m[35m (90.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCompanies (20180930031300)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "companyType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031300"]]
+  [1m[35m (105.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDistributors (20180930031312)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "distributors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031312"]]
+  [1m[35m (107.7ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDistributorHasBusinessManagers (20180930031417)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "distributor_has_business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031417"]]
+  [1m[35m (139.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateDistributorHasProducts (20180930031429)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "distributor_has_products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031429"]]
+  [1m[35m (117.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMessages (20180930031439)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031439"]]
+  [1m[35m (144.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOffers (20180930031443)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "offers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031443"]]
+  [1m[35m (138.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateProducts (20180930031450)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" float, "producType" varchar, "brand" varchar, "productName" varchar, "quantity" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031450"]]
+  [1m[35m (129.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreatePictures (20180930031501)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pictureType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031501"]]
+  [1m[35m (128.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateOrders (20180930031608)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031608"]]
+  [1m[35m (150.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20180930031612)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "email" varchar NOT NULL, "phone" integer, "userType" varchar DEFAULT 'distributor' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930031612"]]
+  [1m[35m (128.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Associations (20180930192356)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "distributors" ADD "user_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_distributors_on_user_id" ON "distributors" ("user_id")[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "distributor_has_business_managers" ADD "distributor_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_distributor_has_business_managers_on_distributor_id" ON "distributor_has_business_managers" ("distributor_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "distributor_has_business_managers" ADD "business_manager_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_distributor_has_business_managers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_distributor_has_business_managers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_business_manager_id" ON "distributor_has_business_managers" ("business_manager_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "business_managers" ADD "user_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_user_id" ON "business_managers" ("user_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "business_managers" ADD "company_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_company_id" ON "business_managers" ("company_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "orders" ADD "product_id" integer[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_product_id" ON "orders" ("product_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "orders" ADD "message_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_message_id" ON "orders" ("message_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "orders" ADD "business_manager_id" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_business_manager_id" ON "orders" ("business_manager_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "offers" ADD "message_id" integer[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_message_id" ON "offers" ("message_id")[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "offers" ADD "product_id" integer[0m
+  [1m[35m (0.4ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_product_id" ON "offers" ("product_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "offers" ADD "distributor_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_distributor_id" ON "offers" ("distributor_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "messages" ADD "distributor_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_distributor_id" ON "messages" ("distributor_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "messages" ADD "business_manager_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_business_manager_id" ON "messages" ("business_manager_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180930192356"]]
+  [1m[35m (112.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddUrlsToPictures (20181005154320)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "pictures" ADD "pictureUrl" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181005154320"]]
+  [1m[35m (115.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to Polymorphic (20181005161423)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "pictures" ADD "imageable_type" varchar[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "pictures" ADD "imageable_id" integer[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_pictures_on_imageable_type_and_imageable_id" ON "pictures" ("imageable_type", "imageable_id")[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181005161423"]]
+  [1m[35m (139.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPasswordToUser (20181009153912)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "password_digest" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181009153912"]]
+  [1m[35m (103.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeleteDate (20181025145524)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amessages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_amessages_on_business_manager_id" ON "amessages" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_amessages_on_distributor_id" ON "amessages" ("distributor_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[32mINSERT INTO "amessages" ("id","message","date","created_at","updated_at","distributor_id","business_manager_id")
+                     SELECT "id","message","date","created_at","updated_at","distributor_id","business_manager_id" FROM "messages"[0m
+  [1m[35m (0.8ms)[0m  [1m[35mDROP TABLE "messages"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_amessages_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_amessages_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_amessages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_amessages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_distributor_id" ON "messages" ("distributor_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_business_manager_id" ON "messages" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "messages" ("id","message","created_at","updated_at","distributor_id","business_manager_id")
+                     SELECT "id","message","created_at","updated_at","distributor_id","business_manager_id" FROM "amessages"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "amessages"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aoffers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "message_id" integer, "product_id" integer, "distributor_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "tindex_aoffers_on_distributor_id" ON "aoffers" ("distributor_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aoffers_on_product_id" ON "aoffers" ("product_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aoffers_on_message_id" ON "aoffers" ("message_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "aoffers" ("id","quantity","date","created_at","updated_at","message_id","product_id","distributor_id")
+                     SELECT "id","quantity","date","created_at","updated_at","message_id","product_id","distributor_id" FROM "offers"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "offers"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "offers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "message_id" integer, "product_id" integer, "distributor_id" integer)[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aoffers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aoffers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aoffers_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aoffers_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aoffers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aoffers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_message_id" ON "offers" ("message_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_product_id" ON "offers" ("product_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_distributor_id" ON "offers" ("distributor_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("id","quantity","created_at","updated_at","message_id","product_id","distributor_id")
+                     SELECT "id","quantity","created_at","updated_at","message_id","product_id","distributor_id" FROM "aoffers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE "aoffers"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aorders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "date" date, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "product_id" integer, "message_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE  INDEX "tindex_aorders_on_business_manager_id" ON "aorders" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aorders_on_message_id" ON "aorders" ("message_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "tindex_aorders_on_product_id" ON "aorders" ("product_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "aorders" ("id","quantity","date","created_at","updated_at","product_id","message_id","business_manager_id")
+                     SELECT "id","quantity","date","created_at","updated_at","product_id","message_id","business_manager_id" FROM "orders"[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "orders"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "product_id" integer, "message_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aorders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aorders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aorders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aorders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_aorders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_aorders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_product_id" ON "orders" ("product_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_message_id" ON "orders" ("message_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_business_manager_id" ON "orders" ("business_manager_id")[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("id","quantity","created_at","updated_at","product_id","message_id","business_manager_id")
+                     SELECT "id","quantity","created_at","updated_at","product_id","message_id","business_manager_id" FROM "aorders"[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE "aorders"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025145524"]]
+  [1m[35m (120.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to DeleteHasProducts (20181025162052)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "distributor_has_products"[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025162052"]]
+  [1m[35m (97.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDistrIdProd (20181025162349)
+  [1m[35m (109.0ms)[0m  [1m[35mALTER TABLE "products" ADD "distributor_id" integer[0m
+  [1m[35m (109.5ms)[0m  [1m[35mCREATE  INDEX "index_products_on_distributor_id" ON "products" ("distributor_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181025162349"]]
+  [1m[35m (95.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddImageTo (20181026023904)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "pictures" ADD "image" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181026023904"]]
+  [1m[35m (108.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_distributor_has_business_managers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_distributor_has_business_managers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_distributors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_distributors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pictures_on_imageable_type_and_imageable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pictures_on_imageable_type_and_imageable_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_distributor_id' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (108.5ms)[0m  [1m[35mCREATE TABLE "business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "company_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (96.5ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_company_id" ON "business_managers" ("company_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+[0m
+  [1m[35m (111.0ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_user_id" ON "business_managers" ("user_id")[0m
+  [1m[35m (97.8ms)[0m  [1m[35mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "companyType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (98.7ms)[0m  [1m[35mCREATE TABLE "distributor_has_business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (132.3ms)[0m  [1m[35mCREATE  INDEX "index_business_manager_id" ON "distributor_has_business_managers" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_manager_id' AND type='index'
+[0m
+  [1m[35m (111.8ms)[0m  [1m[35mCREATE  INDEX "index_distributor_has_business_managers_on_distributor_id" ON "distributor_has_business_managers" ("distributor_id")[0m
+  [1m[35m (131.5ms)[0m  [1m[35mCREATE TABLE "distributors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  [1m[35m (122.1ms)[0m  [1m[35mCREATE  INDEX "index_distributors_on_user_id" ON "distributors" ("user_id")[0m
+  [1m[35m (132.3ms)[0m  [1m[35mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (78.8ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_business_manager_id" ON "messages" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (97.9ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_distributor_id" ON "messages" ("distributor_id")[0m
+  [1m[35m (86.6ms)[0m  [1m[35mCREATE TABLE "offers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "message_id" integer, "product_id" integer, "distributor_id" integer)[0m
+  [1m[35m (156.0ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_distributor_id" ON "offers" ("distributor_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (123.4ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_message_id" ON "offers" ("message_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (108.1ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_product_id" ON "offers" ("product_id")[0m
+  [1m[35m (143.5ms)[0m  [1m[35mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "product_id" integer, "message_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (122.9ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_business_manager_id" ON "orders" ("business_manager_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (110.3ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_message_id" ON "orders" ("message_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (99.0ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_product_id" ON "orders" ("product_id")[0m
+  [1m[35m (119.5ms)[0m  [1m[35mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pictureType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "pictureUrl" varchar, "imageable_type" varchar, "imageable_id" integer, "image" varchar)[0m
+  [1m[35m (100.5ms)[0m  [1m[35mCREATE  INDEX "index_pictures_on_imageable_type_and_imageable_id" ON "pictures" ("imageable_type", "imageable_id")[0m
+  [1m[35m (142.8ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" float, "producType" varchar, "brand" varchar, "productName" varchar, "quantity" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer)[0m
+  [1m[35m (109.6ms)[0m  [1m[35mCREATE  INDEX "index_products_on_distributor_id" ON "products" ("distributor_id")[0m
+  [1m[35m (176.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "email" varchar NOT NULL, "phone" integer, "userType" varchar DEFAULT 'distributor' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar)[0m
+  [1m[35m (144.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (101.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181026023904)[0m
+  [1m[35m (90.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180930031429),
+(20180930031439),
+(20180930031608),
+(20180930031312),
+(20180930031450),
+(20181025162349),
+(20181005161423),
+(20180930031300),
+(20180930192356),
+(20181009153912),
+(20180930031501),
+(20180930031417),
+(20181025162052),
+(20180930031443),
+(20181025145524),
+(20180930031028),
+(20181005154320),
+(20180930031612);
+
+[0m
+  [1m[35m (125.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-28 15:42:17.041791"], ["updated_at", "2018-10-28 15:42:17.041791"]]
+  [1m[35m (89.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (99.7ms)[0m  [1m[35mCREATE TABLE "business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer, "company_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (120.0ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_company_id" ON "business_managers" ("company_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+[0m
+  [1m[35m (98.4ms)[0m  [1m[35mCREATE  INDEX "index_business_managers_on_user_id" ON "business_managers" ("user_id")[0m
+  [1m[35m (133.1ms)[0m  [1m[35mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "companyType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (122.5ms)[0m  [1m[35mCREATE TABLE "distributor_has_business_managers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (111.1ms)[0m  [1m[35mCREATE  INDEX "index_business_manager_id" ON "distributor_has_business_managers" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_manager_id' AND type='index'
+[0m
+  [1m[35m (98.8ms)[0m  [1m[35mCREATE  INDEX "index_distributor_has_business_managers_on_distributor_id" ON "distributor_has_business_managers" ("distributor_id")[0m
+  [1m[35m (88.6ms)[0m  [1m[35mCREATE TABLE "distributors" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer)[0m
+  [1m[35m (110.3ms)[0m  [1m[35mCREATE  INDEX "index_distributors_on_user_id" ON "distributors" ("user_id")[0m
+  [1m[35m (110.6ms)[0m  [1m[35mCREATE TABLE "messages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "message" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (87.3ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_business_manager_id" ON "messages" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (112.6ms)[0m  [1m[35mCREATE  INDEX "index_messages_on_distributor_id" ON "messages" ("distributor_id")[0m
+  [1m[35m (109.1ms)[0m  [1m[35mCREATE TABLE "offers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "message_id" integer, "product_id" integer, "distributor_id" integer)[0m
+  [1m[35m (86.2ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_distributor_id" ON "offers" ("distributor_id")[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (119.7ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_message_id" ON "offers" ("message_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (131.9ms)[0m  [1m[35mCREATE  INDEX "index_offers_on_product_id" ON "offers" ("product_id")[0m
+  [1m[35m (131.9ms)[0m  [1m[35mCREATE TABLE "orders" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "product_id" integer, "message_id" integer, "business_manager_id" integer)[0m
+  [1m[35m (99.0ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_business_manager_id" ON "orders" ("business_manager_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (89.0ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_message_id" ON "orders" ("message_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (109.9ms)[0m  [1m[35mCREATE  INDEX "index_orders_on_product_id" ON "orders" ("product_id")[0m
+  [1m[35m (121.8ms)[0m  [1m[35mCREATE TABLE "pictures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "pictureType" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "pictureUrl" varchar, "imageable_type" varchar, "imageable_id" integer, "image" varchar)[0m
+  [1m[35m (109.8ms)[0m  [1m[35mCREATE  INDEX "index_pictures_on_imageable_type_and_imageable_id" ON "pictures" ("imageable_type", "imageable_id")[0m
+  [1m[35m (110.9ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "price" float, "producType" varchar, "brand" varchar, "productName" varchar, "quantity" integer, "description" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "distributor_id" integer)[0m
+  [1m[35m (121.6ms)[0m  [1m[35mCREATE  INDEX "index_products_on_distributor_id" ON "products" ("distributor_id")[0m
+  [1m[35m (187.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "location" varchar, "email" varchar NOT NULL, "phone" integer, "userType" varchar DEFAULT 'distributor' NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "password_digest" varchar)[0m
+  [1m[35m (110.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (81.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20181026023904)[0m
+  [1m[35m (68.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180930031429),
+(20180930031439),
+(20180930031608),
+(20180930031312),
+(20180930031450),
+(20181025162349),
+(20181005161423),
+(20180930031300),
+(20180930192356),
+(20181009153912),
+(20180930031501),
+(20180930031417),
+(20181025162052),
+(20180930031443),
+(20181025145524),
+(20180930031028),
+(20181005154320),
+(20180930031612);
+
+[0m
+  [1m[35m (123.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-10-28 15:42:20.395580"], ["updated_at", "2018-10-28 15:42:20.395580"]]
+  [1m[35m (89.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2018-10-28 15:42:20.489986"], ["key", "environment"]]
+  [1m[35m (81.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ferry Group"], ["location", "5212 Corinne Forks"], ["companyType", "Cosmetics"], ["created_at", "2018-10-28 15:42:21.574853"], ["updated_at", "2018-10-28 15:42:21.574853"]]
+  [1m[35m (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 4790370], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "marcel@macejkovic.name"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "marcel@macejkovic.name"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Mrs. Minh Torp"], ["location", "73054 Lyman Lodge"], ["email", "marcel@macejkovic.name"], ["phone", 4790370], ["userType", "nam mollitia"], ["created_at", "2018-10-28 15:42:21.784524"], ["updated_at", "2018-10-28 15:42:21.784524"], ["password_digest", "$2a$10$45UNuJhauYRduxRka4cwuuwk2dqUQOdzmIle0W/m09F2eOhZN2f9K"]]
+  [1m[35m (101.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:21.913425"], ["updated_at", "2018-10-28 15:42:21.913425"], ["user_id", 1], ["company_id", 1]]
+  [1m[35m (68.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (1.5ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:22.001736"], ["updated_at", "2018-10-28 15:42:22.001736"], ["user_id", 1]]
+  [1m[35m (103.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 1415.4701200418], ["producType", "vitae numquam"], ["brand", "delectus aut"], ["productName", "asperiores aut"], ["quantity", 8], ["description", "default description"], ["created_at", "2018-10-28 15:42:22.127163"], ["updated_at", "2018-10-28 15:42:22.127163"], ["distributor_id", 1]]
+  [1m[35m (91.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 3], ["created_at", "2018-10-28 15:42:22.244717"], ["updated_at", "2018-10-28 15:42:22.244717"]]
+  [1m[35m (114.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 1], ["created_at", "2018-10-28 15:42:22.382426"], ["updated_at", "2018-10-28 15:42:22.382426"]]
+  [1m[35m (77.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.3ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "sunt nihil"], ["created_at", "2018-10-28 15:42:22.486944"], ["updated_at", "2018-10-28 15:42:22.486944"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (77.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.6ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:22.586228"], ["updated_at", "2018-10-28 15:42:22.586228"], ["distributor_id", 1], ["business_manager_id", 1]]
+  [1m[35m (107.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:22.712627"], ["updated_at", "2018-10-28 15:42:22.712627"], ["distributor_id", 1], ["business_manager_id", 1]]
+  [1m[35m (90.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Bauch, Kozey and Greenholt"], ["location", "8471 Olson Hills"], ["companyType", "Commercial Real Estate"], ["created_at", "2018-10-28 15:42:22.809519"], ["updated_at", "2018-10-28 15:42:22.809519"]]
+  [1m[35m (71.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 4175120], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "starla@kutch.org"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "starla@kutch.org"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jackelyn Heaney"], ["location", "615 Predovic Drives"], ["email", "starla@kutch.org"], ["phone", 4175120], ["userType", "iusto quo"], ["created_at", "2018-10-28 15:42:22.979717"], ["updated_at", "2018-10-28 15:42:22.979717"], ["password_digest", "$2a$10$4hapibdaNu.szdxny1/nl.SFm1Tgu6oPAu9NO72.S3gWY8I.E5vea"]]
+  [1m[35m (70.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:23.056005"], ["updated_at", "2018-10-28 15:42:23.056005"], ["user_id", 2], ["company_id", 2]]
+  [1m[35m (80.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:23.141638"], ["updated_at", "2018-10-28 15:42:23.141638"], ["user_id", 2]]
+  [1m[35m (94.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 4652.747276124298], ["producType", "quos dolores"], ["brand", "numquam ut"], ["productName", "et itaque"], ["quantity", 5], ["description", "default description"], ["created_at", "2018-10-28 15:42:23.242064"], ["updated_at", "2018-10-28 15:42:23.242064"], ["distributor_id", 2]]
+  [1m[35m (64.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-28 15:42:23.313008"], ["updated_at", "2018-10-28 15:42:23.313008"]]
+  [1m[35m (99.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 4], ["created_at", "2018-10-28 15:42:23.418795"], ["updated_at", "2018-10-28 15:42:23.418795"]]
+  [1m[35m (99.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "quia id"], ["created_at", "2018-10-28 15:42:23.526414"], ["updated_at", "2018-10-28 15:42:23.526414"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (67.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:23.600318"], ["updated_at", "2018-10-28 15:42:23.600318"], ["distributor_id", 2], ["business_manager_id", 2]]
+  [1m[35m (81.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:23.686771"], ["updated_at", "2018-10-28 15:42:23.686771"], ["distributor_id", 2], ["business_manager_id", 2]]
+  [1m[35m (82.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Stehr-Hilpert"], ["location", "93043 Gleason Point"], ["companyType", "Media Production"], ["created_at", "2018-10-28 15:42:23.774269"], ["updated_at", "2018-10-28 15:42:23.774269"]]
+  [1m[35m (94.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 9065682], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ingrid@paucek.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ingrid@paucek.info"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Leighann Koss"], ["location", "468 Wilmer Light"], ["email", "ingrid@paucek.info"], ["phone", 9065682], ["userType", "optio aut"], ["created_at", "2018-10-28 15:42:23.977433"], ["updated_at", "2018-10-28 15:42:23.977433"], ["password_digest", "$2a$10$FDAE/GUEhEOxcUS1cm8ECuFya2FmGPkXBfkEu7a7fAunWkkKNa0Z."]]
+  [1m[35m (59.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:24.043184"], ["updated_at", "2018-10-28 15:42:24.043184"], ["user_id", 3], ["company_id", 3]]
+  [1m[35m (78.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:24.130575"], ["updated_at", "2018-10-28 15:42:24.130575"], ["user_id", 3]]
+  [1m[35m (70.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 333.9728910135285], ["producType", "nostrum dolorum"], ["brand", "voluptatem ipsa"], ["productName", "repudiandae dolore"], ["quantity", 6], ["description", "default description"], ["created_at", "2018-10-28 15:42:24.210494"], ["updated_at", "2018-10-28 15:42:24.210494"], ["distributor_id", 3]]
+  [1m[35m (78.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 5], ["created_at", "2018-10-28 15:42:24.295609"], ["updated_at", "2018-10-28 15:42:24.295609"]]
+  [1m[35m (105.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 7], ["created_at", "2018-10-28 15:42:24.406731"], ["updated_at", "2018-10-28 15:42:24.406731"]]
+  [1m[35m (95.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "explicabo ipsum"], ["created_at", "2018-10-28 15:42:24.511512"], ["updated_at", "2018-10-28 15:42:24.511512"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (91.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:24.610894"], ["updated_at", "2018-10-28 15:42:24.610894"], ["distributor_id", 3], ["business_manager_id", 3]]
+  [1m[35m (89.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:24.705920"], ["updated_at", "2018-10-28 15:42:24.705920"], ["distributor_id", 3], ["business_manager_id", 3]]
+  [1m[35m (73.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Larkin, Lesch and Reynolds"], ["location", "26969 Winnifred Islands"], ["companyType", "Venture Capital & Private Equity"], ["created_at", "2018-10-28 15:42:24.783239"], ["updated_at", "2018-10-28 15:42:24.783239"]]
+  [1m[35m (84.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 7292859], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "denae@sanford.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "denae@sanford.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Cheyenne Hand II"], ["location", "787 Iraida Row"], ["email", "denae@sanford.com"], ["phone", 7292859], ["userType", "harum assumenda"], ["created_at", "2018-10-28 15:42:24.975408"], ["updated_at", "2018-10-28 15:42:24.975408"], ["password_digest", "$2a$10$seFbbVywI2oK2.AaDfr9H.wOFuvPrbSCWj7anONre5/KKrczAzwgq"]]
+  [1m[35m (494.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:25.475199"], ["updated_at", "2018-10-28 15:42:25.475199"], ["user_id", 4], ["company_id", 4]]
+  [1m[35m (80.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:25.561986"], ["updated_at", "2018-10-28 15:42:25.561986"], ["user_id", 4]]
+  [1m[35m (115.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 1327.382935242706], ["producType", "non est"], ["brand", "unde dolores"], ["productName", "magni velit"], ["quantity", 9], ["description", "default description"], ["created_at", "2018-10-28 15:42:25.683429"], ["updated_at", "2018-10-28 15:42:25.683429"], ["distributor_id", 4]]
+  [1m[35m (82.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 7], ["created_at", "2018-10-28 15:42:25.771235"], ["updated_at", "2018-10-28 15:42:25.771235"]]
+  [1m[35m (92.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 7], ["created_at", "2018-10-28 15:42:25.870328"], ["updated_at", "2018-10-28 15:42:25.870328"]]
+  [1m[35m (75.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "voluptas deleniti"], ["created_at", "2018-10-28 15:42:25.951009"], ["updated_at", "2018-10-28 15:42:25.951009"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (63.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:26.018303"], ["updated_at", "2018-10-28 15:42:26.018303"], ["distributor_id", 4], ["business_manager_id", 4]]
+  [1m[35m (104.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:26.127111"], ["updated_at", "2018-10-28 15:42:26.127111"], ["distributor_id", 4], ["business_manager_id", 4]]
+  [1m[35m (58.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Sipes-Weissnat"], ["location", "87052 Lonnie Dale"], ["companyType", "Government Relations"], ["created_at", "2018-10-28 15:42:26.190654"], ["updated_at", "2018-10-28 15:42:26.190654"]]
+  [1m[35m (97.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 6873828], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cinda@gottlieb.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "cinda@gottlieb.io"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Naida Sauer"], ["location", "16822 Brekke Ferry"], ["email", "cinda@gottlieb.io"], ["phone", 6873828], ["userType", "impedit minima"], ["created_at", "2018-10-28 15:42:26.399402"], ["updated_at", "2018-10-28 15:42:26.399402"], ["password_digest", "$2a$10$5QBW0en6vnAClRqbIhsuauobzdnTTfm/xDemPM7qjmIO1CX4wsQrO"]]
+  [1m[35m (89.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:26.495872"], ["updated_at", "2018-10-28 15:42:26.495872"], ["user_id", 5], ["company_id", 5]]
+  [1m[35m (78.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:26.581278"], ["updated_at", "2018-10-28 15:42:26.581278"], ["user_id", 5]]
+  [1m[35m (93.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3688.431919642166], ["producType", "at quo"], ["brand", "suscipit totam"], ["productName", "dolores corrupti"], ["quantity", 8], ["description", "default description"], ["created_at", "2018-10-28 15:42:26.681466"], ["updated_at", "2018-10-28 15:42:26.681466"], ["distributor_id", 5]]
+  [1m[35m (87.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.1ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 7], ["created_at", "2018-10-28 15:42:26.773197"], ["updated_at", "2018-10-28 15:42:26.773197"]]
+  [1m[35m (134.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 2], ["created_at", "2018-10-28 15:42:26.915192"], ["updated_at", "2018-10-28 15:42:26.915192"]]
+  [1m[35m (69.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "recusandae illo"], ["created_at", "2018-10-28 15:42:26.991953"], ["updated_at", "2018-10-28 15:42:26.991953"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (85.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:27.084635"], ["updated_at", "2018-10-28 15:42:27.084635"], ["distributor_id", 5], ["business_manager_id", 5]]
+  [1m[35m (113.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.1ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:27.203804"], ["updated_at", "2018-10-28 15:42:27.203804"], ["distributor_id", 5], ["business_manager_id", 5]]
+  [1m[35m (57.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Friesen-Jast"], ["location", "86158 Weber Ferry"], ["companyType", "Health, Wellness and Fitness"], ["created_at", "2018-10-28 15:42:27.267280"], ["updated_at", "2018-10-28 15:42:27.267280"]]
+  [1m[35m (86.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 3092192], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vaughn@oconnellarmstrong.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "vaughn@oconnellarmstrong.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Federico Klocko"], ["location", "65179 Jewel Mountains"], ["email", "vaughn@oconnellarmstrong.net"], ["phone", 3092192], ["userType", "doloribus qui"], ["created_at", "2018-10-28 15:42:27.462576"], ["updated_at", "2018-10-28 15:42:27.462576"], ["password_digest", "$2a$10$5nKwIpWHk96qNums.XfsCOFP/TeyEjhVXkDhdjN26mkqh4cELDjzO"]]
+  [1m[35m (93.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:27.561218"], ["updated_at", "2018-10-28 15:42:27.561218"], ["user_id", 6], ["company_id", 6]]
+  [1m[35m (68.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:27.635764"], ["updated_at", "2018-10-28 15:42:27.635764"], ["user_id", 6]]
+  [1m[35m (83.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 4821.07506479665], ["producType", "aliquam possimus"], ["brand", "beatae possimus"], ["productName", "nisi omnis"], ["quantity", 6], ["description", "default description"], ["created_at", "2018-10-28 15:42:27.724667"], ["updated_at", "2018-10-28 15:42:27.724667"], ["distributor_id", 6]]
+  [1m[35m (103.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-28 15:42:27.834903"], ["updated_at", "2018-10-28 15:42:27.834903"]]
+  [1m[35m (122.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-28 15:42:27.963588"], ["updated_at", "2018-10-28 15:42:27.963588"]]
+  [1m[35m (69.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "voluptatibus pariatur"], ["created_at", "2018-10-28 15:42:28.037623"], ["updated_at", "2018-10-28 15:42:28.037623"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (96.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.3ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:28.139236"], ["updated_at", "2018-10-28 15:42:28.139236"], ["distributor_id", 6], ["business_manager_id", 6]]
+  [1m[35m (79.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:28.226630"], ["updated_at", "2018-10-28 15:42:28.226630"], ["distributor_id", 6], ["business_manager_id", 6]]
+  [1m[35m (88.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "MacGyver-Gulgowski"], ["location", "567 Charita Fords"], ["companyType", "Motion Pictures and Film"], ["created_at", "2018-10-28 15:42:28.320573"], ["updated_at", "2018-10-28 15:42:28.320573"]]
+  [1m[35m (52.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 3631918], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "merri@crona.biz"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "merri@crona.biz"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Stacie Ortiz IV"], ["location", "1084 Alphonse Point"], ["email", "merri@crona.biz"], ["phone", 3631918], ["userType", "enim illum"], ["created_at", "2018-10-28 15:42:28.485505"], ["updated_at", "2018-10-28 15:42:28.485505"], ["password_digest", "$2a$10$xkhz8tcNV.IFOIbFcVgl0eHKIfG9ZFqVLKVeHUUxp8.xE4/9yUpv2"]]
+  [1m[35m (113.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:28.603857"], ["updated_at", "2018-10-28 15:42:28.603857"], ["user_id", 7], ["company_id", 7]]
+  [1m[35m (77.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:28.688801"], ["updated_at", "2018-10-28 15:42:28.688801"], ["user_id", 7]]
+  [1m[35m (118.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 4071.474913850061], ["producType", "sint autem"], ["brand", "ex eaque"], ["productName", "est consequatur"], ["quantity", 7], ["description", "default description"], ["created_at", "2018-10-28 15:42:28.812944"], ["updated_at", "2018-10-28 15:42:28.812944"], ["distributor_id", 7]]
+  [1m[35m (85.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 1], ["created_at", "2018-10-28 15:42:28.904698"], ["updated_at", "2018-10-28 15:42:28.904698"]]
+  [1m[35m (99.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 6], ["created_at", "2018-10-28 15:42:29.010081"], ["updated_at", "2018-10-28 15:42:29.010081"]]
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "expedita totam"], ["created_at", "2018-10-28 15:42:29.081417"], ["updated_at", "2018-10-28 15:42:29.081417"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (60.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:29.147599"], ["updated_at", "2018-10-28 15:42:29.147599"], ["distributor_id", 7], ["business_manager_id", 7]]
+  [1m[35m (114.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:29.268104"], ["updated_at", "2018-10-28 15:42:29.268104"], ["distributor_id", 7], ["business_manager_id", 7]]
+  [1m[35m (115.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Kuphal, Klein and Breitenberg"], ["location", "8640 Leonardo Skyway"], ["companyType", "Market Research"], ["created_at", "2018-10-28 15:42:29.388952"], ["updated_at", "2018-10-28 15:42:29.388952"]]
+  [1m[35m (48.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 7589177], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "whitney@jerde.io"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "whitney@jerde.io"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Hoyt Parisian DVM"], ["location", "7906 Malia Rest"], ["email", "whitney@jerde.io"], ["phone", 7589177], ["userType", "earum et"], ["created_at", "2018-10-28 15:42:29.541181"], ["updated_at", "2018-10-28 15:42:29.541181"], ["password_digest", "$2a$10$6UoHfG7PM6nMdxF6Xb3khu8TpFFA5uXoBJHVheJKbTi960gqtE1XS"]]
+  [1m[35m (84.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:29.631631"], ["updated_at", "2018-10-28 15:42:29.631631"], ["user_id", 8], ["company_id", 8]]
+  [1m[35m (105.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.1ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:29.742635"], ["updated_at", "2018-10-28 15:42:29.742635"], ["user_id", 8]]
+  [1m[35m (82.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3566.0515999808217], ["producType", "aut enim"], ["brand", "provident consequatur"], ["productName", "sed quis"], ["quantity", 1], ["description", "default description"], ["created_at", "2018-10-28 15:42:29.832076"], ["updated_at", "2018-10-28 15:42:29.832076"], ["distributor_id", 8]]
+  [1m[35m (98.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 6], ["created_at", "2018-10-28 15:42:29.936114"], ["updated_at", "2018-10-28 15:42:29.936114"]]
+  [1m[35m (99.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 3], ["created_at", "2018-10-28 15:42:30.042128"], ["updated_at", "2018-10-28 15:42:30.042128"]]
+  [1m[35m (152.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "eius pariatur"], ["created_at", "2018-10-28 15:42:30.202615"], ["updated_at", "2018-10-28 15:42:30.202615"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (94.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:30.303677"], ["updated_at", "2018-10-28 15:42:30.303677"], ["distributor_id", 8], ["business_manager_id", 8]]
+  [1m[35m (100.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:30.410765"], ["updated_at", "2018-10-28 15:42:30.410765"], ["distributor_id", 8], ["business_manager_id", 8]]
+  [1m[35m (92.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Hand LLC"], ["location", "25005 Tremblay Pines"], ["companyType", "Architecture & Planning"], ["created_at", "2018-10-28 15:42:30.509244"], ["updated_at", "2018-10-28 15:42:30.509244"]]
+  [1m[35m (69.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 4733647], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "graciela@windlerhaag.net"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "graciela@windlerhaag.net"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Adan Harvey"], ["location", "12672 Lesha Villages"], ["email", "graciela@windlerhaag.net"], ["phone", 4733647], ["userType", "ea minus"], ["created_at", "2018-10-28 15:42:30.711788"], ["updated_at", "2018-10-28 15:42:30.711788"], ["password_digest", "$2a$10$IYjGEqwvQ.xIr3E6tIMrzOaTZUQW2lflw1H.J.8vH5wmD4L9xQ5i."]]
+  [1m[35m (71.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:30.788977"], ["updated_at", "2018-10-28 15:42:30.788977"], ["user_id", 9], ["company_id", 9]]
+  [1m[35m (103.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:30.897712"], ["updated_at", "2018-10-28 15:42:30.897712"], ["user_id", 9]]
+  [1m[35m (105.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 3901.2309598586044], ["producType", "ut alias"], ["brand", "voluptatem unde"], ["productName", "ad occaecati"], ["quantity", 7], ["description", "default description"], ["created_at", "2018-10-28 15:42:31.009832"], ["updated_at", "2018-10-28 15:42:31.009832"], ["distributor_id", 9]]
+  [1m[35m (117.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.2ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-28 15:42:31.134153"], ["updated_at", "2018-10-28 15:42:31.134153"]]
+  [1m[35m (121.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 6], ["created_at", "2018-10-28 15:42:31.261469"], ["updated_at", "2018-10-28 15:42:31.261469"]]
+  [1m[35m (99.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.1ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "eum natus"], ["created_at", "2018-10-28 15:42:31.366902"], ["updated_at", "2018-10-28 15:42:31.366902"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (81.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:31.454814"], ["updated_at", "2018-10-28 15:42:31.454814"], ["distributor_id", 9], ["business_manager_id", 9]]
+  [1m[35m (103.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:31.564627"], ["updated_at", "2018-10-28 15:42:31.564627"], ["distributor_id", 9], ["business_manager_id", 9]]
+  [1m[35m (91.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "companies" ("name", "location", "companyType", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Runte-Lakin"], ["location", "54556 Kuphal Haven"], ["companyType", "Legislative Office"], ["created_at", "2018-10-28 15:42:31.663781"], ["updated_at", "2018-10-28 15:42:31.663781"]]
+  [1m[35m (81.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCompany Load (0.2ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY "companies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 2223044], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janelluettgen@tremblaywintheiser.info"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "janelluettgen@tremblaywintheiser.info"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Kenton Lesch"], ["location", "32791 Romelia Gardens"], ["email", "janelluettgen@tremblaywintheiser.info"], ["phone", 2223044], ["userType", "necessitatibus ipsam"], ["created_at", "2018-10-28 15:42:31.864909"], ["updated_at", "2018-10-28 15:42:31.864909"], ["password_digest", "$2a$10$Zh21XXgV12u/XYa.LEeGiu9N1ev6tgyeVSUr7kk5xXHv2Q/KBBNhS"]]
+  [1m[35m (102.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id", "company_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:31.977190"], ["updated_at", "2018-10-28 15:42:31.977190"], ["user_id", 10], ["company_id", 10]]
+  [1m[35m (90.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" ORDER BY "business_managers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:32.074027"], ["updated_at", "2018-10-28 15:42:32.074027"], ["user_id", 10]]
+  [1m[35m (123.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT  "distributors".* FROM "distributors" ORDER BY "distributors"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "products" ("price", "producType", "brand", "productName", "quantity", "description", "created_at", "updated_at", "distributor_id") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["price", 2894.4088971619894], ["producType", "ab optio"], ["brand", "dolorem dolorum"], ["productName", "earum voluptas"], ["quantity", 2], ["description", "default description"], ["created_at", "2018-10-28 15:42:32.208219"], ["updated_at", "2018-10-28 15:42:32.208219"], ["distributor_id", 10]]
+  [1m[35m (72.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProduct Load (0.3ms)[0m  [1m[34mSELECT  "products".* FROM "products" ORDER BY "products"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "offers" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 1], ["created_at", "2018-10-28 15:42:32.288307"], ["updated_at", "2018-10-28 15:42:32.288307"]]
+  [1m[35m (121.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT  "offers".* FROM "offers" ORDER BY "offers"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "orders" ("quantity", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["quantity", 0], ["created_at", "2018-10-28 15:42:32.417156"], ["updated_at", "2018-10-28 15:42:32.417156"]]
+  [1m[35m (97.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mOrder Load (0.2ms)[0m  [1m[34mSELECT  "orders".* FROM "orders" ORDER BY "orders"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "pictures" ("pictureType", "created_at", "updated_at", "pictureUrl") VALUES (?, ?, ?, ?)[0m  [["pictureType", "quasi quia"], ["created_at", "2018-10-28 15:42:32.521458"], ["updated_at", "2018-10-28 15:42:32.521458"], ["pictureUrl", "https://www.google.com/search?client=ubuntu&channel=fs&q=url+faker&ie=utf-8&oe=utf-8"]]
+  [1m[35m (91.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mPicture Load (0.2ms)[0m  [1m[34mSELECT  "pictures".* FROM "pictures" ORDER BY "pictures"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("message", "created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?, ?)[0m  [["message", "default message"], ["created_at", "2018-10-28 15:42:32.621234"], ["updated_at", "2018-10-28 15:42:32.621234"], ["distributor_id", 10], ["business_manager_id", 10]]
+  [1m[35m (100.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mMessage Load (0.2ms)[0m  [1m[34mSELECT  "messages".* FROM "messages" ORDER BY "messages"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-28 15:42:32.728728"], ["updated_at", "2018-10-28 15:42:32.728728"], ["distributor_id", 10], ["business_manager_id", 10]]
+  [1m[35m (93.0ms)[0m  [1m[36mcommit transaction[0m
