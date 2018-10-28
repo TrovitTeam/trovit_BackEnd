@@ -42828,3 +42828,596 @@ Completed 200 OK in 61ms (Views: 59.5ms | ActiveRecord: 0.8ms)
   [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
   [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "distributor_has_business_managers" ("created_at", "updated_at", "distributor_id", "business_manager_id") VALUES (?, ?, ?, ?)[0m  [["created_at", "2018-10-27 23:53:31.318494"], ["updated_at", "2018-10-27 23:53:31.318494"], ["distributor_id", 10], ["business_manager_id", 10]]
   [1m[35m (70.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users/5/user_type" for 127.0.0.1 at 2018-10-28 09:15:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.7) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.7) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.7) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.7) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.0.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddImageTo (20181026023904)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "pictures" ADD "image" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181026023904"]]
+  [1m[35m (89.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddTokenToUser (20181028030536)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "token" varchar[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20181028030536"]]
+  [1m[35m (50.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_managers_on_company_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_distributor_has_business_managers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_distributor_has_business_managers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_distributors_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_distributors_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_messages_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_offers_on_distributor_id' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_product_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_message_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_orders_on_business_manager_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_pictures_on_imageable_type_and_imageable_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_pictures_on_imageable_type_and_imageable_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_products_on_distributor_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_products_on_distributor_id' AND type='index'
+[0m
+Started GET "/users/5/user_type" for 127.0.0.1 at 2018-10-28 09:15:34 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+SyntaxError (/home/jram/Desktop/trovit_BackEnd/app/controllers/users_controller.rb:89: syntax error, unexpected ',', expecting =>
+        render json: business_manager, distributor, status: 200
+                                                   ^):
+  
+app/controllers/users_controller.rb:89: syntax error, unexpected ',', expecting =>
+Started GET "/users/5/user_type" for 127.0.0.1 at 2018-10-28 09:15:56 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"5", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 1.8ms)
+
+
+  
+ArgumentError (wrong number of arguments (given 0, expected 1)):
+  
+app/models/user.rb:56:in `findBusinessManager'
+app/controllers/users_controller.rb:87:in `getUserType'
+Started GET "/users/5/user_type" for 127.0.0.1 at 2018-10-28 09:16:21 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"5", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_id" = ?[0m  [["user_id", 5]]
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 2.9ms)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such column: users.user_id: SELECT "users".* FROM "users" WHERE "users"."user_id" = ?):
+  
+app/controllers/users_controller.rb:89:in `getUserType'
+Started GET "/users/5/user_type" for 127.0.0.1 at 2018-10-28 09:17:02 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"5", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 62ms (Views: 47.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/user/" for 127.0.0.1 at 2018-10-28 09:18:42 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/user"):
+  
+actionpack (5.0.7) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.2) lib/rack/cors.rb:97:in `call'
+railties (5.0.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:18:52 -0500
+Processing by UsersController#create as */*
+  Parameters: {"auth"=>{"email"=>"maily@mail.com", "password"=>"[FILTERED]", "phone"=>"12345678", "name"=>"user1"}, "user"=>{}}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:103:in `params_user'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:19:46 -0500
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"maily@mail.com", "password"=>"[FILTERED]", "phone"=>"12345678", "name"=>"user1", "user"=>{"name"=>"user1", "email"=>"maily@mail.com", "phone"=>"12345678"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 12345678], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.22ms)
+Completed 422 Unprocessable Entity in 1516ms (Views: 21.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:20:02 -0500
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"maily@mail.com", "password"=>"[FILTERED]", "phone"=>"12345678", "name"=>"user1"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 12345678], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.18ms)
+Completed 422 Unprocessable Entity in 121ms (Views: 1.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:20:45 -0500
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"maily@mail.com", "password"=>"[FILTERED]", "phone"=>"12345678", "name"=>"user1", "location"=>"colombia"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 12345678], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "user1"], ["location", "colombia"], ["email", "maily@mail.com"], ["phone", 12345678], ["created_at", "2018-10-28 14:20:45.457769"], ["updated_at", "2018-10-28 14:20:45.457769"], ["password_digest", "$2a$10$cMPAARbT3lNosOAcUUuG.uYeISRevE8fysWrmnRHStC6qDWtyx2fC"]]
+  [1m[35m (79.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 14:20:45.584821"], ["updated_at", "2018-10-28 14:20:45.584821"], ["user_id", 11]]
+  [1m[35m (85.3ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered DistributorSerializer with ActiveModelSerializers::Adapter::Attributes (19.92ms)
+Completed 201 Created in 372ms (Views: 22.6ms | ActiveRecord: 167.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:21:59 -0500
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"mail1@mail.com", "password"=>"[FILTERED]", "phone"=>"12445678", "name"=>"user2", "location"=>"colombia", "userType"=>"distributor"}}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 12445678], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail1@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail1@mail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "user2"], ["location", "colombia"], ["email", "mail1@mail.com"], ["phone", 12445678], ["created_at", "2018-10-28 14:21:59.163195"], ["updated_at", "2018-10-28 14:21:59.163195"], ["password_digest", "$2a$10$uVgrDByoQyqMb2Cd42ZnMuDUhDmJXiywavaQJJ8akfFONcXiki7pC"]]
+  [1m[35m (73.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "distributors" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 14:21:59.242591"], ["updated_at", "2018-10-28 14:21:59.242591"], ["user_id", 12]]
+  [1m[35m (72.3ms)[0m  [1m[36mcommit transaction[0m
+[active_model_serializers] Rendered DistributorSerializer with ActiveModelSerializers::Adapter::Attributes (0.15ms)
+Completed 201 Created in 259ms (Views: 0.8ms | ActiveRecord: 147.9ms)
+
+
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:22:09 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ?[0m  [["id", 12]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:24:32 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."userType" = ? AND "users"."id" = ?[0m  [["userType", "distributor"], ["id", 12]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 200 OK in 20ms (Views: 3.7ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:26:08 -0500
+  
+SyntaxError (/home/jram/Desktop/trovit_BackEnd/app/models/user.rb:57: syntax error, unexpected keyword_and, expecting ')'
+        where(userType: "business_manager" and id:user_id)
+                                              ^
+/home/jram/Desktop/trovit_BackEnd/app/models/user.rb:57: syntax error, unexpected ')', expecting keyword_end
+        where(userType: "business_manager" and id:user_id)
+                                                          ^
+/home/jram/Desktop/trovit_BackEnd/app/models/user.rb:61: syntax error, unexpected keyword_and, expecting ')'
+        where(userType: "distributor" and id:user_id)
+                                         ^
+/home/jram/Desktop/trovit_BackEnd/app/models/user.rb:61: syntax error, unexpected ')', expecting keyword_end
+        where(userType: "distributor" and id:user_id)
+                                                     ^):
+  
+app/models/user.rb:57: syntax error, unexpected keyword_and, expecting ')'
+app/models/user.rb:57: syntax error, unexpected ')', expecting keyword_end
+app/models/user.rb:61: syntax error, unexpected keyword_and, expecting ')'
+app/models/user.rb:61: syntax error, unexpected ')', expecting keyword_end
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:34:45 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 59ms (Views: 10.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/5/user_type" for 127.0.0.1 at 2018-10-28 09:36:43 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"5", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:36:51 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/11/user_type" for 127.0.0.1 at 2018-10-28 09:36:53 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 11]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2018-10-28 09:37:02 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+Filter chain halted as :authenticate_user rendered or redirected
+Completed 401 Unauthorized in 73ms (ActiveRecord: 0.2ms)
+
+
+Started POST "/user_token" for 127.0.0.1 at 2018-10-28 09:37:51 -0500
+Processing by UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"maily@gmail.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"maily@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@gmail.com"], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.3ms)
+
+
+Started POST "/user_token" for 127.0.0.1 at 2018-10-28 09:38:10 -0500
+Processing by UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"mail1@gmail.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"mail1@gmail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail1@gmail.com"], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+Started POST "/user_token" for 127.0.0.1 at 2018-10-28 09:38:33 -0500
+Processing by UserTokenController#create as */*
+  Parameters: {"auth"=>{"email"=>"maily@mail.com", "password"=>"[FILTERED]"}, "user_token"=>{"auth"=>{"email"=>"maily@mail.com", "password"=>"[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "maily@mail.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Knock::AuthToken (0.15ms)
+Completed 201 Created in 113ms (Views: 7.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2018-10-28 09:39:05 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:39:43 -0500
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"mail2@mail.com", "password"=>"[FILTERED]", "phone"=>"12445679", "name"=>"user3", "location"=>"colombia", "userType"=>"business_manager"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 12445679], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail2@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail2@mail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.09ms)
+Completed 422 Unprocessable Entity in 106ms (Views: 4.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2018-10-28 09:40:13 -0500
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"mail2@mail.com", "password"=>"[FILTERED]", "phone"=>"12445679", "name"=>"user3", "location"=>"colombia", "userType"=>"businessmanager"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."phone" = ? LIMIT ?[0m  [["phone", 12445679], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail2@mail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "mail2@mail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "location", "email", "phone", "userType", "created_at", "updated_at", "password_digest") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "user3"], ["location", "colombia"], ["email", "mail2@mail.com"], ["phone", 12445679], ["userType", "businessmanager"], ["created_at", "2018-10-28 14:40:13.120528"], ["updated_at", "2018-10-28 14:40:13.120528"], ["password_digest", "$2a$10$DJ4bvdS1KofUUjLNAOK4KevDNpScEViVweXNZfjt7Bpab1c9Ib0JO"]]
+  [1m[35m (105.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "business_managers" ("created_at", "updated_at", "user_id") VALUES (?, ?, ?)[0m  [["created_at", "2018-10-28 14:40:13.238785"], ["updated_at", "2018-10-28 14:40:13.238785"], ["user_id", 13]]
+  [1m[35m (63.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+[active_model_serializers] Rendered BusinessManagerSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 201 Created in 299ms (Views: 4.2ms | ActiveRecord: 171.4ms)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2018-10-28 09:40:32 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.36ms)
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/13/user_type" for 127.0.0.1 at 2018-10-28 09:40:39 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 13]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/11/user_type" for 127.0.0.1 at 2018-10-28 09:40:53 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.1ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 11]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.18ms)
+Completed 200 OK in 4ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:41:05 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 6ms (Views: 4.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/13/user_type" for 127.0.0.1 at 2018-10-28 09:41:07 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 13]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-10-28 09:41:15 -0500
+Processing by UsersController#index as */*
+  Parameters: {"user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT ? OFFSET ?[0m  [["LIMIT", 10], ["OFFSET", 0]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.18ms)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.6ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users/13/user_type" for 127.0.0.1 at 2018-10-28 09:42:56 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 13]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/13/user_type" for 127.0.0.1 at 2018-10-28 09:48:00 -0500
+  
+SyntaxError (/home/jram/Desktop/trovit_BackEnd/app/controllers/users_controller.rb:108: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/users_controller.rb:108: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/13/user_type" for 127.0.0.1 at 2018-10-28 09:48:52 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "business_managers" WHERE "business_managers"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT "business_managers".* FROM "business_managers" WHERE "business_managers"."user_id" = ?[0m  [["user_id", 13]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 43ms (Views: 7.0ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/users/12/user_type" for 127.0.0.1 at 2018-10-28 09:48:59 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"12", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "business_managers" WHERE "business_managers"."user_id" = ?[0m  [["user_id", 12]]
+  [1m[36mDistributor Load (0.3ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 12]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/users/11/user_type" for 127.0.0.1 at 2018-10-28 09:49:01 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "business_managers" WHERE "business_managers"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mDistributor Load (0.2ms)[0m  [1m[34mSELECT "distributors".* FROM "distributors" WHERE "distributors"."user_id" = ?[0m  [["user_id", 11]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 6ms (Views: 2.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/11" for 127.0.0.1 at 2018-10-28 09:49:06 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"11", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 8ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/13" for 127.0.0.1 at 2018-10-28 09:49:11 -0500
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/13/user_type" for 127.0.0.1 at 2018-10-28 09:49:20 -0500
+Processing by UsersController#getUserType as */*
+  Parameters: {"id"=>"13", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "business_managers" WHERE "business_managers"."user_id" = ?[0m  [["user_id", 13]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT "business_managers".* FROM "business_managers" WHERE "business_managers"."user_id" = ?[0m  [["user_id", 13]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.4ms)
+Completed 200 OK in 6ms (Views: 2.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/business_managers/11" for 127.0.0.1 at 2018-10-28 09:49:44 -0500
+Processing by BusinessManagersController#show as */*
+  Parameters: {"id"=>"11", "business_manager"=>{}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mBusinessManager Load (0.2ms)[0m  [1m[34mSELECT  "business_managers".* FROM "business_managers" WHERE "business_managers"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+[active_model_serializers] Rendered BusinessManagerSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+
+

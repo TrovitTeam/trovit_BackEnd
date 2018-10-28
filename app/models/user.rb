@@ -53,4 +53,11 @@ class User < ApplicationRecord
         joins(:pictures).where(id: user_id)
     end
 
+    def self.findBusinessManager(user_id)
+        BusinessManager.where(user_id: user_id)
+    end
+
+    def self.findDistributor(user_id)
+        Distributor.where(user_id: user_id)
+    end
 end

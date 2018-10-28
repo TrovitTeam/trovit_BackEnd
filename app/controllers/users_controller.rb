@@ -82,6 +82,17 @@ class UsersController < ApplicationController
         render json: business_managers, status: 200
     end
 
+    def getUserType
+        user = User.find(params[:id])
+        business_manager = User.findBusinessManager(user.id)
+        distributor = User.findDistributor(user.id)
+        if business_manager.empty?
+            render json: distributor, status: 200
+        else 
+            render json: business_manager, status: 200
+        end
+    end
+
     def getPictures
         
         user = User.find(params[:id])
