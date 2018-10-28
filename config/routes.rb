@@ -135,6 +135,13 @@ Rails.application.routes.draw do
   get 'messages/:id/orders' => 'messages#orders'
   get 'users/distributors' => 'users#getDistributors'
   get 'users/business_managers' => 'users#getBusinessManagers'
+  # Routes to Create and show Pictures
+  post 'distributors/:id/pictures' => 'distributors#createPicture'
+  get 'distributors/:id/pictures' => 'distributors#showPictures'
+  post 'business_managers/:id/pictures' => 'distributors#createPicture'
+  get 'business_managers/:id/pictures' => 'distributors#showPictures'
+  post 'products/:id/pictures' => 'distributors#createPicture'
+  get 'products/:id/pictures' => 'distributors#showPictures'
   
   resources :orders
 

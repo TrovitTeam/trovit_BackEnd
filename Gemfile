@@ -66,3 +66,9 @@ gem 'rack-cors', require: 'rack/cors'
 #gem prawn for PDF report
 gem 'prawn'
 gem 'prawn-table'
+
+#gem carrierwave to upload images
+gem 'carrierwave', '~> 1.0'
+
+#gem mini_magick to use image formating in carrierwave
+gem 'mini_magick'
