@@ -75,7 +75,8 @@ class ProductsController < ApplicationController
     # Add picture parameters
 
     def params_picture
-        params.permit(:image,:pictureType,:pictureUrl)
+       # params.permit(:image,:pictureType,:pictureUrl)
+        params.permit(:image,:imageName)
     end
 
 

@@ -14,11 +14,11 @@
 class Picture < ApplicationRecord
     mount_uploader :image, ImageUploader
     
-    validates :pictureType, presence: true, length: { minimum: 2 }, 
+    #validates :pictureType, presence: true, length: { minimum: 2 }, 
                     format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/, 
                         message: "only allows letters" }
     
-    validates :pictureUrl, presence: true, length: {minimum: 10}
+    #validates :pictureUrl, presence: true, length: {minimum: 10}
 
     belongs_to :imageable, polymorphic: true, optional: true
 
