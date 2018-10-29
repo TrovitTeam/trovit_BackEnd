@@ -24,6 +24,7 @@ class UsersController < ApplicationController
                 distributor = Distributor.new(user_id: user.id)
 
                 if distributor.save
+                    UserCreateMailer.user_create(user).deliver
                     render json: distributor, status: 201
                 else
                     render json: distributor.errors, status: :unprocessable_entity
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
                 business_manager = BusinessManager.new(user_id: user.id)
 
                 if business_manager.save
+                    UserCreateMailer.user_create(user).deliver
                     render json: business_manager, status: 201
                 else
                     render json: business_manager.errors, status: :unprocessable_entity
@@ -62,11 +64,12 @@ class UsersController < ApplicationController
                 if user.save
 
                     if(user.userType == "distributor")
-                    
+                        
                         distributor = Distributor.new(user_id: user.id)
         
                         if distributor.save
                             puts "DISTRIBUTOR CREATED"
+                            UserCreateMailer.user_create(user).deliver
                             create_json = {email: user.email, password: user.password}
                             render json: create_json, status: 201
                         else
@@ -79,6 +82,7 @@ class UsersController < ApplicationController
         
                         if business_manager.save
                             puts "BUSINESS CREATED"
+                            UserCreateMailer.user_create(user).deliver
                             create_json = {email: user.email, password: user.password}
                             render json: create_json, status: 201
                         else
