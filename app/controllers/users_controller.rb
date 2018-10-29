@@ -24,6 +24,7 @@ class UsersController < ApplicationController
                 distributor = Distributor.new(user_id: user.id)
 
                 if distributor.save
+                    UserCreateMailer.user_create(user).deliver
                     render json: distributor, status: 201
                 else
                     render json: distributor.errors, status: :unprocessable_entity
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
                 business_manager = BusinessManager.new(user_id: user.id)
 
                 if business_manager.save
+                    UserCreateMailer.user_create(user).deliver
                     render json: business_manager, status: 201
                 else
                     render json: business_manager.errors, status: :unprocessable_entity
