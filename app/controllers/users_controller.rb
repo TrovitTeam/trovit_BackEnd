@@ -1,7 +1,7 @@
 require 'fb_token_api'
 class UsersController < ApplicationController
 
-    #before_action :authenticate_user, only: [:show, :index]
+    before_action :authenticate_user, only: [:show, :index]
 
 
     def index
