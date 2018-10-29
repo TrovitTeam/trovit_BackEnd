@@ -79,8 +79,4 @@ class ProductsController < ApplicationController
         params.permit(:image,:imageName)
     end
 
-
-
- 
-
 end
