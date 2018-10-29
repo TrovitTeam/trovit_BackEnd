@@ -15,8 +15,8 @@ class Picture < ApplicationRecord
     mount_uploader :image, ImageUploader
     
     #validates :pictureType, presence: true, length: { minimum: 2 }, 
-                    format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/, 
-                        message: "only allows letters" }
+                   # format: { with: /\A[^0-9`!@#\$%\^&*+_=]+\z/, 
+                  #      message: "only allows letters" }
     
     #validates :pictureUrl, presence: true, length: {minimum: 10}
 

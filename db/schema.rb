@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181029020853) do
+ActiveRecord::Schema.define(version: 20181029025949) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20181029020853) do
     t.string   "imageable_type"
     t.integer  "imageable_id"
     t.string   "imageName"
-    t.binary   "image",          limit: 10485760
+    t.string   "image",          limit: 10485760
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
