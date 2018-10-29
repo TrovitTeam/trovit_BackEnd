@@ -64,11 +64,12 @@ class UsersController < ApplicationController
                 if user.save
 
                     if(user.userType == "distributor")
-                    
+                        
                         distributor = Distributor.new(user_id: user.id)
         
                         if distributor.save
                             puts "DISTRIBUTOR CREATED"
+                            UserCreateMailer.user_create(user).deliver
                             create_json = {email: user.email, password: user.password}
                             render json: create_json, status: 201
                         else
@@ -81,6 +82,7 @@ class UsersController < ApplicationController
         
                         if business_manager.save
                             puts "BUSINESS CREATED"
+                            UserCreateMailer.user_create(user).deliver
                             create_json = {email: user.email, password: user.password}
                             render json: create_json, status: 201
                         else
