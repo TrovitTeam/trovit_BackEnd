@@ -17,7 +17,9 @@ class ProductsController < ApplicationController
     def create
         distributor = Distributor.find(params[:distributor_id])
         product = distributor.products.new(params_product)
+        user = User.find(distributor.user_id)
         if product.save 
+            ProductMailer.product_creation(user, product).deliver
             render json: product, status:201
         else
             render json: product.errors, status: :unprocessable_entity

@@ -33,6 +33,9 @@ class Distributor < ApplicationRecord
         joins(:offers).where(id: distributor_id)
     end
 
+    def self.userInfo(user_id)
+        User.find(user_id)
+    end
  
 
 end

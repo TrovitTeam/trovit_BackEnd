@@ -136,6 +136,7 @@ Rails.application.routes.draw do
   get 'users/distributors' => 'users#getDistributors'
   get 'users/business_managers' => 'users#getBusinessManagers'
   get 'users/:id/user_type' => 'users#getUserType'
+  get 'distributors/:id/info' => 'distributors#getInfo'
   # Routes to Create and show Pictures
   post 'distributors/:id/pictures' => 'distributors#createPicture'
   get 'distributors/:id/pictures' => 'distributors#showPictures'
