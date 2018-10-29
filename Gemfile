@@ -75,3 +75,5 @@ gem 'mini_magick'
 
 #httparty
 gem 'httparty'
+#truncate gem
+gem 'truncate_html'
