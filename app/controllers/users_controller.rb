@@ -97,6 +97,7 @@ class UsersController < ApplicationController
     def destroy
         user = User.find(params[:id])
         user.destroy
+        UserDestroyMailer.user_destroy(user).deliver
         render json: user, status:200
     end
 
