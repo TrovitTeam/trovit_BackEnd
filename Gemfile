@@ -72,3 +72,6 @@ gem 'carrierwave', '~> 1.0'
 
 #gem mini_magick to use image formating in carrierwave
 gem 'mini_magick'
+
+#truncate gem
+gem 'truncate_html'

@@ -1,16 +1,30 @@
-<h2>Product created!</h2>
+<head>
+  <style type="text/css" media="screen">
+    h4, h2 {
+       color: #0042FF;
+     }
+    div, ul{
+      color: #00081F;
+    }
+  </style>
+</head>
+<body>
+  <h2>Product created!</h2>
 
-<p>
-  <%= @greeting %> <%= @user.name %>, 
-  the product <%= @product.productName %> has been succesfully created,
-</p>
+  <div>
+    <p>
+      <%= @greeting %> <%= @user.name %>, 
+      the product <%= @product.productName %> has been succesfully created,
+    </p>
+  </div>
 
-<h4> Here's the information of your product:</h4>
-<ul>
-  <li><%= @product.productName %></li>
-  <li><%= @product.brand %></li>
-  <li><%= @product.quantity %></li>
-  <li><%= @product.price %></li>
-</ul>
+  <h4> Here's the full information of your product:</h4>
+  <ul>
+    <li><%= @product.productName %></li>
+    <li><%= @product.brand %></li>
+    <li><%= @product.quantity %></li>
+    <li><%= @product.price %></li>
+  </ul>
 
-<h4>Trovit.com</h4>
+  <h4>Trovit.com</h4>
+<body>

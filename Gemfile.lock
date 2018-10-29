@@ -163,6 +163,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     timeliness (0.3.8)
+    truncate_html (0.9.3)
     ttfunk (1.5.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
@@ -200,6 +201,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   telephone_number
+  truncate_html
   tzinfo-data
   validates_timeliness (~> 5.0.0.alpha3)
   will_paginate (~> 3.1.0)
