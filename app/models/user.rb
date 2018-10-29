@@ -17,10 +17,13 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    validates :name, :location, :userType, presence: true, length: { minimum: 2 },
+    validates :name, :userType, presence: true, length: { minimum: 2 },
                 format: { with: /\A[^`!@\$%\^&*+_=]+\z/,
                     message: "only allows letters" }
-    validates :phone, presence: true, uniqueness: true, 
+    validates :location, allow_blank: true, length: { minimum: 2 },
+                format: { with: /\A[^`!@#\$%\^&*+_=]+\z/,
+                    message: "only allows letters and numbers" }
+    validates :phone, allow_blank: true, uniqueness: true, 
                 numericality: true, length: {minimum: 7}
     validates :email, presence: true, uniqueness: true,
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
