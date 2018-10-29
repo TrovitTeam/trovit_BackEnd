@@ -139,10 +139,10 @@ Rails.application.routes.draw do
   # Routes to Create and show Pictures
   post 'distributors/:id/pictures' => 'distributors#createPicture'
   get 'distributors/:id/pictures' => 'distributors#showPictures'
-  post 'business_managers/:id/pictures' => 'distributors#createPicture'
-  get 'business_managers/:id/pictures' => 'distributors#showPictures'
-  post 'products/:id/pictures' => 'distributors#createPicture'
-  get 'products/:id/pictures' => 'distributors#showPictures'
+  post 'business_managers/:id/pictures' => 'business_managers#createPicture'
+  get 'business_managers/:id/pictures' => 'business_managers#showPictures'
+  post 'products/:id/pictures' => 'products#createPicture'
+  get 'products/:id/pictures' => 'products#showPictures'
   
   resources :orders
 
