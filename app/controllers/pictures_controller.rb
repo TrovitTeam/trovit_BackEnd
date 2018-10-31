@@ -44,7 +44,7 @@ class PicturesController < ApplicationController
     end
 
     def params_picture
-        params.permit(:image,:pictureType, :pictureUrl)
+        params.permit(:image, :imageName)
     end
 
 
