@@ -7,7 +7,17 @@ class OrdersController < ApplicationController
 
     def show
         order = Order.find(params[:id])
-        render json: order, status: 200
+        product = Product.find(order.product_id)
+        respond_to do |format|
+            format.html {render json:order, status: 200}
+            format.json {render json: order, status: 200}
+            format.pdf do
+                pdf = OrderPdf.new(order,product)
+                send_data pdf.render, filename: 'orders', type: 'application/pdf',disposition: "inline"
+            end
+        end
+
+
     end
 
     def create 
@@ -21,7 +31,7 @@ class OrdersController < ApplicationController
 
     def update
         order = Order.find(params[:id])
-        if order.update(params_offfer)
+        if order.update(params_order)
             render json: order, status: 200
         else
             render json: order.errors, status: 422
@@ -32,13 +42,11 @@ class OrdersController < ApplicationController
         
         order = Order.find(params[:id])
         order.destroy
-        respond_to do |format|
-            format.json {render json: order, status: 200}
-        end
+        render json: order, status: 200
     end
 
     def params_order
-        params.permit(:quantity, :date)
+        params.permit(:quantity, :distributor_id, :business_manager_id, :product_id)
     end
 
 end

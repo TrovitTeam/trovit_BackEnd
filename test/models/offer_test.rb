@@ -4,7 +4,6 @@
 #
 #  id             :integer          not null, primary key
 #  quantity       :integer
-#  date           :date
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  message_id     :integer

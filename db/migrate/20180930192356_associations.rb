@@ -5,13 +5,6 @@ class Associations < ActiveRecord::Migration[5.0]
       t.belongs_to :user, index: true
     end
 
-    change_table :distributor_has_products do |t|
-    
-      t.belongs_to :distributor,index: true
-      t.belongs_to :product , index: true
-
-    end
-
     change_table :distributor_has_business_managers do |t|
       
       t.belongs_to :distributor, index: true

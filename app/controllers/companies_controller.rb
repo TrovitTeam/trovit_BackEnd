@@ -6,28 +6,29 @@ class CompaniesController < ApplicationController
     
     def show
         company = Company.find(params[:id])
-        render json: company, status: 200
+        
+        respond_to do |format|
+            format.json {render json: company, status: 200}
+            format.pdf do
+                pdf = CompanyPdf.new(company)
+                send_data pdf.render, filename: 'company.pdf', type: 'application/pdf',disposition: "inline"
+            end
+        end
     end
 
     def create
         company = Company.new(params_company)
         if company.save
-            respond_to do |format|
-                format.json {render json: company, status: 201}
-            end
+            render json: company, status: 201
         else
-            respond_to do |format|
-                format.json {render json: company.errors, status: :unprocessable_entity}
-            end
+            render json: company.errors, status: :unprocessable_entity
         end
     end
 
     def destroy
         company = Company.find(params[:id])
         company.destroy
-        respond_to do |format|
-            format.json {render json: company, status:200}
-        end
+        render json: company, status:200
     end
 
     def update
@@ -49,6 +50,4 @@ class CompaniesController < ApplicationController
     def params_company
         params.permit(:name, :location, :companyType)
     end
-
-
 end

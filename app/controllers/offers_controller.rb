@@ -13,13 +13,9 @@ class OffersController < ApplicationController
     def create
         offer = Offer.new(params_offer)
         if offer.save
-            respond_to do |format|
-                format.json {render json: offer, status: 201}
-            end
+            render json: offer, status: 201
         else
-            respond_to do |format|
-                format.json {render json: offer.errors, status: :unprocessable_entity}
-            end
+            render json: offer.errors, status: :unprocessable_entity
         end
     end
 
@@ -42,7 +38,7 @@ class OffersController < ApplicationController
     end
 
     def params_offer
-        params.permit(:quantity, :date)
+        params.permit(:quantity, :distributor_id, :business_manager_id)
     end
 
 end

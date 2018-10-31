@@ -1,11 +1,11 @@
+require 'fb_token_api'
 class UsersController < ApplicationController
 
     before_action :authenticate_user, only: [:show, :index]
 
- 
 
     def index
-        users = User.all.paginate(page: params[:page],per_page: 10)
+        users = User.all.paginate(page: params[:page],per_page: 30)
         render json: users, status: 200
     end
     
@@ -24,13 +24,10 @@ class UsersController < ApplicationController
                 distributor = Distributor.new(user_id: user.id)
 
                 if distributor.save
-                    respond_to do |format|
-                        format.json {render json: distributor, status: 201}
-                    end    
+                    UserCreateMailer.user_create(user).deliver
+                    render json: distributor, status: 201
                 else
-                    respond_to do |format|
-                        format.json {render json: distributor.errors, status: :unprocessable_entity}
-                    end   
+                    render json: distributor.errors, status: :unprocessable_entity
                 end
 
             elsif(user.userType == "businessmanager")
@@ -38,28 +35,74 @@ class UsersController < ApplicationController
                 business_manager = BusinessManager.new(user_id: user.id)
 
                 if business_manager.save
-                    respond_to do |format|
-                        format.json {render json: business_manager, status: 201}
-                    end    
+                    UserCreateMailer.user_create(user).deliver
+                    render json: business_manager, status: 201
                 else
-                    respond_to do |format|
-                        format.json {render json: business_manager.errors, status: :unprocessable_entity}
-                    end   
+                    render json: business_manager.errors, status: :unprocessable_entity
                 end  
             end    
         else
-            respond_to do |format|
-                format.json {render json: user.errors, status: :unprocessable_entity}
+            render json: user.errors, status: :unprocessable_entity
+        end
+    end
+
+    def fb_create
+        user = User.new(params_user)
+        accessTokenJson = params.permit(:accessToken)
+
+        accessTokenValue = accessTokenJson['accessToken']
+        fb_api = FbTokenApi.new()
+        token_info = fb_api.check_fb_token(accessTokenValue)['data']['is_valid']
+        
+        if token_info 
+            if User.exists?(email: user.email)
+                puts "ALREADY EXISTS"
+                exists_json = {email: user.email, password: user.password}
+                render json: exists_json, status: 200
+
+            else
+                if user.save
+
+                    if(user.userType == "distributor")
+                        
+                        distributor = Distributor.new(user_id: user.id)
+        
+                        if distributor.save
+                            puts "DISTRIBUTOR CREATED"
+                            UserCreateMailer.user_create(user).deliver
+                            create_json = {email: user.email, password: user.password}
+                            render json: create_json, status: 201
+                        else
+                            render json: distributor.errors, status: :unprocessable_entity
+                        end
+        
+                    elsif(user.userType == "businessmanager")
+        
+                        business_manager = BusinessManager.new(user_id: user.id)
+        
+                        if business_manager.save
+                            puts "BUSINESS CREATED"
+                            UserCreateMailer.user_create(user).deliver
+                            create_json = {email: user.email, password: user.password}
+                            render json: create_json, status: 201
+                        else
+                            render json: business_manager.errors, status: :unprocessable_entity
+                        end  
+                    end    
+                else
+                    render json: user.errors, status: :unprocessable_entity
+                end
             end
+        else
+            render json: {status: "error", message: "invalid facebook token"}
         end
     end
 
     def destroy
         user = User.find(params[:id])
         user.destroy
-        respond_to do |format|
-            format.json {render json: user, status:200}
-        end
+        UserDestroyMailer.user_destroy(user).deliver
+        render json: user, status:200
     end
 
     def update
@@ -80,6 +123,17 @@ class UsersController < ApplicationController
     def getBusinessManagers
         business_managers = User.findBusinessManagers
         render json: business_managers, status: 200
+    end
+
+    def getUserType
+        user = User.find(params[:id])
+        business_manager = User.findBusinessManager(user.id)
+        distributor = User.findDistributor(user.id)
+        if business_manager.empty?
+            render json: distributor, status: 200
+        else 
+            render json: business_manager, status: 200
+        end
     end
 
     def getPictures

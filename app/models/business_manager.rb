@@ -13,10 +13,10 @@ class BusinessManager < ApplicationRecord
 
     belongs_to :user, foreign_key: true, optional: true
     belongs_to :company, foreign_key: true, optional: true
-    has_many :distributor_has_bussiness_managers 
+    has_many :distributor_has_bussiness_managers , dependent: :destroy
     has_many :distributors, through: :distributor_has_bussiness_managers
-    has_many :messages
-    has_many :orders
+    has_many :messages, dependent: :destroy
+    has_many :orders, dependent: :destroy
 
 
     def self.findMessages(businessManager_id)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181009153912) do
+ActiveRecord::Schema.define(version: 20181026023904) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,15 +38,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
     t.index ["distributor_id"], name: "index_distributor_has_business_managers_on_distributor_id"
   end
 
-  create_table "distributor_has_products", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
-    t.integer  "distributor_id"
-    t.integer  "product_id"
-    t.index ["distributor_id"], name: "index_distributor_has_products_on_distributor_id"
-    t.index ["product_id"], name: "index_distributor_has_products_on_product_id"
-  end
-
   create_table "distributors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -56,7 +47,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "message"
-    t.date     "date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "distributor_id"
@@ -67,7 +57,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "offers", force: :cascade do |t|
     t.integer  "quantity"
-    t.date     "date"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "message_id"
@@ -80,7 +69,6 @@ ActiveRecord::Schema.define(version: 20181009153912) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "quantity"
-    t.date     "date"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "product_id"
@@ -98,6 +86,7 @@ ActiveRecord::Schema.define(version: 20181009153912) do
     t.string   "pictureUrl"
     t.string   "imageable_type"
     t.integer  "imageable_id"
+    t.string   "image"
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
@@ -108,8 +97,10 @@ ActiveRecord::Schema.define(version: 20181009153912) do
     t.string   "productName"
     t.integer  "quantity"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "distributor_id"
+    t.index ["distributor_id"], name: "index_products_on_distributor_id"
   end
 
   create_table "users", force: :cascade do |t|

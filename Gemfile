@@ -32,10 +32,11 @@ group :development do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.18'
   gem 'rails_12factor'
 end
 
+gem 'pg', '~> 0.18'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -62,3 +63,18 @@ gem 'knock'
 
 #gem cors for communicating with front
 gem 'rack-cors', require: 'rack/cors' 
+ 
+#gem prawn for PDF report
+gem 'prawn'
+gem 'prawn-table'
+
+#gem carrierwave to upload images
+gem 'carrierwave', '~> 1.0'
+
+#gem mini_magick to use image formating in carrierwave
+gem 'mini_magick'
+
+#httparty
+gem 'httparty'
+#truncate gem
+gem 'truncate_html'

@@ -17,14 +17,17 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    validates :name, :location, :userType, presence: true, length: { minimum: 2 },
+    validates :name, :userType, presence: true, length: { minimum: 2 },
                 format: { with: /\A[^`!@\$%\^&*+_=]+\z/,
                     message: "only allows letters" }
-    validates :phone, presence: true, uniqueness: true, 
+    validates :location, allow_blank: true, length: { minimum: 2 },
+                format: { with: /\A[^`!@#\$%\^&*+_=]+\z/,
+                    message: "only allows letters and numbers" }
+    validates :phone, allow_blank: true, uniqueness: true, 
                 numericality: true, length: {minimum: 7}
     validates :email, presence: true, uniqueness: true,
                 format: {with: URI::MailTo::EMAIL_REGEXP} 
-    has_many :pictures, as: :imageable
+    has_many :pictures, as: :imageable, dependent: :destroy
 
 
     validates_length_of :password, maximum: 72, minimum: 8, allow_nil: true, allow_blank: false
@@ -53,4 +56,11 @@ class User < ApplicationRecord
         joins(:pictures).where(id: user_id)
     end
 
+    def self.findBusinessManager(user_id)
+        BusinessManager.where(user_id: user_id)
+    end
+
+    def self.findDistributor(user_id)
+        Distributor.where(user_id: user_id)
+    end
 end
