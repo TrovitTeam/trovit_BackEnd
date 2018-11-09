@@ -41,16 +41,34 @@ class Product < ApplicationRecord
         where("price = ?", price)
     end
 
-    def findOffers(product_id)
+    def self.findOffers(product_id)
         joins(:offers).where(id: product_id)
     end
 
-    def findOrder(product_id)
+    def self.findOrder(product_id)
         joins(:offers).where(id: product_id)
     end
 
     def self.findPictures(product_id)
         joins(:pictures).where(id: product_id)
+    end
+
+    def self.countProducts
+        group("distributor_id").count("distributor_id")
+    end
+
+    def self.findHighest(distributor_id)
+        where(distributor_id: distributor_id).maximum("price")
+        where(distributor_id: distributor_id , price: price)
+    end
+
+    def self.findLowest(distributor_id)
+        price = where(distributor_id: distributor_id).minimum("price")
+        where(distributor_id: distributor_id , price: price)
+    end
+
+    def self.averages
+        group("distributor_id").average("price")
     end
 
 end

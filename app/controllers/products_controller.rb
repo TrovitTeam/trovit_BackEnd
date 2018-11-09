@@ -63,7 +63,7 @@ class ProductsController < ApplicationController
         product = Product.find(params[:id])
         if product
             pictures = user.pictures
-            render json:pictures , status: 200
+            render json: pictures , status: 200
         end
 
     end
@@ -71,6 +71,49 @@ class ProductsController < ApplicationController
     def params_product
         params.permit(:price, :producType, :brand, :productName,:quantity,:description)
     end
+
+
+    def count_products
+        products = Product.countProducts()
+        if products
+            render json: products , status: 200
+        else
+            rednder json: products.error , status:  201
+        end
+    end
+
+    def find_highest
+        
+        distributor = Distributor.find(params[:distributor_id]) 
+        product = Product.findHighest(distributor.id)
+        if product
+            render json: product , status: 200
+        else
+            rednder json: product.error , status:  201
+        end
+    
+    end
+
+    def find_lowest
+        
+        distributor = Distributor.find(params[:distributor_id])
+        product = Product.findLowest(distributor.id)
+        if product 
+            render json: product , status: 200
+        else
+            render json: product.error, status: 201
+        end 
+    end
+
+    def averages
+        products = Product.averages()
+        if products
+            render json: products , status: 200
+        else
+            rednder json: products.error , status:  201
+        end
+    end
+
 
     # Add picture parameters
 

@@ -63,4 +63,8 @@ class User < ApplicationRecord
     def self.findDistributor(user_id)
         Distributor.where(user_id: user_id)
     end
+
+    def self.countTypes
+        group("userType").count("userType")
+    end
 end

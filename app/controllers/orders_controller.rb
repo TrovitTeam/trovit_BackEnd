@@ -45,8 +45,21 @@ class OrdersController < ApplicationController
         render json: order, status: 200
     end
 
+    def count_orders
+    
+        businessManager = BusinessManager.find(params[:business_manager_id])        
+        orders = Order.countOrders(businessManager.id)
+
+        if orders
+            render json: orders, status: 200
+        else
+            render json: orders.error , status: 201
+        end
+
+    end
+
     def params_order
-        params.permit(:quantity, :distributor_id, :business_manager_id, :product_id)
+        params.permit(:quantity, :business_manager_id, :product_id)
     end
 
 end

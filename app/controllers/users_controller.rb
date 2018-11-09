@@ -145,6 +145,18 @@ class UsersController < ApplicationController
     
     end
 
+    def count_types
+        
+        user = User.countTypes()
+
+        if user
+            render json: user, status: 200
+        else
+            render json: user.error, status: 201
+        end
+    
+    end
+
 
     def params_user
         params.require(:user).permit(:name, :location, :userType, :phone, :email, :password)
