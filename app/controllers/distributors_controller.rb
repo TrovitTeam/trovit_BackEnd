@@ -1,7 +1,7 @@
 class DistributorsController < ApplicationController
 
 
-    #before_action :authenticate_user, only: [:show, :index]
+    before_action :authenticate_user, only: [:show, :index]
 
 
     def index
