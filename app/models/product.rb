@@ -58,7 +58,7 @@ class Product < ApplicationRecord
     end
 
     def self.findHighest(distributor_id)
-        where(distributor_id: distributor_id).maximum("price")
+        price = where(distributor_id: distributor_id).maximum("price")
         where(distributor_id: distributor_id , price: price)
     end
 
