@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
     end
 
     def params_order
-        params.permit(:quantity, :business_manager_id, :product_id)
+        params.permit(:quantity, :business_manager_id, :product_id, :message_id)
     end
 
 end

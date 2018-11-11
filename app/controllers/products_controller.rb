@@ -114,6 +114,26 @@ class ProductsController < ApplicationController
         end
     end
 
+    def count_orders
+        orders = Product.countOrders()
+        if orders
+            render json: orders, status: 200
+        else
+            render json: orders.error, status: 201
+        end
+    end
+
+    def count_offers
+        
+        offers = Product.countOffers()
+        if offers
+            render json: offers, status: 200
+        else
+            render json: offers.error, status: 201
+        end
+    
+    end
+
 
     # Add picture parameters
 

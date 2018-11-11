@@ -71,4 +71,12 @@ class Product < ApplicationRecord
         group("distributor_id").average("price")
     end
 
+    def self.countOrders
+        Order.group("business_manager_id").count("business_manager_id")
+    end
+
+    def self.countOffers
+        Offer.group("distributor_id").count("distributor_id")
+    end
+
 end

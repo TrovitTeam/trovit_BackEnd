@@ -152,6 +152,11 @@ Rails.application.routes.draw do
   get 'products/averages' => 'products#averages'
   get 'users/count_types' => 'users#count_types'
   get 'business_managers/:business_manager_id/count_orders' => 'orders#count_orders'
+  get 'distributors/:distributor_id/count_offers' => 'offers#count_offers'
+  get 'products/count_offers' => 'products#count_offers'
+  get 'products/count_orders' => 'products#count_orders'
+
+
   
   resources :orders
 
