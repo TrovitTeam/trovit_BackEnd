@@ -58,6 +58,19 @@ class DistributorsController < ApplicationController
         end
     end
 
+    def listMessages
+
+        distributor = Distributor.find(params[:id])
+        messages = distributor.messages
+
+        if messages
+            render json: messages, status: 200
+        else
+            render json: messages.error, status: 201
+        end
+
+    end
+
 
     def showPictures
         
@@ -79,8 +92,5 @@ class DistributorsController < ApplicationController
     def params_picture
         params.permit(:image,:pictureType,:pictureUrl)
     end
-
-
-    
 
 end

@@ -145,6 +145,10 @@ Rails.application.routes.draw do
   get 'business_managers/:id/pictures' => 'business_managers#showPictures'
   post 'products/:id/pictures' => 'products#createPicture'
   get 'products/:id/pictures' => 'products#showPictures'
+  # Routes to list Messages
+  get 'distributors/:id/listMessages' => 'distributors#listMessages'
+  get 'business_managers/:id/listMessages' => 'business_managers#listMessages'  
+  
   
   resources :orders
 
