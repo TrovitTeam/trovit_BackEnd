@@ -37,8 +37,21 @@ class OffersController < ApplicationController
         end
     end
 
+    def count_offers
+    
+        distributor = Distributor.find(params[:distributor_id])        
+        offers = Offer.countOrders(distributor.id)
+
+        if offers
+            render json: offers, status: 200
+        else
+            render json: offers.error , status: 201
+        end
+
+    end
+
     def params_offer
-        params.permit(:quantity, :distributor_id, :business_manager_id)
+        params.permit(:quantity, :distributor_id, :product_id)
     end
 
 end
