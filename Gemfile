@@ -36,7 +36,7 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'pg', '~> 0.18'
+#gem 'pg', '~> 0.18'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
@@ -78,3 +78,13 @@ gem 'mini_magick'
 gem 'httparty'
 #truncate gem
 gem 'truncate_html'
+
+#Gem Delayed Job
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+
+#Gem Daemons
+gem 'daemons'
+
+#Gem Whenever
+gem 'whenever', require: false
