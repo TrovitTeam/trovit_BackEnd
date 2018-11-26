@@ -30,4 +30,9 @@ class Offer < ApplicationRecord
         where("quantity = ?", quantity)
     end
 
+    def self.countOrders(distributor_id)
+        #where(distributor_id: distributor_id)
+        where(distributor_id: distributor_id).count("distributor_id")
+     end
+
 end

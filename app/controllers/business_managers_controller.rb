@@ -75,6 +75,20 @@ def showPictures
         end
 end
 
+
+def listMessages
+
+    business_manager = BusinessManager.find(params[:id])
+    messages = business_manager.messages
+
+    if messages
+        render json: messages, status: 200
+    else
+        render json: messages.error, status: 201
+    end
+
+end
+
 def params_business_manager
     params.require(:business_manager).permit(:user_id, :company_id)
 end

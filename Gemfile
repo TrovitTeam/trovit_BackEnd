@@ -78,3 +78,13 @@ gem 'mini_magick'
 gem 'httparty'
 #truncate gem
 gem 'truncate_html'
+
+#Gem Delayed Job
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+
+#Gem Daemons
+gem 'daemons'
+
+#Gem Whenever
+gem 'whenever', require: false

@@ -24,7 +24,8 @@ class UsersController < ApplicationController
                 distributor = Distributor.new(user_id: user.id)
 
                 if distributor.save
-                    UserCreateMailer.user_create(user).deliver
+                    #UserCreateMailer.user_create(user).deliver
+                    ContactMailerJob.perform_later(user)  
                     render json: distributor, status: 201
                 else
                     render json: distributor.errors, status: :unprocessable_entity
@@ -35,7 +36,8 @@ class UsersController < ApplicationController
                 business_manager = BusinessManager.new(user_id: user.id)
 
                 if business_manager.save
-                    UserCreateMailer.user_create(user).deliver
+                    #UserCreateMailer.user_create(user).deliver
+                    ContactMailerJob.perform_later(user)  
                     render json: business_manager, status: 201
                 else
                     render json: business_manager.errors, status: :unprocessable_entity
@@ -69,7 +71,8 @@ class UsersController < ApplicationController
         
                         if distributor.save
                             puts "DISTRIBUTOR CREATED"
-                            UserCreateMailer.user_create(user).deliver
+                            #UserCreateMailer.user_create(user).deliver
+                            ContactMailerJob.perform_later(user)  
                             create_json = {email: user.email, password: user.password}
                             render json: create_json, status: 201
                         else
@@ -82,7 +85,8 @@ class UsersController < ApplicationController
         
                         if business_manager.save
                             puts "BUSINESS CREATED"
-                            UserCreateMailer.user_create(user).deliver
+                            #UserCreateMailer.user_create(user).deliver
+                            ContactMailerJob.perform_later(user)  
                             create_json = {email: user.email, password: user.password}
                             render json: create_json, status: 201
                         else
@@ -142,6 +146,18 @@ class UsersController < ApplicationController
         pictures = User.findPictures(user.id)
 
         render json: pictures , status: 200
+    
+    end
+
+    def count_types
+        
+        user = User.countTypes()
+
+        if user
+            render json: user, status: 200
+        else
+            render json: user.error, status: 201
+        end
     
     end
 

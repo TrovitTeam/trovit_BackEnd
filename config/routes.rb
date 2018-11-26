@@ -145,6 +145,21 @@ Rails.application.routes.draw do
   get 'business_managers/:id/pictures' => 'business_managers#showPictures'
   post 'products/:id/pictures' => 'products#createPicture'
   get 'products/:id/pictures' => 'products#showPictures'
+  # Routes to list Messages
+  get 'distributors/:id/listMessages' => 'distributors#listMessages'
+  get 'business_managers/:id/listMessages' => 'business_managers#listMessages'  
+  # Routes to trace Statistics
+  get 'products/count' => 'products#count_products'
+  get 'distributors/:distributor_id/highest_product' => 'products#find_highest'
+  get 'distributors/:distributor_id/cheapest_product' => 'products#find_lowest'
+  get 'products/averages' => 'products#averages'
+  get 'users/count_types' => 'users#count_types'
+  get 'business_managers/:business_manager_id/count_orders' => 'orders#count_orders'
+  get 'distributors/:distributor_id/count_offers' => 'offers#count_offers'
+  get 'products/count_offers' => 'products#count_offers'
+  get 'products/count_orders' => 'products#count_orders'
+
+
   
   resources :orders
 
