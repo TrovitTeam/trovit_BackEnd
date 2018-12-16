@@ -158,7 +158,13 @@ Rails.application.routes.draw do
   get 'distributors/:distributor_id/count_offers' => 'offers#count_offers'
   get 'products/count_offers' => 'products#count_offers'
   get 'products/count_orders' => 'products#count_orders'
+  
+  #product searching
+  get 'products/:search_string' => 'products#show'
+  get 'products' => 'products#index'
 
+  #show distributor products
+  get 'distributors/:distributor_id/products' => 'products#show_distributor_products'
 
   
   resources :orders

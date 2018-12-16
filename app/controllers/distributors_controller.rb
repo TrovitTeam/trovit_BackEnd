@@ -5,7 +5,7 @@ class DistributorsController < ApplicationController
 
 
     def index
-        distributors = Distributor.all.paginate(page: params[:page],per_page: 10)
+        distributors = Distributor.all#.paginate(page: params[:page],per_page: 10)
         #distributors = distributor.selectFive();
         render json: distributors, status: 200
     end

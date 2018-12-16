@@ -79,4 +79,7 @@ class Product < ApplicationRecord
         Offer.group("distributor_id").count("distributor_id")
     end
 
+    def self.match_product_name(search_string)
+        Product.where("productName like ?", "%#{search_string}%")
+    end
 end

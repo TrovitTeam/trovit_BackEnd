@@ -12,5 +12,5 @@
 #
 
 class PictureSerializer < ActiveModel::Serializer
-  attributes :id, :imageName, :image , :imageable_id
+  attributes :id, :imageName, :pictureUrl, :pictureType#, :image 
 end

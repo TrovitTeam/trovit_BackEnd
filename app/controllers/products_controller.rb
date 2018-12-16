@@ -1,17 +1,15 @@
 class ProductsController < ApplicationController
 
     def index
-        distributor = Distributor.find(params[:distributor_id])
-        if distributor 
-            products = distributor.products
-            render json:products , status: 200
-        end
+        products = Product.all
+        
+        render json: products, status: 200
     end
 
     def show
-        distributor = Distributor.find(params[:distributor_id])
-        product = distributor.products.find(params[:id])
-            render json: product, status:200
+        found_products = Product.match_product_name(params[:search_string])
+
+        render json: found_products, status: 200
     end
 
     def create
@@ -45,6 +43,13 @@ class ProductsController < ApplicationController
 
     end
 
+    def show_distributor_products
+        distributor = Distributor.find(params[:distributor_id])
+        if distributor 
+            products = distributor.products
+            render json:products , status: 200
+        end
+    end
     #Method to Creat Distributor Pictures
 
     def createPicture
@@ -62,7 +67,7 @@ class ProductsController < ApplicationController
         
         product = Product.find(params[:id])
         if product
-            pictures = user.pictures
+            pictures = product.pictures
             render json: pictures , status: 200
         end
 
@@ -139,7 +144,7 @@ class ProductsController < ApplicationController
 
     def params_picture
        # params.permit(:image,:pictureType,:pictureUrl)
-        params.permit(:image,:imageName)
+        params.permit(:image, :imageName, :pictureUrl, :pictureType)
     end
 
 end
