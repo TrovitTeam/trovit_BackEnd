@@ -68,11 +68,6 @@ class ProductsController < ApplicationController
 
     end
 
-    def params_product
-        params.permit(:price, :producType, :brand, :productName,:quantity,:description)
-    end
-
-
     def count_products
         products = Product.countProducts()
         if products
@@ -134,6 +129,34 @@ class ProductsController < ApplicationController
     
     end
 
+    #Search Products
+
+    def search_product      
+        products = Products.find_by(productName: :name )
+
+        if products 
+            render json: products, status: 200
+        else
+            render json: products.error, status: 201
+        end   
+    end
+
+    def search_products_distributor
+        distributor = Distributor.find(params[:distributor_id])
+        products = Products.find_by(distributor_id: distributor.id, productName: :name)
+
+        if products 
+            render json: products, status: 200
+        else
+            render json: products.error, status: 201
+        end  
+
+    
+    end
+   
+    def params_product
+        params.permit(:price, :producType, :brand, :productName,:quantity,:description)
+    end
 
     # Add picture parameters
 

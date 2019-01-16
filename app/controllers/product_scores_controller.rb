@@ -1,0 +1,2 @@
+class ProductScoresController < ApplicationController
+end

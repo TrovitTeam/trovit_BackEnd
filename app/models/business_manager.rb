@@ -17,6 +17,7 @@ class BusinessManager < ApplicationRecord
     has_many :distributors, through: :distributor_has_bussiness_managers
     has_many :messages, dependent: :destroy
     has_many :orders, dependent: :destroy
+    has_many :product_scores, dependent: :destroy
 
 
     def self.findMessages(businessManager_id)
