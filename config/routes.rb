@@ -165,7 +165,7 @@ Rails.application.routes.draw do
 
   
   resources :orders
-
+  resources :product_scores
 
   resources :distributors do 
     resources :pictures

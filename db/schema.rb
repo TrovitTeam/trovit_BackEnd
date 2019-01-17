@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181125160208) do
+ActiveRecord::Schema.define(version: 20190116225323) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -104,6 +104,16 @@ ActiveRecord::Schema.define(version: 20181125160208) do
     t.string   "imageName"
     t.string   "image",          limit: 10485760
     t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "product_scores", force: :cascade do |t|
+    t.float    "score"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "product_id"
+    t.integer  "business_manager_id"
+    t.index ["business_manager_id"], name: "index_product_scores_on_business_manager_id"
+    t.index ["product_id"], name: "index_product_scores_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
