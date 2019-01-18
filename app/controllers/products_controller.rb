@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
     def index
-        distributor = Distributor.find(params[:distributor_id])
+     distributor = Distributor.find(params[:distributor_id])
         if distributor 
             products = distributor.products
             render json:products , status: 200

@@ -16,7 +16,7 @@ class Distributor < ApplicationRecord
     has_many :products, dependent: :destroy
     has_many :messages, dependent: :destroy
     has_many :offers, dependent: :destroy
-    has_mant :scores 
+    has_many :scores 
 
     def self.findMessages(distributor_id)
         joins(:messages).where(id: distributor_id).select("messages.message,messages.id,distributors.id")
