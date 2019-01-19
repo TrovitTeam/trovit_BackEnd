@@ -142,22 +142,27 @@ class ProductsController < ApplicationController
     #Search Products
 
     def search_product
+            
+        @search = params[:name]
+        products = Product.where("productName like ?", "%#{@search}%")
 
-        product = Product.find_by(productName: params[:name])
-            render json: product, status: 200
+        if products
+            render json: products, status: 200
+        else
+            render json: products.error, status: 201
+        end
     end
 
     def search_products_distributor
         distributor = Distributor.find(params[:distributor_id])
-        products = Product.find_by(distributor_id: distributor.id, productName: params[:name])
+        @search = params[:name]
+        products = Product.where(distributor_id: distributor.id).where("productName like ?", "%#{@search}%")
 
         if products 
             render json: products, status: 200
         else
             render json: products.error, status: 201
         end  
-
-    
     end
    
     def params_product
