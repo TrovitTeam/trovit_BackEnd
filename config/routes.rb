@@ -159,13 +159,14 @@ Rails.application.routes.draw do
   get 'products/count_offers' => 'products#count_offers'
   get 'products/count_orders' => 'products#count_orders'
   #Search Products
-  get 'products/:name' => 'products#search_products'
+  get 'products/:name' => 'products#search_product'
   get 'distributors/distributor_id/products/:name' => 'products#search_products_distributor'
 
 
   
   resources :orders
   resources :scores
+  #resources :products
 
   resources :distributors do 
     resources :pictures

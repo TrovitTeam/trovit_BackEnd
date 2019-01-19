@@ -1,12 +1,22 @@
 class ProductsController < ApplicationController
 
+    # def index
+    #  distributor = Distributor.find(params[:distributor_id])
+    #     if distributor 
+    #         products = distributor.products
+    #         render json:products , status: 200
+    #     end
+    # end
+
+
     def index
-     distributor = Distributor.find(params[:distributor_id])
-        if distributor 
-            products = distributor.products
-            render json:products , status: 200
-        end
-    end
+      products = Product.all
+         if products 
+             render json:products, status: 200
+         else
+            render json: products.error, status: 201
+         end
+     end
 
     def show
         distributor = Distributor.find(params[:distributor_id])
@@ -131,19 +141,17 @@ class ProductsController < ApplicationController
 
     #Search Products
 
-    def search_product      
-        products = Products.find_by(productName: :name )
+    def search_product
 
-        if products 
-            render json: products, status: 200
-        else
-            render json: products.error, status: 201
-        end   
+        product = Product.find_by(productName: :name)
+        if product 
+            render json: product, status: 200
+        end  
     end
 
     def search_products_distributor
         distributor = Distributor.find(params[:distributor_id])
-        products = Products.find_by(distributor_id: distributor.id, productName: :name)
+        products = Product.find_by(distributor_id: distributor.id, productName: :name)
 
         if products 
             render json: products, status: 200
