@@ -143,15 +143,13 @@ class ProductsController < ApplicationController
 
     def search_product
 
-        product = Product.find_by(productName: :name)
-        if product 
+        product = Product.find_by(productName: params[:name])
             render json: product, status: 200
-        end  
     end
 
     def search_products_distributor
         distributor = Distributor.find(params[:distributor_id])
-        products = Product.find_by(distributor_id: distributor.id, productName: :name)
+        products = Product.find_by(distributor_id: distributor.id, productName: params[:name])
 
         if products 
             render json: products, status: 200
