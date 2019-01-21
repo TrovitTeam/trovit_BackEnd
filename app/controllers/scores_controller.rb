@@ -14,14 +14,22 @@ class ScoresController < ApplicationController
     end
 
     def create
-        #product = Product.find(params[:product_id])
-        #score = product.score.new(params_score)
         score = Score.new(params_score)
 
         if score.save 
             render json: score, status:201
         else
             render json: score.errors, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        score = Score.find(params[:id])
+        score.update(params_score)
+        if score.update(params_score)
+            render json: score, status: 200 
+        else
+            render json: score.errors, status: 422
         end
     end
 
