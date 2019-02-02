@@ -15,5 +15,11 @@
 #
 
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :price, :producType, :brand, :productName, :description, :quantity
+  attributes :id, :price, :producType, :brand, :productName, :description, :quantity, :distributor_id,:image, :score 
+
+  def score
+    #object.scores
+    object.scores.average(:score)
+  end
+
 end

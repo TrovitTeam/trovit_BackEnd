@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181125160208) do
+ActiveRecord::Schema.define(version: 20190121034932) do
 
   create_table "business_managers", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -116,7 +116,20 @@ ActiveRecord::Schema.define(version: 20181125160208) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.integer  "distributor_id"
+    t.string   "image"
     t.index ["distributor_id"], name: "index_products_on_distributor_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.float    "score"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "product_id"
+    t.integer  "business_manager_id"
+    t.integer  "distributor_id"
+    t.index ["business_manager_id"], name: "index_scores_on_business_manager_id"
+    t.index ["distributor_id"], name: "index_scores_on_distributor_id"
+    t.index ["product_id"], name: "index_scores_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -128,6 +141,7 @@ ActiveRecord::Schema.define(version: 20181125160208) do
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.string   "password_digest"
+    t.string   "image"
   end
 
 end

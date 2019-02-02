@@ -1,12 +1,22 @@
 class ProductsController < ApplicationController
 
+    # def index
+    #  distributor = Distributor.find(params[:distributor_id])
+    #     if distributor 
+    #         products = distributor.products
+    #         render json:products , status: 200
+    #     end
+    # end
+
+
     def index
-        distributor = Distributor.find(params[:distributor_id])
-        if distributor 
-            products = distributor.products
-            render json:products , status: 200
-        end
-    end
+      products = Product.all
+         if products 
+             render json:products, status: 200
+         else
+            render json: products.error, status: 201
+         end
+     end
 
     def show
         distributor = Distributor.find(params[:distributor_id])
@@ -67,11 +77,6 @@ class ProductsController < ApplicationController
         end
 
     end
-
-    def params_product
-        params.permit(:price, :producType, :brand, :productName,:quantity,:description)
-    end
-
 
     def count_products
         products = Product.countProducts()
@@ -134,6 +139,35 @@ class ProductsController < ApplicationController
     
     end
 
+    #Search Products
+
+    def search_product
+            
+        @search = params[:name]
+        products = Product.where("productName like ?", "%#{@search}%")
+
+        if products
+            render json: products, status: 200
+        else
+            render json: products.error, status: 201
+        end
+    end
+
+    def search_products_distributor
+        distributor = Distributor.find(params[:distributor_id])
+        @search = params[:name]
+        products = Product.where(distributor_id: distributor.id).where("productName like ?", "%#{@search}%")
+
+        if products 
+            render json: products, status: 200
+        else
+            render json: products.error, status: 201
+        end  
+    end
+   
+    def params_product
+        params.permit(:price, :producType, :brand, :productName,:quantity,:description,:image)
+    end
 
     # Add picture parameters
 

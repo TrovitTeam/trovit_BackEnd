@@ -11,12 +11,40 @@
 #                                                         GET    /messages/:id/orders(.:format)                                                         messages#orders
 #                                      users_distributors GET    /users/distributors(.:format)                                                          users#getDistributors
 #                                 users_business_managers GET    /users/business_managers(.:format)                                                     users#getBusinessManagers
+#                                                         GET    /users/:id/user_type(.:format)                                                         users#getUserType
+#                                                         GET    /distributors/:id/info(.:format)                                                       distributors#getInfo
+#                                         users_fb_create POST   /users/fb_create(.:format)                                                             users#fb_create
+#                                                         POST   /distributors/:id/pictures(.:format)                                                   distributors#createPicture
+#                                                         GET    /distributors/:id/pictures(.:format)                                                   distributors#showPictures
+#                                                         POST   /business_managers/:id/pictures(.:format)                                              business_managers#createPicture
+#                                                         GET    /business_managers/:id/pictures(.:format)                                              business_managers#showPictures
+#                                                         POST   /products/:id/pictures(.:format)                                                       products#createPicture
+#                                                         GET    /products/:id/pictures(.:format)                                                       products#showPictures
+#                                                         GET    /distributors/:id/listMessages(.:format)                                               distributors#listMessages
+#                                                         GET    /business_managers/:id/listMessages(.:format)                                          business_managers#listMessages
+#                                          products_count GET    /products/count(.:format)                                                              products#count_products
+#                                                         GET    /distributors/:distributor_id/highest_product(.:format)                                products#find_highest
+#                                                         GET    /distributors/:distributor_id/cheapest_product(.:format)                               products#find_lowest
+#                                       products_averages GET    /products/averages(.:format)                                                           products#averages
+#                                       users_count_types GET    /users/count_types(.:format)                                                           users#count_types
+#                                                         GET    /business_managers/:business_manager_id/count_orders(.:format)                         orders#count_orders
+#                                                         GET    /distributors/:distributor_id/count_offers(.:format)                                   offers#count_offers
+#                                   products_count_offers GET    /products/count_offers(.:format)                                                       products#count_offers
+#                                   products_count_orders GET    /products/count_orders(.:format)                                                       products#count_orders
+#                                                         GET    /products/:name(.:format)                                                              products#search_product
+#                                                         GET    /distributors/distributor_id/products/:name(.:format)                                  products#search_products_distributor
 #                                                  orders GET    /orders(.:format)                                                                      orders#index
 #                                                         POST   /orders(.:format)                                                                      orders#create
 #                                                   order GET    /orders/:id(.:format)                                                                  orders#show
 #                                                         PATCH  /orders/:id(.:format)                                                                  orders#update
 #                                                         PUT    /orders/:id(.:format)                                                                  orders#update
 #                                                         DELETE /orders/:id(.:format)                                                                  orders#destroy
+#                                                  scores GET    /scores(.:format)                                                                      scores#index
+#                                                         POST   /scores(.:format)                                                                      scores#create
+#                                                   score GET    /scores/:id(.:format)                                                                  scores#show
+#                                                         PATCH  /scores/:id(.:format)                                                                  scores#update
+#                                                         PUT    /scores/:id(.:format)                                                                  scores#update
+#                                                         DELETE /scores/:id(.:format)                                                                  scores#destroy
 #                                    distributor_pictures GET    /distributors/:distributor_id/pictures(.:format)                                       pictures#index
 #                                                         POST   /distributors/:distributor_id/pictures(.:format)                                       pictures#create
 #                                     distributor_picture GET    /distributors/:distributor_id/pictures/:id(.:format)                                   pictures#show
@@ -158,11 +186,14 @@ Rails.application.routes.draw do
   get 'distributors/:distributor_id/count_offers' => 'offers#count_offers'
   get 'products/count_offers' => 'products#count_offers'
   get 'products/count_orders' => 'products#count_orders'
-
+  #Search Products
+  get 'products/:name' => 'products#search_product'
+  get 'distributors/distributor_id/products/:name' => 'products#search_products_distributor'
 
   
+  
   resources :orders
-
+  resources :scores
 
   resources :distributors do 
     resources :pictures

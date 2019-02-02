@@ -28,6 +28,7 @@ class Product < ApplicationRecord
     has_many :pictures, as: :imageable, dependent: :destroy
     has_many :orders, dependent: :destroy
     has_many :offers, dependent: :destroy
+    has_many :scores, dependent: :destroy
 
     def self.cheaper_than(price)
         where("price < ?", price)
