@@ -166,7 +166,7 @@ class ProductsController < ApplicationController
     end
    
     def params_product
-        params.permit(:price, :producType, :brand, :productName,:quantity,:description)
+        params.permit(:price, :producType, :brand, :productName,:quantity,:description,:image)
     end
 
     # Add picture parameters
